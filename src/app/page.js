@@ -1,113 +1,384 @@
 import Image from "next/image";
+import Link from "next/link";
+import Sidebar from "./main";
+import * as THREE from "three";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div>
+      {/* Navbar */}
+      <div className="navbar bg-[#9bc1bc] min-w-full align-top top-0 items-center ">
+        <div className="navbar-start">
+          <div className="dropdown">
+            {/* Line thingys */}
+
+            <div class="drawer">
+              <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+              <div class="drawer-content">
+                <label for="my-drawer">
+                  <div
+                    tabindex="0"
+                    role="button"
+                    class="btn btn-ghost btn-circle"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h7"
+                      />
+                    </svg>
+                  </div>
+                </label>
+              </div>
+              <div class="drawer-side">
+                <label
+                  for="my-drawer"
+                  aria-label="close sidebar"
+                  class="drawer-overlay"
+                ></label>
+                <ul class="menu p-4 w-80 min-h-full bg-[#9bc1bc] text-[#e6ebe0]-content">
+                  <li>
+                    <div class="avatar">
+                      <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <img src="retract-modified.png" />
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <a>Explore Bikes</a>
+                  </li>
+                  <li>
+                    <a>Account</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="navbar-center">
+          <a className="btn btn-ghost text-xl">Retractability</a>
+        </div>
+        <div className="navbar-end">
+          <div tabindex="0" role="button" className="btn btn-ghost btn-circle">
+            <div className="indicator">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                  href="index.html"
+                />
+              </svg>
+              <a href="index.html">fart</a>
+              <span className="badge badge-sm indicator-item">8</span>
+            </div>
+          </div>
+          <div className="dropdown dropdown-end">
+            <div
+              tabindex="0"
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img alt="Tailwind CSS Navbar component" src="profile.jpg" />
+              </div>
+            </div>
+            <ul
+              tabindex="0"
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                <a>Logout</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      {/* Main Page */}
+
+      <div className="bg-[#e6ebe0] py-24">
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <svg
+            className="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
+            aria-hidden="true"
+          >
+            <defs>
+              <pattern
+                id="e813992c-7d03-4cc4-a2bd-151760b470a0"
+                width="200"
+                height="200"
+                x="50%"
+                y="-1"
+                patternUnits="userSpaceOnUse"
+              >
+                <path d="M100 200V.5M.5 .5H200" fill="none" />
+              </pattern>
+            </defs>
+            <svg x="50%" y="-1" className="overflow-visible fill-gray-50">
+              <path
+                d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
+                stroke-width="0"
+              />
+            </svg>
+            <rect
+              width="100%"
+              height="100%"
+              stroke-width="0"
+              fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)"
+            />
+          </svg>
+        </div>
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+          <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+            <div className="lg:pr-4">
+              <div className="lg:max-w-lg">
+                <p className="text-base font-semibold leading-7 text-[#5ca4a9]">
+                  A new way to bike
+                </p>
+                <h1 className="mt-2 text-3xl font-bold tracking-tight text-[#ed6a5a] sm:text-4xl">
+                  SK Foldable Bike
+                </h1>
+                <p className="mt-6 text-xl leading-8 text-gray-700">
+                  Made with metals from the Appalachians. Rubber from the Andes.
+                  And Heart from Arizona.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+            {/* Video */}
+            <video loop autoPlay muted width="720" height="600">
+              <source src="Bike2.mp4" type="video/MP4" />
+            </video>
+          </div>
+          <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+            <div className="lg:pr-4">
+              <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
+                <p>The SK Foldable Bike reinvents the wheel.</p>
+                <ul role="list" className="mt-8 space-y-8 text-gray-600">
+                  <li className="flex gap-x-3">
+                    <svg
+                      className="mt-1 h-5 w-5 flex-none text-indigo-600"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.5 17a4.5 4.5 0 01-1.44-8.765 4.5 4.5 0 018.302-3.046 3.5 3.5 0 014.504 4.272A4 4 0 0115 17H5.5zm3.75-2.75a.75.75 0 001.5 0V9.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.1 0l-3.25 3.5a.75.75 0 101.1 1.02l1.95-2.1v4.59z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span>
+                      <strong className="font-semibold text-gray-900">
+                        Go Anywhere.
+                      </strong>{" "}
+                      You can ride your bike, and keep it with you. With
+                      foldability reaching the size of your backpack.
+                    </span>
+                  </li>
+                  <li className="flex gap-x-3">
+                    <svg
+                      className="mt-1 h-5 w-5 flex-none text-indigo-600"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span>
+                      <strong className="font-semibold text-gray-900">
+                        Stronger than the rest.
+                      </strong>{" "}
+                      Worried about popping tires? Not an issue with the SK.
+                      With tire made from specialized material, it is
+                      pop-resistant.
+                    </span>
+                  </li>
+                  <li className="flex gap-x-3">
+                    <svg
+                      className="mt-1 h-5 w-5 flex-none text-indigo-600"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M4.632 3.533A2 2 0 016.577 2h6.846a2 2 0 011.945 1.533l1.976 8.234A3.489 3.489 0 0016 11.5H4c-.476 0-.93.095-1.344.267l1.976-8.234z" />
+                      <path
+                        fillRule="evenodd"
+                        d="M4 13a2 2 0 100 4h12a2 2 0 100-4H4zm11.24 2a.75.75 0 01.75-.75H16a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75h-.01a.75.75 0 01-.75-.75V15zm-2.25-.75a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75H13a.75.75 0 00.75-.75V15a.75.75 0 00-.75-.75h-.01z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span>
+                      <strong className="font-semibold text-gray-900">
+                        Designed for use Anywhere.
+                      </strong>{" "}
+                      Take your bike to work, college, the park, around the
+                      city, a hike, you name it, the bike can go there.
+                    </span>
+                  </li>
+                </ul>
+                <p className="mt-8"></p>
+                <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
+                  No server? No problem.
+                </h2>
+                <p className="mt-6">
+                  Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam
+                  consequat in. Convallis arcu ipsum urna nibh. Pharetra,
+                  euismod vitae interdum mauris enim, consequat vulputate nibh.
+                  Maecenas pellentesque id sed tellus mauris, ultrices mauris.
+                  Tincidunt enim cursus ridiculus mi. Pellentesque nam sed
+                  nullam sed diam turpis ipsum eu a sed convallis diam.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      {/* Stuff */}
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="bg-[#e6ebe0] py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+            <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+              <dt className="text-base leading-7 text-gray-600">
+                Transactions every year
+              </dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                4
+              </dd>
+            </div>
+            <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+              <dt className="text-base leading-7 text-gray-600">
+                Assets under holding
+              </dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                12
+              </dd>
+            </div>
+            <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+              <dt className="text-base leading-7 text-gray-600">
+                New users annually
+              </dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                6
+              </dd>
+            </div>
+          </dl>
+        </div>
       </div>
-    </main>
+
+      {/* More Stuff */}
+
+      <div>
+        <div className="bg-[#e6ebe0] py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <h2 className="text-center text-lg font-semibold leading-8 text-gray-900">
+              Trusted by the world’s most innovative teams
+            </h2>
+            <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+              <img
+                className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg"
+                alt="Transistor"
+                width="158"
+                height="48"
+              />
+              <img
+                className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg"
+                alt="Reform"
+                width="158"
+                height="48"
+              />
+              <img
+                className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg"
+                alt="Tuple"
+                width="158"
+                height="48"
+              />
+              <img
+                className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+                src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg"
+                alt="SavvyCal"
+                width="158"
+                height="48"
+              />
+              <img
+                className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"
+                alt="Statamic"
+                width="158"
+                height="48"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="bg-[#e6ebe0]">
+        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+            © 2024{" "}
+            <a href="index.html" class="hover:underline">
+              Retractability
+            </a>
+            . All Rights Reserved.
+          </span>
+          <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+            <li>
+              <a href="#" class="hover:underline me-4 md:me-6">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline me-4 md:me-6">
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline me-4 md:me-6">
+                Licensing
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
   );
 }
