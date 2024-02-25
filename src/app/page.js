@@ -174,10 +174,10 @@ export default function Home() {
                   A new way to bike
                 </p>
                 <h1 className="mt-2 text-3xl font-bold tracking-tight text-[#ed6a5a] sm:text-4xl">
-                  SK Foldable Bike
+                  The Quark Foldable Bike
                 </h1>
                 <p className="mt-6 text-xl leading-8 text-gray-700">
-                  Introducing the SK Foldable Bike, the next leap in cycling
+                  Introducing the Quark Foldable Bike, the next leap in cycling
                   innovation. Compact enough to fit in a backpack, it&apos;s
                   designed for the modern explorer.
                 </p>
@@ -224,7 +224,7 @@ export default function Home() {
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div className="lg:pr-4">
               <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
-                <p>The SK Foldable Bike reinvents the wheel.</p>
+                <p>The Quark Foldable Bike reinvents the wheel.</p>
                 <ul role="list" className="mt-8 space-y-8 text-gray-600">
                   <li className="flex gap-x-3">
                     <svg
@@ -243,7 +243,7 @@ export default function Home() {
                       <strong className="font-semibold text-gray-900">
                         Innovative Design:
                       </strong>{" "}
-                      The SK Foldable Bike reimagines cycling mobility, offering
+                      The Quark Foldable Bike reimagines cycling mobility, offering
                       unparalleled convenience without sacrificing style or
                       functionality. It&apos;s your go-anywhere companion.
                     </span>
@@ -265,7 +265,7 @@ export default function Home() {
                       <strong className="font-semibold text-gray-900">
                         Durability Redefined:
                       </strong>{" "}
-                      Say goodbye to the fear of flat tires. The SK&apos;s tires are
+                      Say goodbye to the fear of flat tires. The Quark&apos;s tires are
                       crafted from a special pop-resistant material, offering
                       peace of mind on any adventure.
                     </span>
@@ -289,7 +289,7 @@ export default function Home() {
                         Versatility Unmatched:
                       </strong>{" "}
                       Engineered for every destination—work, college, parks,
-                      urban landscapes, or trails. The SK Foldable Bike adapts
+                      urban landscapes, or trails. The Quark Foldable Bike adapts
                       to your lifestyle, ensuring you&apos;re ready for wherever life
                       takes you.
                     </span>
