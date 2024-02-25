@@ -48,9 +48,15 @@ export default function Home() {
                 <ul class="menu p-4 w-80 min-h-full bg-[#9bc1bc] text-[#e6ebe0]-content">
                   <li>
                     <div class="avatar">
-                      <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <Image src="retract-modified.png" alt="Company Logo"/>
-                      </div>
+                    <div className="width-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+  <Image
+    src="/retract-modified.png"
+    alt="Company Logo"
+    width={96} // Replace 96 with the actual width of your image
+    height={96} // Replace 96 with the actual height of your image
+    className="rounded-full"
+  />
+</div>
                     </div>
                   </li>
                   <li>
@@ -69,7 +75,7 @@ export default function Home() {
         </div>
         <div className="navbar-end">
           <div tabindex="0" role="button" className="btn btn-ghost btn-circle">
-            <div className="indicator">
+            {/* <div className="indicator">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -87,7 +93,7 @@ export default function Home() {
               </svg>
               <a href="index.html"></a>
               <span className="badge badge-sm indicator-item">8</span>
-            </div>
+            </div> */}
           </div>
           <div className="dropdown dropdown-end">
             <div
@@ -95,9 +101,15 @@ export default function Home() {
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div className="w-10 rounded-full">
-                <Image alt="Tailwind CSS Navbar component" src="profile.jpg" />
-              </div>
+              <div className="w-10 rounded-full overflow-hidden">
+          {/* <Image
+              alt="Tailwind CSS Navbar component"
+              src="/profile.jpg" // Assuming 'profile.jpg' is directly in the 'public' folder
+              width={40} // The width of the image in pixels
+              height={40} // The height of the image in pixels
+              className="rounded-full" // Apply rounded corners
+              /> */}
+            </div>
             </div>
             <ul
               tabindex="0"
@@ -360,7 +372,7 @@ export default function Home() {
         </section>
       </div>
 
-      <div className="bg-[#e6ebe0] py-24 sm:py-32">
+      {/* <div className="bg-[#e6ebe0] py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
@@ -389,11 +401,11 @@ export default function Home() {
             </div>
           </dl>
         </div>
-      </div>
+      </div> */}
 
       {/* More Stuff */}
 
-      <div>
+      {/* <div>
         <div className="bg-[#e6ebe0] py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <h2 className="text-center text-lg font-semibold leading-8 text-gray-900">
@@ -438,8 +450,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-      <footer class="bg-[#e6ebe0]">
+      </div> */}
+      {/* <footer class="bg-[#e6ebe0]">
         <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
           <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2024{" "}
@@ -471,7 +483,7 @@ export default function Home() {
             </li>
           </ul>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }
