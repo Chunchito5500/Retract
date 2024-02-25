@@ -84,7 +84,7 @@ export default function Home() {
                   href="index.html"
                 />
               </svg>
-              <a href="index.html">fart</a>
+              <a href="index.html"></a>
               <span className="badge badge-sm indicator-item">8</span>
             </div>
           </div>
@@ -164,17 +164,49 @@ export default function Home() {
                   SK Foldable Bike
                 </h1>
                 <p className="mt-6 text-xl leading-8 text-gray-700">
-                  Made with metals from the Appalachians. Rubber from the Andes.
-                  And Heart from Arizona.
+                  Introducing the SK Foldable Bike, the next leap in cycling
+                  innovation. Compact enough to fit in your backpack, it's
+                  designed for the modern explorer.
                 </p>
               </div>
             </div>
           </div>
           <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
             {/* Video */}
-            <video loop autoPlay muted width="720" height="600">
+            {/* <video loop autoPlay muted width="720" height="600">
               <source src="Bike2.mp4" type="video/MP4" />
-            </video>
+            </video> */}
+            <div width="800px" height="800px">
+              <script
+                type="module"
+                src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
+              ></script>
+              <model-viewer
+                src="Bike Folded/Bike Folded.gltf"
+                ar
+                ar-modes="webxr scene-viewer quick-look"
+                camera-controls
+                tone-mapping="commerce"
+                poster="poster.webp"
+                shadow-intensity="1"
+                autoplay
+                camera-orbit="0deg 0deg 0m"
+                style={{
+                  width: "100%",
+                  height: "500px",
+                  border: "2px solid #9bc1bc", // Assuming you still want the border
+                  // transform: "rotateX(180deg)", // Rotate 180 degrees around the Y axis
+                }}
+              >
+                <div class="progress-bar hide" slot="progress-bar">
+                  <div class="update-bar"></div>
+                </div>
+                <button slot="ar-button" id="ar-button">
+                  View in your space
+                </button>
+                <div id="ar-prompt"></div>
+              </model-viewer>
+            </div>
           </div>
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div className="lg:pr-4">
@@ -196,10 +228,11 @@ export default function Home() {
                     </svg>
                     <span>
                       <strong className="font-semibold text-gray-900">
-                        Go Anywhere.
+                        Innovative Design:
                       </strong>{" "}
-                      You can ride your bike, and keep it with you. With
-                      foldability reaching the size of your backpack.
+                      The SK Foldable Bike reimagines cycling mobility, offering
+                      unparalleled convenience without sacrificing style or
+                      functionality. It's your go-anywhere companion.
                     </span>
                   </li>
                   <li className="flex gap-x-3">
@@ -217,11 +250,11 @@ export default function Home() {
                     </svg>
                     <span>
                       <strong className="font-semibold text-gray-900">
-                        Stronger than the rest.
+                        Durability Redefined:
                       </strong>{" "}
-                      Worried about popping tires? Not an issue with the SK.
-                      With tire made from specialized material, it is
-                      pop-resistant.
+                      Say goodbye to the fear of flat tires. The SK's tires are
+                      crafted from a special pop-resistant material, offering
+                      peace of mind on any adventure.
                     </span>
                   </li>
                   <li className="flex gap-x-3">
@@ -240,25 +273,18 @@ export default function Home() {
                     </svg>
                     <span>
                       <strong className="font-semibold text-gray-900">
-                        Designed for use Anywhere.
+                        Versatility Unmatched:
                       </strong>{" "}
-                      Take your bike to work, college, the park, around the
-                      city, a hike, you name it, the bike can go there.
+                      Engineered for every destination—work, college, parks,
+                      urban landscapes, or trails. The SK Foldable Bike adapts
+                      to your lifestyle, ensuring you're ready for wherever life
+                      takes you.
                     </span>
                   </li>
                 </ul>
                 <p className="mt-8"></p>
-                <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
-                  No server? No problem.
-                </h2>
-                <p className="mt-6">
-                  Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam
-                  consequat in. Convallis arcu ipsum urna nibh. Pharetra,
-                  euismod vitae interdum mauris enim, consequat vulputate nibh.
-                  Maecenas pellentesque id sed tellus mauris, ultrices mauris.
-                  Tincidunt enim cursus ridiculus mi. Pellentesque nam sed
-                  nullam sed diam turpis ipsum eu a sed convallis diam.
-                </p>
+                <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900"></h2>
+                <p className="mt-6"></p>
               </div>
             </div>
           </div>
@@ -266,6 +292,72 @@ export default function Home() {
       </div>
 
       {/* Stuff */}
+
+      <div>
+        <section class="bg-[#e6ebe0]">
+          <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-[#ed6a5a]">
+              Contact Us
+            </h2>
+            <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
+              Want to know more? Have a question? Need details about our
+              Business plan? Let us know.
+            </p>
+            <form action="#" class="space-y-8">
+              <div>
+                <label
+                  for="email"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                >
+                  Your email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-[#9bc1bc] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                  placeholder="name@email.com"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="subject"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                >
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-[#9bc1bc] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                  placeholder="Let us know how we can help you"
+                  required
+                />
+              </div>
+              <div class="sm:col-span-2">
+                <label
+                  for="message"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                >
+                  Your message
+                </label>
+                <textarea
+                  id="message"
+                  rows="6"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-[#9bc1bc] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Leave a comment..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="py-3 px-5 text-sm font-medium text-center text-black rounded-lg bg-primary-700 sm:w-fit hover:dark:text-gray-300 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              >
+                Send message
+              </button>
+            </form>
+          </div>
+        </section>
+      </div>
 
       <div className="bg-[#e6ebe0] py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
