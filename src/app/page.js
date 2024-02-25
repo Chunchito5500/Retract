@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Script from 'next/script';
 import Link from "next/link";
 import Sidebar from "./main";
 import * as THREE from "three";
@@ -48,7 +49,7 @@ export default function Home() {
                   <li>
                     <div class="avatar">
                       <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <img src="retract-modified.png" />
+                        <Image src="retract-modified.png" alt="Company Logo"/>
                       </div>
                     </div>
                   </li>
@@ -95,7 +96,7 @@ export default function Home() {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img alt="Tailwind CSS Navbar component" src="profile.jpg" />
+                <Image alt="Tailwind CSS Navbar component" src="profile.jpg" />
               </div>
             </div>
             <ul
@@ -165,7 +166,7 @@ export default function Home() {
                 </h1>
                 <p className="mt-6 text-xl leading-8 text-gray-700">
                   Introducing the SK Foldable Bike, the next leap in cycling
-                  innovation. Compact enough to fit in your backpack, it's
+                  innovation. Compact enough to fit in your backpack, it&apos;s
                   designed for the modern explorer.
                 </p>
               </div>
@@ -177,10 +178,10 @@ export default function Home() {
               <source src="Bike2.mp4" type="video/MP4" />
             </video> */}
             <div width="800px" height="800px">
-              <script
+              <Script 
                 type="module"
                 src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
-              ></script>
+              />
               <model-viewer
                 src="Bike Folded/Bike Folded.gltf"
                 ar
@@ -232,7 +233,7 @@ export default function Home() {
                       </strong>{" "}
                       The SK Foldable Bike reimagines cycling mobility, offering
                       unparalleled convenience without sacrificing style or
-                      functionality. It's your go-anywhere companion.
+                      functionality. It&apos;s your go-anywhere companion.
                     </span>
                   </li>
                   <li className="flex gap-x-3">
@@ -252,7 +253,7 @@ export default function Home() {
                       <strong className="font-semibold text-gray-900">
                         Durability Redefined:
                       </strong>{" "}
-                      Say goodbye to the fear of flat tires. The SK's tires are
+                      Say goodbye to the fear of flat tires. The SK&apos;s tires are
                       crafted from a special pop-resistant material, offering
                       peace of mind on any adventure.
                     </span>
@@ -277,7 +278,7 @@ export default function Home() {
                       </strong>{" "}
                       Engineered for every destination—work, college, parks,
                       urban landscapes, or trails. The SK Foldable Bike adapts
-                      to your lifestyle, ensuring you're ready for wherever life
+                      to your lifestyle, ensuring you&apos;re ready for wherever life
                       takes you.
                     </span>
                   </li>
@@ -399,37 +400,37 @@ export default function Home() {
               Trusted by the world’s most innovative teams
             </h2>
             <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-              <img
+              <Image
                 className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-                src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg"
+                src="https://tailwindui.com/Image/logos/158x48/transistor-logo-gray-900.svg"
                 alt="Transistor"
                 width="158"
                 height="48"
               />
-              <img
+              <Image
                 className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-                src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg"
+                src="https://tailwindui.com/Image/logos/158x48/reform-logo-gray-900.svg"
                 alt="Reform"
                 width="158"
                 height="48"
               />
-              <img
+              <Image
                 className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-                src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg"
+                src="https://tailwindui.com/Image/logos/158x48/tuple-logo-gray-900.svg"
                 alt="Tuple"
                 width="158"
                 height="48"
               />
-              <img
+              <Image
                 className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-                src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg"
+                src="https://tailwindui.com/Image/logos/158x48/savvycal-logo-gray-900.svg"
                 alt="SavvyCal"
                 width="158"
                 height="48"
               />
-              <img
+              <Image
                 className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-                src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"
+                src="https://tailwindui.com/Image/logos/158x48/statamic-logo-gray-900.svg"
                 alt="Statamic"
                 width="158"
                 height="48"
