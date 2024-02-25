@@ -178,7 +178,7 @@ export default function Home() {
                 </h1>
                 <p className="mt-6 text-xl leading-8 text-gray-700">
                   Introducing the SK Foldable Bike, the next leap in cycling
-                  innovation. Compact enough to fit in your backpack, it&apos;s
+                  innovation. Compact enough to fit in a backpack, it&apos;s
                   designed for the modern explorer.
                 </p>
               </div>
