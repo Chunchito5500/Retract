@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Script from 'next/script';
+import Script from "next/script";
 import Link from "next/link";
 import Sidebar from "./main";
 import * as THREE from "three";
@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
       {/* Navbar */}
-      <div className="navbar bg-[#9bc1bc] min-w-full align-top top-0 items-center ">
+      <div className="navbar bg-[#5ca4a9] min-w-full align-top top-0 items-center ">
         <div className="navbar-start">
           <div className="dropdown">
             {/* Line thingys */}
@@ -48,15 +48,15 @@ export default function Home() {
                 <ul class="menu p-4 w-80 min-h-full bg-[#9bc1bc] text-[#e6ebe0]-content">
                   <li>
                     <div class="avatar">
-                    <div className="width-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-  <Image
-    src="/retract-modified.png"
-    alt="Company Logo"
-    width={96} // Replace 96 with the actual width of your image
-    height={96} // Replace 96 with the actual height of your image
-    className="rounded-full"
-  />
-</div>
+                      <div className="width-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <Image
+                          src="/retract-modified.png"
+                          alt="Company Logo"
+                          width={96} // Replace 96 with the actual width of your image
+                          height={96} // Replace 96 with the actual height of your image
+                          className="rounded-full"
+                        />
+                      </div>
                     </div>
                   </li>
                   <li>
@@ -102,14 +102,14 @@ export default function Home() {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full overflow-hidden">
-          {/* <Image
+                {/* <Image
               alt="Tailwind CSS Navbar component"
               src="/profile.jpg" // Assuming 'profile.jpg' is directly in the 'public' folder
               width={40} // The width of the image in pixels
               height={40} // The height of the image in pixels
               className="rounded-full" // Apply rounded corners
               /> */}
-            </div>
+              </div>
             </div>
             <ul
               tabindex="0"
@@ -190,7 +190,7 @@ export default function Home() {
               <source src="Bike2.mp4" type="video/MP4" />
             </video> */}
             <div width="800px" height="800px">
-              <Script 
+              <Script
                 type="module"
                 src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
               />
@@ -228,14 +228,14 @@ export default function Home() {
                 <ul role="list" className="mt-8 space-y-8 text-gray-600">
                   <li className="flex gap-x-3">
                     <svg
-                      className="mt-1 h-5 w-5 flex-none text-indigo-600"
+                      className="mt-1 h-5 w-5 flex-none text-black"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                       aria-hidden="true"
                     >
                       <path
                         fillRule="evenodd"
-                        d="M5.5 17a4.5 4.5 0 01-1.44-8.765 4.5 4.5 0 018.302-3.046 3.5 3.5 0 014.504 4.272A4 4 0 0115 17H5.5zm3.75-2.75a.75.75 0 001.5 0V9.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.1 0l-3.25 3.5a.75.75 0 101.1 1.02l1.95-2.1v4.59z"
+                        d="https://www.svgrepo.com/download/526717/wheel.svg"
                         clipRule="evenodd"
                       />
                     </svg>
@@ -243,9 +243,10 @@ export default function Home() {
                       <strong className="font-semibold text-gray-900">
                         Innovative Design:
                       </strong>{" "}
-                      The Quark Foldable Bike reimagines cycling mobility, offering
-                      unparalleled convenience without sacrificing style or
-                      functionality. It&apos;s your go-anywhere companion.
+                      The Quark Foldable Bike reimagines cycling mobility,
+                      offering unparalleled convenience without sacrificing
+                      style or functionality. It&apos;s your go-anywhere
+                      companion.
                     </span>
                   </li>
                   <li className="flex gap-x-3">
@@ -265,9 +266,9 @@ export default function Home() {
                       <strong className="font-semibold text-gray-900">
                         Durability Redefined:
                       </strong>{" "}
-                      Say goodbye to the fear of flat tires. The Quark&apos;s tires are
-                      crafted from a special pop-resistant material, offering
-                      peace of mind on any adventure.
+                      Say goodbye to the fear of flat tires. The Quark&apos;s
+                      tires are crafted from a special pop-resistant material,
+                      offering peace of mind on any adventure.
                     </span>
                   </li>
                   <li className="flex gap-x-3">
@@ -289,9 +290,9 @@ export default function Home() {
                         Versatility Unmatched:
                       </strong>{" "}
                       Engineered for every destination—work, college, parks,
-                      urban landscapes, or trails. The Quark Foldable Bike adapts
-                      to your lifestyle, ensuring you&apos;re ready for wherever life
-                      takes you.
+                      urban landscapes, or trails. The Quark Foldable Bike
+                      adapts to your lifestyle, ensuring you&apos;re ready for
+                      wherever life takes you.
                     </span>
                   </li>
                 </ul>
@@ -304,6 +305,8 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Products */}
+
       {/* Stuff */}
 
       <div>
@@ -314,7 +317,7 @@ export default function Home() {
             </h2>
             <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
               Want to know more? Have a question? Need details about our
-              Business plan? Let us know.
+              Business plan? Let us know at retractabilitybicycles@gmail.com
             </p>
             <form action="#" class="space-y-8">
               <div>
