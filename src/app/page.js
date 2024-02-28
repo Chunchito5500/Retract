@@ -60,7 +60,7 @@ export default function Home() {
                     </div>
                   </li>
                   <li>
-                    <a>Explore Bikes</a>
+                    <a href="gallery.html">Explore Bikes</a>
                   </li>
                   <li>
                     <a>Account</a>
@@ -195,7 +195,7 @@ export default function Home() {
                 src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
               />
               <model-viewer
-                src="Bike Folded/Bike Folded.gltf"
+                src="Bike Folded/Bike Folded Textured.glb"
                 ar
                 ar-modes="webxr scene-viewer quick-look"
                 camera-controls
@@ -235,7 +235,7 @@ export default function Home() {
                     >
                       <path
                         fillRule="evenodd"
-                        d="https://www.svgrepo.com/download/526717/wheel.svg"
+                        d="public/wheel-svgrepo-com.svg"
                         clipRule="evenodd"
                       />
                     </svg>
