@@ -317,7 +317,8 @@ export default function Home() {
             </h2>
             <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
               Want to know more? Have a question? Need details about our
-              Business plan? Let us know at retractabilitybicycles@gmail.com
+              Business plan? Let us know at{" "}
+              <font color="#3CC8FF">retractabilitybicycles@gmail.com</font>
             </p>
             {/* <form action="#" class="space-y-8">
               <div>
