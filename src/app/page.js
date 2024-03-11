@@ -319,7 +319,7 @@ export default function Home() {
               Want to know more? Have a question? Need details about our
               Business plan? Let us know at retractabilitybicycles@gmail.com
             </p>
-            <form action="#" class="space-y-8">
+            {/* <form action="#" class="space-y-8">
               <div>
                 <label
                   for="email"
@@ -370,7 +370,7 @@ export default function Home() {
               >
                 Send message
               </button>
-            </form>
+            </form> */}
           </div>
         </section>
       </div>
