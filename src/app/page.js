@@ -228,7 +228,7 @@ export default function Home() {
                 <ul role="list" className="mt-8 space-y-8 text-gray-600">
                   <li className="flex gap-x-3">
                     <svg
-                      className="mt-1 h-5 w-5 flex-none text-indigo-600"
+                      className="mt-1 h-5 w-5 flex-none text-[#5ca4a9]"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                       aria-hidden="true"
@@ -251,8 +251,8 @@ export default function Home() {
                   </li>
                   <li className="flex gap-x-3">
                     <svg
-                      className="mt-1 h-5 w-5 flex-none text-indigo-600"
-                      viewBox="0 0 20 20"
+                      className="mt-1 h-6 w-5 flex-none text-[#5ca4a9]"
+                      viewBox="0 0 25 25"
                       fill="currentColor"
                       aria-hidden="true"
                     >
@@ -273,7 +273,7 @@ export default function Home() {
                   </li>
                   <li className="flex gap-x-3">
                     <svg
-                      className="mt-1 h-5 w-5 flex-none text-indigo-600"
+                      className="mt-1 h-5 w-5 flex-none text-[#5ca4a9]"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                       aria-hidden="true"
