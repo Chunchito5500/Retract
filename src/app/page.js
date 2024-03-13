@@ -201,9 +201,9 @@ export default function Home() {
                 camera-controls
                 tone-mapping="commerce"
                 poster="poster.webp"
-                shadow-intensity="1"
+                shadow-intensity="0"
                 autoplay
-                camera-orbit="0deg 0deg 0m"
+                camera-orbit=""
                 style={{
                   width: "100%",
                   height: "500px",
