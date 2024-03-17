@@ -13,6 +13,10 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        sans: ["Trebuchet MS", "Arial", "sans-serif"],
+        serif: ["Verdana", "Times New Roman", "sans-serif"],
+      },
     },
   },
   plugins: [require("daisyui"), "@tailwindcss/aspect-ratio"],
