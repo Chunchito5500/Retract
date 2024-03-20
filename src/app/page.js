@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
       {/* Navbar */}
-      <div className="navbar bg-[#5ca4a9] min-w-full align-top top-0 items-center ">
+      <div className="navbar glass bg-[#5ca4a9] min-w-full align-top top-0 items-center ">
         <div className="navbar-start">
           <div className="dropdown">
             {/* Line thingys */}
@@ -70,9 +70,19 @@ export default function Home() {
             </div>
           </div>
         </div>
+
         <div className="navbar-center">
-          <a className="btn btn-ghost text-xl font-sans">Retractability</a>
+          <div class="dropdown dropdown-hover">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn-success m-1 text-[#DCE5E6] hover:text-white"
+            >
+              <a className="text-xl font-sans">Retractability</a>
+            </div>
+          </div>
         </div>
+
         <div className="navbar-end">
           <div tabindex="0" role="button" className="btn btn-ghost btn-circle">
             {/* <div className="indicator">
@@ -435,7 +445,7 @@ export default function Home() {
                   The Retractability Bicycle:
                 </h2>
                 <p class="font-sans">
-                  Traditional Bikes, Reinvented for Flexibility and Freedom
+                  Traditional Bikes, with a Compact Design
                 </p>
                 <p class="font-serif">
                   {" "}
