@@ -1,11 +1,32 @@
-import Head from "next/head";
-import Image from "next/image";
-import Script from "next/script";
-import Link from "next/link";
-import * as THREE from "three";
-import Navbar from "@/app/components/Navbar";
+"use client";
 
-export default function explore() {
+import React, { useState } from "react";
+import Head from "next/head";
+import Navbar from "@/app/components/Navbar";
+import Script from "next/script";
+
+export default function Explore() {
+  const [currentModel, setCurrentModel] = useState(
+    "Renaissance Italian Orange.glb"
+  );
+  const models = [
+    "Oceanic Blue.glb",
+    "Oceanic Blue Alt Seat.glb",
+    "Renaissance Italian Orange.glb",
+  ];
+
+  const goToNextModel = () => {
+    const currentIndex = models.indexOf(currentModel);
+    const nextIndex = (currentIndex + 1) % models.length;
+    setCurrentModel(models[nextIndex]);
+  };
+
+  const goToPrevModel = () => {
+    const currentIndex = models.indexOf(currentModel);
+    const prevIndex = (currentIndex - 1 + models.length) % models.length;
+    setCurrentModel(models[prevIndex]);
+  };
+
   return (
     <div>
       <Head>
@@ -14,29 +35,34 @@ export default function explore() {
       </Head>
       <Navbar />
       <main>
-        <div
-          class="w-full bg-center bg-cover h-[38rem]"
-          background="Folding_bike_Back.MP4"
-        >
+        <div class="w-full bg-center bg-cover h-[38rem]">
           <div class="flex items-center justify-center w-full h-full bg-gray-900/40">
             <div class="text-center">
               <h1 class="text-3xl font-semibold text-white lg:text-4xl">
-                The next generation of <span class="text-blue-400">Biking</span>
+                The future of <span class="text-blue-400">Biking</span>
               </h1>
-              <button class="w-full px-5 py-2 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+              <button
+                class="w-full px-5 py-2 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
+                onClick={() =>
+                  document
+                    .getElementById("middle")
+                    .scrollIntoView({ behavior: "smooth" })
+                }
+              >
                 Continue
               </button>
             </div>
           </div>
         </div>
       </main>
-      <section class="bg-white dark:bg-gray-900">
+      <section id="middle" class="bg-white dark:bg-gray-900">
         <div class="container px-6 py-10 mx-auto">
           <div class="lg:-mx-6 lg:flex lg:items-center">
             <div class="flex items-center justify-between mt-12 lg:justify-start">
               <button
                 title="left arrow"
                 class="p-2 text-gray-800 transition-colors duration-300 border rounded-full rtl:-scale-x-100 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 hover:bg-gray-100"
+                onClick={goToPrevModel}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -55,11 +81,12 @@ export default function explore() {
               </button>
 
               <Script
-                type="module"
+                strategy="beforeInteractive"
                 src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
               />
+
               <model-viewer
-                src="Oceanic Blue.glb"
+                src={`/${currentModel}`}
                 ar
                 ar-modes="webxr scene-viewer quick-look"
                 camera-controls
@@ -68,25 +95,18 @@ export default function explore() {
                 shadow-intensity="0"
                 autoplay
                 camera-orbit=""
+                className="modelViewer"
                 style={{
-                  width: "100%",
+                  width: "600px",
                   height: "500px",
-                  border: "2px solid #9bc1bc", // Assuming you still want the border
-                  // transform: "rotateX(180deg)", // Rotate 180 degrees around the Y axis
+                  border: "2px solid #9bc1bc",
                 }}
-              >
-                <div class="progress-bar hide" slot="progress-bar">
-                  <div class="update-bar"></div>
-                </div>
-                <button slot="ar-button" id="ar-button">
-                  View in your space
-                </button>
-                <div id="ar-prompt"></div>
-              </model-viewer>
+              ></model-viewer>
 
               <button
                 title="right arrow"
                 class="p-2 text-gray-800 transition-colors duration-300 border rounded-full rtl:-scale-x-100 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 hover:bg-gray-100"
+                onClick={goToNextModel} // Update to go to the next model
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -110,16 +130,17 @@ export default function explore() {
                 </h1>
 
                 <p class="max-w-lg mt-6 text-gray-500 dark:text-gray-400 ">
-                  “ Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Tempore quibusdam ducimus libero ad tempora doloribus expedita
-                  laborum saepe voluptas perferendis delectus assumenda rerum,
-                  culpa aperiam dolorum, obcaecati corrupti aspernatur a. ”
+                  The leap from landlines, to the cellphone. The desktop
+                  computer to the laptop. Now, the traditonal Bicycle to the
+                  Retractability Quark. Retractability Bicycles offers the
+                  future of biking, establishing new standards, and pushing the
+                  industry forward.
                 </p>
 
-                {/* <h3 class="mt-6 text-lg font-medium text-blue-500">Additional</h3>
-              <p class="text-gray-600 dark:text-gray-300">
-                Information
-              </p> */}
+                <h3 class="mt-6 text-lg font-medium text-blue-500">
+                  Release Date
+                </h3>
+                <p class="text-gray-600 dark:text-gray-300">January 2025</p>
               </div>
             </div>
           </div>
