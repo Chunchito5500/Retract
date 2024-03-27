@@ -38,7 +38,7 @@ export default function Home() {
             <rect
               width="100%"
               height="100%"
-              stroke-width="0"
+              strokeWidth="0"
               fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)"
             />
           </svg>
@@ -48,7 +48,7 @@ export default function Home() {
             <div className="lg:pr-4">
               <div className="lg:max-w-lg">
                 <p className="text-base font-semibold leading-7 text-[#5ca4a9]">
-                  A new way to bike
+                  The new way to bike
                 </p>
                 <h1 className="mt-2 text-3xl font-bold tracking-tight text-[#ed6a5a] sm:text-4xl">
                   The Quark Foldable Bike

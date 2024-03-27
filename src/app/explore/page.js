@@ -1,19 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Navbar from "@/app/components/Navbar";
 import Script from "next/script";
 
 export default function Explore() {
-  const [currentModel, setCurrentModel] = useState(
-    "Renaissance Italian Orange.glb"
-  );
   const models = [
+    "Renaissance Italian Orange.glb",
     "Oceanic Blue.glb",
     "Oceanic Blue Alt Seat.glb",
-    "Renaissance Italian Orange.glb",
   ];
+
+  const [currentModel, setCurrentModel] = useState(models[0]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && !customElements.get("model-viewer")) {
+      import("@google/model-viewer");
+    }
+  }, []);
 
   const goToNextModel = () => {
     const currentIndex = models.indexOf(currentModel);
@@ -35,38 +40,38 @@ export default function Explore() {
       </Head>
       <Navbar />
       <main>
-        <div class="w-full bg-center bg-cover h-[38rem]">
-          <div class="flex items-center justify-center w-full h-full bg-gray-900/40">
-            <div class="text-center">
-              <h1 class="text-3xl font-semibold text-white lg:text-4xl">
-                The future of <span class="text-blue-400">Biking</span>
+        <div className="w-full bg-center bg-cover h-[38rem]">
+          <div className="flex items-center justify-center w-full h-full bg-gray-900/40">
+            <div className="text-center">
+              <h1 className="text-3xl font-semibold text-white lg:text-4xl">
+                The future of <span className="text-blue-400">Biking</span>
               </h1>
               <button
-                class="w-full px-5 py-2 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
+                className="w-full px-5 py-2 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
                 onClick={() =>
                   document
                     .getElementById("middle")
                     .scrollIntoView({ behavior: "smooth" })
                 }
               >
-                Continue
+                Explore Models
               </button>
             </div>
           </div>
         </div>
       </main>
-      <section id="middle" class="bg-white dark:bg-gray-900">
-        <div class="container px-6 py-10 mx-auto">
-          <div class="lg:-mx-6 lg:flex lg:items-center">
-            <div class="flex items-center justify-between mt-12 lg:justify-start">
+      <section id="middle" className="bg-white dark:bg-gray-900">
+        <div className="container px-6 py-10 mx-auto">
+          <div className="lg:-mx-6 lg:flex lg:items-center">
+            <div className="flex items-center justify-between mt-12 lg:justify-start">
               <button
                 title="left arrow"
-                class="p-2 text-gray-800 transition-colors duration-300 border rounded-full rtl:-scale-x-100 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 hover:bg-gray-100"
+                className="p-2 text-gray-800 transition-colors duration-300 border rounded-full rtl:-scale-x-100 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 hover:bg-gray-100"
                 onClick={goToPrevModel}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="w-6 h-6"
+                  className="w-6 h-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -106,11 +111,11 @@ export default function Explore() {
               <button
                 title="right arrow"
                 class="p-2 text-gray-800 transition-colors duration-300 border rounded-full rtl:-scale-x-100 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 hover:bg-gray-100"
-                onClick={goToNextModel} // Update to go to the next model
+                onClick={goToNextModel}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="w-6 h-6"
+                  className="w-6 h-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
