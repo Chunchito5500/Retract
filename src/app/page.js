@@ -1,3 +1,7 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Head from "next/head";
 import Image from "next/image";
 import Script from "next/script";
 import Link from "next/link";
@@ -6,6 +10,24 @@ import * as THREE from "three";
 import Navbar from "@/app/components/Navbar";
 
 export default function Home() {
+  useEffect(() => {
+    if (typeof window !== "undefined" && !customElements.get("model-viewer")) {
+      import("@google/model-viewer");
+    }
+  }, []);
+
+  const goToNextModel = () => {
+    const currentIndex = models.indexOf(currentModel);
+    const nextIndex = (currentIndex + 1) % models.length;
+    setCurrentModel(models[nextIndex]);
+  };
+
+  const goToPrevModel = () => {
+    const currentIndex = models.indexOf(currentModel);
+    const prevIndex = (currentIndex - 1 + models.length) % models.length;
+    setCurrentModel(models[prevIndex]);
+  };
+
   return (
     <div>
       <Navbar />
