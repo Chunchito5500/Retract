@@ -11,7 +11,7 @@ export default function Home() {
       <Navbar />
       {/* Main Page */}
 
-      <div className="bg-[#e6ebe0] py-24">
+      <div className="bg-[#ECECE6] py-24">
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <svg
             className="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
@@ -67,10 +67,6 @@ export default function Home() {
               <source src="Bike2.mp4" type="video/MP4" />
             </video> */}
             <div width="800px" height="800px">
-              <Script
-                type="module"
-                src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
-              />
               <model-viewer
                 src="bike folded 1.glb"
                 ar
@@ -186,151 +182,10 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Products */}
-      <div>
-        <section class="bg-[#e6ebe0]">
-          <div class="py-4 lg:py-2 px-2 mx-auto max-w-screen-md">
-            <h2 class="mb-16 text-4xl tracking-tight font-extrabold text-center text-[#ed6a5a]">
-              Gallery
-            </h2>
-          </div>
-        </section>
-      </div>
-
-      {/* Row1 */}
-      <div class="bg-[#e6ebe0]">
-        <div
-          class=" bg-[#e6ebe0]"
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-around",
-            paddingBottom: "60px", // This acts as the space between the rows
-          }}
-        >
-          {/* Product1 */}
-          <div class=" bg-[#e6ebe0]">
-            <div
-              class="box"
-              style={{
-                width: "480px",
-                height: "680px",
-                backgroundColor: "#DAD7CE",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-              }}
-            >
-              <figure>
-                <model-viewer
-                  src="tire folded 1.glb"
-                  ar
-                  ar-modes="webxr scene-viewer quick-look"
-                  camera-controls
-                  tone-mapping="commerce"
-                  poster="poster.webp"
-                  shadow-intensity="1"
-                  autoplay
-                  camera-orbit="-20deg 110deg"
-                  style={{
-                    width: "100%",
-                    height: "500px",
-                    border: "2px solid #5ca4a9",
-                  }}
-                >
-                  <div class="progress-bar hide" slot="progress-bar">
-                    <div class="update-bar"></div>
-                  </div>
-                  <button slot="ar-button" id="ar-button">
-                    View in your space
-                  </button>
-                  <div id="ar-prompt"></div>
-                </model-viewer>
-              </figure>
-              <div
-                class="card-body"
-                style={{
-                  backgroundColor: "#5ca4a9",
-                }}
-              >
-                <h2 class="card-title font-sans">
-                  The Retractability Bicycle Wheel:
-                </h2>
-                <p class="font-sans">Reinventing the wheel. Literally! </p>
-                <p class="font-serif">
-                  {" "}
-                  With Retractability&apos;s take on the bicyle wheel, our
-                  airless tires allow users to maintain the traditional bike
-                  feel, without the fear of popping tires.
-                </p>
-                <div class="card-actions justify-end"></div>
-              </div>
-            </div>
-          </div>
-          {/* Product2 */}
-          <div class=" bg-[#e6ebe0]">
-            <div
-              class="box"
-              style={{
-                width: "480px",
-                height: "680px",
-                backgroundColor: "#DAD7CE",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-              }}
-            >
-              <figure>
-                <model-viewer
-                  src="bike unfolded 1.glb"
-                  ar
-                  ar-modes="webxr scene-viewer quick-look"
-                  camera-controls
-                  tone-mapping="commerce"
-                  poster="poster.webp"
-                  shadow-intensity="1"
-                  autoplay
-                  camera-orbit=""
-                  style={{
-                    width: "100%",
-                    height: "500px",
-                    border: "2px solid #5ca4a9",
-                  }}
-                >
-                  <div class="progress-bar hide" slot="progress-bar">
-                    <div class="update-bar"></div>
-                  </div>
-                  <button slot="ar-button" id="ar-button">
-                    View in your space
-                  </button>
-                  <div id="ar-prompt"></div>
-                </model-viewer>
-              </figure>
-              <div
-                class="card-body"
-                style={{
-                  backgroundColor: "#5ca4a9",
-                }}
-              >
-                <h2 class="card-title font-sans">
-                  The Retractability Bicycle:
-                </h2>
-                <p class="font-sans">
-                  Traditional Bikes, with a Compact Design
-                </p>
-                <p class="font-serif">
-                  {" "}
-                  Retractability Bicycles offer a breath of fresh air to the
-                  foldable biking industry. Our bikes are designed to be
-                  durable, efficient, and the next step in biking.
-                </p>
-                <div class="card-actions justify-end"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Stuff */}
 
       <div>
-        <section class="bg-[#e6ebe0]">
+        <section class="bg-[#ECECE6]">
           <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-[#ed6a5a]">
               Contact Us
