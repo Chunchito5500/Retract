@@ -32,3 +32,67 @@ body {
     text-wrap: balance;
   }
 }
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpTitle {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}
+
+.visible {
+  animation: slideUp 0.5s ease forwards;
+}
+
+.title-up {
+  animation: slideUpTitle 0.5s ease forwards;
+}
+
+@media (max-width: 768px) {
+  /* Adjust the pixel value to your breakpoint for mobile */
+  .mobile-title {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .mobile-buttons {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+  }
+
+  .mobile-card {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .mobile-model-viewer {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
