@@ -40,20 +40,24 @@ export default function ExplorePage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log("Submitting:", email);
     try {
       const response = await fetch('https://1cpbsgw2lc.execute-api.us-east-1.amazonaws.com/Deployment/email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email }),
       });
-  
-      const message = await response.json(); // Assuming the response is a JSON object with a 'body' key.
+      console.log("Response received:", response);
   
       if (response.ok) {
-        alert(message.body); // Displays the message from the Lambda response
+        const message = await response.json();
+        console.log("Response OK:", message);
+        alert(message.body);
         setEmail('');
       } else {
-        alert(`Failed to subscribe: ${message.body}`);
+        const errorMessage = await response.text();
+        console.error("Error from API:", errorMessage);
+        alert(`Failed to subscribe: ${errorMessage}`);
       }
     } catch (error) {
       console.error('Subscription error:', error);
