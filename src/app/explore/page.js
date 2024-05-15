@@ -48,7 +48,8 @@ export default function ExplorePage() {
       });
 
       if (response.ok) {
-        alert("Thank you for subscribing!");
+        const responseBody = await response.json();
+        alert(responseBody);
         setEmail("");
       } else if (response.status === 400) {
         alert("Invalid email address. Please check and try again.");
@@ -102,7 +103,7 @@ export default function ExplorePage() {
 
 
 
-        <section id="end" className="py-16 sm:py-24 lg:py-32">
+      <section id="end" className="py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="grid gap-x-8 gap-y-16 justify-center">
               <div className="max-w-xl lg:max-w-lg text-center">
