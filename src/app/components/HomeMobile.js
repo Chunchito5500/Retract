@@ -1,13 +1,14 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from 'react';
 import { IoHammer } from 'react-icons/io5';
 import { GiCartwheel } from 'react-icons/gi';
 import { FiMap } from 'react-icons/fi';
 
-export default function HomeDesktop() {
+export default function HomeMobile() {
   const [modelSrc, setModelSrc] = useState("Bike Unfolded - Midnight Blue.glb");
   const [cameraOrbit, setCameraOrbit] = useState("-137deg 2m");
   const [activeFeature, setActiveFeature] = useState(null);
-  const [cardStack, setCardStack] = useState([]);  
   const modelViewerRef = useRef(null);
 
   useEffect(() => {
@@ -40,12 +41,9 @@ export default function HomeDesktop() {
     },
   };
 
-
-
-  const buttonAndIconColor = "#456990";
   const buttonStyle = {
-    color: buttonAndIconColor,
-    borderColor: buttonAndIconColor,
+    color: "#456990",
+    borderColor: "#456990",
     borderWidth: "1px",
     borderStyle: "solid",
     backgroundColor: "transparent",
@@ -63,116 +61,39 @@ export default function HomeDesktop() {
     color: "#fff",
   };
 
-  const layoutContainerStyle = {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    position: "relative",
-    width: "100%",
-    height: "100vh",
-    padding: "20px",
-    background: "linear-gradient(to bottom, #859EB8 10%, #C0C6CC 30%, #E6E6E6 90%)",
-    boxSizing: "border-box"
-  };
-
-  const titlesAndCardContentStyle = {
-    position: "absolute",
-    top: "10%",
-    left: "5%",
-    zIndex: 2,
-    maxWidth: "300px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-  };
-
-  const modelViewerStyle = {
-    width: "100vw",
-    height: "80vh",
-    cursor: "default",
-    opacity: 1,
-    transition: "opacity 500ms ease-in-out",
-    zIndex: 1,
-  };
-
-  const buttonContainerStyle = {
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
-    alignItems: "center",
-    justifyContent: "center",
-    position: "absolute",
-    right: "5%",
-    top: "50%",
-    transform: "translateY(-50%)",
-    zIndex: 3,
-  };
-
-  const textCardOverlayStyle = {
-    position: "absolute",
-    top: "20%",
-    left: "75%",
-    zIndex: 2,
-    maxWidth: "20vw",
-    display: activeFeature ? "block" : "none"
-  };
-
   const handleFeatureClick = (feature) => {
     if (activeFeature === feature) {
       setActiveFeature(null);
       setCameraOrbit("-137deg 2m"); // Reset to original camera orbit
-      setCardStack(prev => prev.filter(f => f !== feature)); // Remove feature from stack
     } else {
       setCameraOrbit(featuresConfig[feature].cameraOrbit);
       setActiveFeature(feature);
-      setCardStack(prev => [...new Set([feature, ...prev])]); // Add feature to top of stack, remove duplicates
     }
   };
-  
 
   const renderTextCard = (feature) => {
-    const { title, content, style, icon } = featuresConfig[feature];
+    const { title, content, style } = featuresConfig[feature];
     return (
-      <div className="stack">
-        <div className={`card w-96`} style={style}>
-          <div className="card-body">
-            <h2 className="card-title">{title}</h2>
-            <p>{content}</p>
-            {icon}
-          </div>
+      <div className="card w-full" style={style}>
+        <div className="card-body">
+          <h2 className="card-title">{title}</h2>
+          <p>{content}</p>
         </div>
       </div>
     );
   };
 
-  
-
   return (
-    <div style={layoutContainerStyle}>
-      <div style={titlesAndCardContentStyle}>
-        <p className="text-1xl font-semibold leading-7 text-[#456990]">
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between", position: "relative", width: "100%", height: "100vh", padding: "20px", background: "linear-gradient(to bottom, #859EB8 10%, #C0C6CC 30%, #E6E6E6 90%)" }}>
+      <div style={{ textAlign: "center", marginBottom: "20px", width: "100%" }}>
+        <p className="text-base font-semibold leading-7 text-[#456990]">
           The new way to bike
         </p>
-        <h1 className="mt-2 text-6xl font-bold tracking-tight text-[#456990]">
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-[#456990]">
           The Quark Foldable Bike
         </h1>
       </div>
-  
-      {/* Dynamic cards generated based on feature selection */}
-      {activeFeature && (
-        <div style={{ position: "absolute", top: "40%", left: "5%", zIndex: 2, maxWidth: "300px" }}>
-          <div className="card w-96" style={featuresConfig[activeFeature].style}>
-            <div className="card-body">
-              <h2 className="card-title">{featuresConfig[activeFeature].title}</h2>
-              <p>{featuresConfig[activeFeature].content}</p>
-              {featuresConfig[activeFeature].icon}
-            </div>
-          </div>
-        </div>
-      )}
-  
-      {/* Model viewer and interaction buttons */}
+      {activeFeature && renderTextCard(activeFeature)}
       <model-viewer
         ref={modelViewerRef}
         src={modelSrc}
@@ -181,11 +102,10 @@ export default function HomeDesktop() {
         loading="eager"
         autoplay
         camera-orbit={cameraOrbit}
-        style={modelViewerStyle}
+        style={{ width: "100vw", height: "80vh", cursor: "default", opacity: 1 }}
       ></model-viewer>
-  
-      <div style={buttonContainerStyle}>
-        {Object.keys(featuresConfig).map(key => (
+      <div style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "center", justifyContent: "center", position: "absolute", right: "5%", bottom: "10%", zIndex: 3 }}>
+        {["feature1", "feature2", "feature3"].map(key => (
           <button
             key={key}
             onClick={() => handleFeatureClick(key)}
@@ -197,5 +117,4 @@ export default function HomeDesktop() {
       </div>
     </div>
   );
-  
-}  
+}
