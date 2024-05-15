@@ -41,26 +41,25 @@ export default function ExplorePage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('https://3w77qwjrze.execute-api.us-east-1.amazonaws.com/EmailInput1', {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-
-      if (response.ok) {
-        const responseBody = await response.json();
-        alert(responseBody);
-        setEmail("");
-      } else if (response.status === 400) {
-        alert("Invalid email address. Please check and try again.");
-      } else {
-        alert("Sorry, there was an issue on our end, please try again later!");
-      }
+        const response = await fetch('https://3w77qwjrze.execute-api.us-east-1.amazonaws.com/EmailInput1', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email }),
+        });
+  
+        if (response.ok) {
+            alert("Thank you for subscribing!");
+            setEmail("");
+        } else if (response.status === 400) {
+            alert("Invalid email address. Please check and try again.");
+        } else {
+            alert("Sorry, there was an issue on our end, please try again later!");
+        }
     } catch (error) {
-      console.error("Subscription error:", error);
-      alert("Error submitting form. Please try again.");
+        console.error("Subscription error:", error);
+        alert("Error submitting form. Please try again.");
     }
-  };
+};
 
 
 
@@ -111,24 +110,25 @@ export default function ExplorePage() {
                   Subscribe to our newsletter
                 </h2>
                 <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-y-4 max-w-md mx-auto">
-                  <input
-                    id="email-address"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    className="w-full rounded-md bg-white/10 px-3.5 py-2 text-white shadow-sm ring-1 ring-white/10 focus:ring-2 focus:ring-indigo-500 sm:text-sm"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <button
-                    type="submit"
-                    className="w-full px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:bg-blue-500"
-                  >
-                    Subscribe
-                  </button>
-                </form>
+    <input
+        id="email-address"
+        name="email"
+        type="email"
+        autoComplete="email"
+        required
+        className="w-full rounded-md bg-white/10 px-3.5 py-2 text-white shadow-sm ring-1 ring-white/10 focus:ring-2 focus:ring-indigo-500 sm:text-sm"
+        placeholder="Enter your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+    />
+    <button
+        type="submit"
+        className="w-full px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:bg-blue-500"
+    >
+        Subscribe
+    </button>
+</form>
+
               </div>
             </div>
           </div>
