@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -65,7 +63,7 @@ const Navbar = () => {
           <button onClick={toggleDrawer} className="btn drawer-button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-white"
+              className="h-8 w-8 text-white"  // Increased icon size
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -81,13 +79,13 @@ const Navbar = () => {
         )}
         <Link legacyBehavior href="/" passHref>
           <a className="text-white text-xl font-sans absolute left-1/2 transform -translate-x-1/2">
-            <Image src="/retract.svg" alt="Retract" width={65} height={65} />
+            <Image src="/retract.svg" alt="Retract" width={80} height={80} />  
           </a>
         </Link>
         {/* Shopping Cart Icon */}
         <div className="ml-auto flex items-center">
           <button className="text-white text-xl p-2">
-            <FiShoppingCart />
+            <FiShoppingCart size={24} />  
           </button>
         </div>
       </div>
@@ -97,17 +95,17 @@ const Navbar = () => {
           <ul className="menu p-4">
             <li>
               <Link legacyBehavior href="/" passHref>
-                <a>Home</a>
+                <a className="text-lg">Home</a>  
               </Link>
             </li>
             <li>
               <Link legacyBehavior href="/explore" passHref>
-                <a>Explore Bikes</a>
+                <a className="text-lg">Explore Bikes</a>  
               </Link>
             </li>
             <li>
               <Link legacyBehavior href="/gallery" passHref>
-                <a>Gallery</a>
+                <a className="text-lg">Gallery</a>  
               </Link>
             </li>
           </ul>
@@ -120,11 +118,11 @@ const Navbar = () => {
 const NavLink = ({ href, label, Icon, isActive }) => (
   <Link legacyBehavior href={href} passHref>
     <a
-      className={`flex items-center p-2 text-sm ${
+      className={`flex items-center p-2 text-lg ${
         isActive ? "text-[#B4CDED]" : "text-[#DCE5E6]"
       } hover:text-white`}
     >
-      {Icon && <Icon className="mr-2" />} {label}
+      {Icon && <Icon className="mr-2 h-6 w-6" />} {label}  
     </a>
   </Link>
 );

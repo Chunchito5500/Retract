@@ -41,14 +41,17 @@ export default function ExplorePage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("/subscribe", {
+      const response = await fetch('https://3w77qwjrze.execute-api.us-east-1.amazonaws.com/EmailInput1', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
+
       if (response.ok) {
         alert("Thank you for subscribing!");
         setEmail("");
+      } else if (response.status === 400) {
+        alert("Invalid email address. Please check and try again.");
       } else {
         alert("Sorry, there was an issue on our end, please try again later!");
       }
@@ -57,6 +60,9 @@ export default function ExplorePage() {
       alert("Error submitting form. Please try again.");
     }
   };
+
+
+
 
   const goToNextModel = () => {
     const currentIndex = models.indexOf(currentModel);
