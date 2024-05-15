@@ -13,6 +13,11 @@ import HomeMobile from "@/app/components/HomeMobile"; // Import the mobile versi
 
 export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
+  const [email, setEmail] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+
+  
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -62,7 +67,6 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", handleModelTransform);
   }, []);
 
-  const [email, setEmail] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -70,21 +74,24 @@ export default function HomePage() {
       const response = await fetch('https://x4km5x9s0d.execute-api.us-east-1.amazonaws.com/RetractAPI/email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email }),
+        body: JSON.stringify({ email }),
       });
 
-      if (response.ok) {
-        alert('Thank you for subscribing!');
-        setEmail('');
-      } else {
-        const errorMessage = await response.text();
-        alert(`Failed to subscribe: ${errorMessage}`);
-      }
+      const result = await response.json(); // Assuming server returns JSON with a message
+      setModalMessage(result.message || "Thank you for interest!");
+      setEmail('');
+      setModalVisible(true);
     } catch (error) {
       console.error('Subscription error:', error);
-      alert('Error submitting form. Please try again.');
+      setModalMessage("Error submitting form. Please try again.");
+      setModalVisible(true);
     }
   };
+
+  const handleCloseModal = () => {
+    setModalVisible(false);
+  };
+
 
   return (
     <div>
@@ -122,6 +129,17 @@ export default function HomePage() {
 
               </div>
             </div>
+            {modalVisible && (
+        <dialog open className="modal">
+          <div className="modal-box" style={{ background: 'linear-gradient(to bottom, #587792, #284b63, #153243)' }}>
+            <h3 className="text-2xl font-bold">Thank you for your interest!</h3>
+            <p className="py-4">{modalMessage}</p>
+            <div className="modal-action">
+              <button className="btn text-sm font-medium text-white bg-[#456990] hover:bg-[#011936]" onClick={handleCloseModal}>Close</button>
+            </div>
+          </div>
+        </dialog>
+      )}
           </div>
           <h2 className="lg:py-8 text-3xl tracking-tight font-extrabold text-center text-[#3CC8FF]">
               OR
