@@ -41,26 +41,30 @@ export default function ExplorePage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-        const response = await fetch('https://x4km5x9s0d.execute-api.us-east-1.amazonaws.com/RetractAPI/email', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: email }),
-        });
-
-        const responseData = await response.json();
-
-        if (response.ok) {
-            alert(responseData);
-            setEmail('');
+      const response = await fetch('https://x4km5x9s0d.execute-api.us-east-1.amazonaws.com/RetractAPI/email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email }),
+      });
+  
+      if (response.ok) {
+        const result = await response.json();
+        if (result.includes("already signed up")) {
+          alert(result);
         } else {
-            alert(`Failed to subscribe: ${responseData}`);
+          alert("Thank you for subscribing!");
         }
+        setEmail("");
+      } else {
+        const errorMessage = await response.text();
+        alert(`Failed to subscribe: ${errorMessage}`);
+      }
     } catch (error) {
-        console.error('Subscription error:', error);
-        alert('Error submitting form. Please try again.');
+      console.error('Subscription error:', error);
+      alert('Error submitting form. Please try again.');
     }
-};
-
+  };
+  
   
   
 
