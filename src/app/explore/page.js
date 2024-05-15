@@ -47,8 +47,9 @@ export default function ExplorePage() {
             body: JSON.stringify({ email: email }),
         });
 
+        const result = await response.json();
+
         if (response.ok) {
-            const result = await response.json();
             if (result.includes("already signed up")) {
                 alert(result);
             } else {
@@ -56,14 +57,14 @@ export default function ExplorePage() {
             }
             setEmail('');
         } else {
-            const errorMessage = await response.text();
-            alert(`Failed to subscribe: ${errorMessage}`);
+            alert(`Failed to subscribe: ${result}`);
         }
     } catch (error) {
         console.error('Subscription error:', error);
         alert('Error submitting form. Please try again.');
     }
 };
+
 
   
   
