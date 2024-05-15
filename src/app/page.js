@@ -78,7 +78,7 @@ export default function HomePage() {
       });
 
       const result = await response.json(); // Assuming server returns JSON with a message
-      setModalMessage(result.message || "Thank you for interest!");
+      setModalMessage(result.message || "We will be sending emails with information and updates as we move forward!");
       setEmail('');
       setModalVisible(true);
     } catch (error) {
