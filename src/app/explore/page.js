@@ -40,30 +40,27 @@ export default function ExplorePage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Submitting:", email);
     try {
-      const response = await fetch('https://1cpbsgw2lc.execute-api.us-east-1.amazonaws.com/Deployment2/email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email }),
-      });
-      console.log("Response received:", response);
-  
-      if (response.ok) {
-        const message = await response.json();
-        console.log("Response OK:", message);
-        alert(message.body);
-        setEmail('');
-      } else {
-        const errorMessage = await response.text();
-        console.error("Error from API:", errorMessage);
-        alert(`Failed to subscribe: ${errorMessage}`);
-      }
+        const response = await fetch('https://1cpbsgw2lc.execute-api.us-east-1.amazonaws.com/Deployment2/email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email }),
+        });
+
+        const responseData = await response.json();
+
+        if (response.ok) {
+            alert(responseData);
+            setEmail('');
+        } else {
+            alert(`Failed to subscribe: ${responseData}`);
+        }
     } catch (error) {
-      console.error('Subscription error:', error);
-      alert('Error submitting form. Please try again.');
+        console.error('Subscription error:', error);
+        alert('Error submitting form. Please try again.');
     }
-  };
+};
+
   
   
 
