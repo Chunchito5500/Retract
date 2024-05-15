@@ -41,7 +41,7 @@ export default function ExplorePage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-        const response = await fetch('https://1cpbsgw2lc.execute-api.us-east-1.amazonaws.com/Deployment2/email', {
+        const response = await fetch('https://x4km5x9s0d.execute-api.us-east-1.amazonaws.com/RetractAPI/email', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: email }),
