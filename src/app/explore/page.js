@@ -15,21 +15,20 @@ export default function ExplorePage() {
     "Cool Blue with Black Seat.glb",
   ];
 
-  const [email, setEmail] = useState("");
   const [currentModel, setCurrentModel] = useState(models[0]);
   const modelViewerRef = useRef(null);
 
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-      const checkMobile = () => {
-          setIsMobile(window.innerWidth < 768); // or any other width threshold
-      };
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // or any other width threshold
+    };
 
-      checkMobile(); // Check on initial mount
-      window.addEventListener('resize', checkMobile); // Add resize listener
+    checkMobile(); // Check on initial mount
+    window.addEventListener('resize', checkMobile); // Add resize listener
 
-      return () => window.removeEventListener('resize', checkMobile); // Clean up
+    return () => window.removeEventListener('resize', checkMobile); // Clean up
   }, []);
 
   useEffect(() => {
@@ -37,36 +36,6 @@ export default function ExplorePage() {
       import("@google/model-viewer");
     }
   }, []);
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch('https://x4km5x9s0d.execute-api.us-east-1.amazonaws.com/RetractAPI/email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email }),
-      });
-  
-      if (response.ok) {
-        alert('Thank you for subscribing!');
-        setEmail('');
-      } else {
-        const errorMessage = await response.text();
-        alert(`Failed to subscribe: ${errorMessage}`);
-      }
-    } catch (error) {
-      console.error('Subscription error:', error);
-      alert('Error submitting form. Please try again.');
-    }
-  };
-
-
-  
-  
-  
-
-
-
 
   const goToNextModel = () => {
     const currentIndex = models.indexOf(currentModel);
@@ -94,7 +63,7 @@ export default function ExplorePage() {
               The future of <span className="text-blue-400">Biking</span>
             </h1>
             <button
-              className="mt-4 px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500 lg:w-auto"
+              className="mt-4 px-5 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500 lg:w-auto"
               onClick={() => document.getElementById("middle").scrollIntoView({ behavior: "smooth" })}
             >
               Explore Models
@@ -103,41 +72,7 @@ export default function ExplorePage() {
         </div>
       </main>
       {isMobile ? <ExploreMobile /> : <Explore />}
-
-
-
-      <section id="end" className="py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid gap-x-8 gap-y-16 justify-center">
-              <div className="max-w-xl lg:max-w-lg text-center">
-                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                  Subscribe to our newsletter
-                </h2>
-                <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-y-4 max-w-md mx-auto">
-    <input
-        id="email-address"
-        name="email"
-        type="email"
-        autoComplete="email"
-        required
-        className="w-full rounded-md bg-white/10 px-3.5 py-2 text-white shadow-sm ring-1 ring-white/10 focus:ring-2 focus:ring-indigo-500 sm:text-sm"
-        placeholder="Enter your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-    />
-    <button
-        type="submit"
-        className="w-full px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:bg-blue-500"
-    >
-        Subscribe
-    </button>
-</form>
-
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+    </div>
   );
-  
+
 }
