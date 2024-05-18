@@ -8,6 +8,7 @@ export default function HomeDesktop() {
   const [cameraOrbit, setCameraOrbit] = useState("-137deg 2m");
   const [activeFeature, setActiveFeature] = useState(null);
   const [cardStack, setCardStack] = useState([]);  
+  const [opacity, setOpacity] = useState(1);
   const modelViewerRef = useRef(null);
 
   useEffect(() => {
@@ -39,8 +40,6 @@ export default function HomeDesktop() {
       icon: <FiMap size={44} color="#ffffff" />
     },
   };
-
-
 
   const buttonAndIconColor = "#456990";
   const buttonStyle = {
@@ -91,7 +90,7 @@ export default function HomeDesktop() {
     width: "100vw",
     height: "80vh",
     cursor: "default",
-    opacity: 1,
+    opacity: opacity,
     transition: "opacity 500ms ease-in-out",
     zIndex: 1,
   };
@@ -124,13 +123,16 @@ export default function HomeDesktop() {
       setCameraOrbit("-137deg 2m"); // Reset to original camera orbit
       setCardStack(prev => prev.filter(f => f !== feature)); // Remove feature from stack
     } else {
-      setCameraOrbit(featuresConfig[feature].cameraOrbit);
+      setOpacity(0); // Start fade-out
+      setTimeout(() => {
+        setCameraOrbit(featuresConfig[feature].cameraOrbit);
+        setOpacity(1); // Fade-in after camera orbit change
+      }, 500);
       setActiveFeature(feature);
       setCardStack(prev => [...new Set([feature, ...prev])]); // Add feature to top of stack, remove duplicates
     }
   };
   
-
   const renderTextCard = (feature) => {
     const { title, content, style, icon } = featuresConfig[feature];
     return (
@@ -145,8 +147,6 @@ export default function HomeDesktop() {
       </div>
     );
   };
-
-  
 
   return (
     <div style={layoutContainerStyle}>
@@ -197,5 +197,4 @@ export default function HomeDesktop() {
       </div>
     </div>
   );
-  
-}  
+}

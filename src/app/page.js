@@ -114,7 +114,7 @@ export default function HomePage() {
                     type="email"
                     autoComplete="email"
                     required
-                    className="w-full rounded-md bg-[#D9E7F0] px-3.5 py-2 text-white shadow-sm ring-1 ring-[#456990] focus:ring-2 focus:ring-indigo-500 sm:text-sm"
+                    className="w-full rounded-md bg-[#D9E7F0] px-3.5 py-2 text-black shadow-sm ring-1 ring-[#456990] focus:ring-2 focus:ring-indigo-500 sm:text-sm"
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}

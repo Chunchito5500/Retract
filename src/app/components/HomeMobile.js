@@ -9,6 +9,7 @@ export default function HomeMobile() {
   const [modelSrc, setModelSrc] = useState("Bike Unfolded - Midnight Blue.glb");
   const [cameraOrbit, setCameraOrbit] = useState("-137deg 2m");
   const [activeFeature, setActiveFeature] = useState(null);
+  const [opacity, setOpacity] = useState(1);
   const modelViewerRef = useRef(null);
 
   useEffect(() => {
@@ -66,7 +67,11 @@ export default function HomeMobile() {
       setActiveFeature(null);
       setCameraOrbit("-137deg 2m"); // Reset to original camera orbit
     } else {
-      setCameraOrbit(featuresConfig[feature].cameraOrbit);
+      setOpacity(0); // Start fade-out
+      setTimeout(() => {
+        setCameraOrbit(featuresConfig[feature].cameraOrbit);
+        setOpacity(1); // Fade-in after camera orbit change
+      }, 500);
       setActiveFeature(feature);
     }
   };
@@ -102,7 +107,7 @@ export default function HomeMobile() {
         loading="eager"
         autoplay
         camera-orbit={cameraOrbit}
-        style={{ width: "100vw", height: "80vh", cursor: "default", opacity: 1 }}
+        style={{ width: "100vw", height: "80vh", cursor: "default", opacity: opacity, transition: "opacity 500ms ease-in-out" }}
       ></model-viewer>
       <div style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "center", justifyContent: "center", position: "absolute", right: "5%", bottom: "10%", zIndex: 3 }}>
         {["feature1", "feature2", "feature3"].map(key => (
