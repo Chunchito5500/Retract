@@ -9,7 +9,7 @@ export default function HomeDesktop({ setBackgroundColor }) {
   const [activeFeature, setActiveFeature] = useState(null);
   const [cardStack, setCardStack] = useState([]);
   const [opacity, setOpacity] = useState(1);
-  const [title, setTitle] = useState("The Quark Foldable Bike");
+  const [title, setTitle] = useState("The Quark Bike");
   const [titleColor, setTitleColor] = useState("#456990");
   const modelViewerRef = useRef(null);
 

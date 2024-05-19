@@ -10,7 +10,7 @@ export default function HomeMobile() {
   const [cameraOrbit, setCameraOrbit] = useState("-137deg 2m");
   const [activeFeature, setActiveFeature] = useState(null);
   const [opacity, setOpacity] = useState(1);
-  const [title, setTitle] = useState("The Quark Foldable Bike");
+  const [title, setTitle] = useState("The Quark Bike");
   const [titleColor, setTitleColor] = useState("#456990");
   const [backgroundOpacity, setBackgroundOpacity] = useState(1);
   const [cardOpacity, setCardOpacity] = useState(1);
