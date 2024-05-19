@@ -1,12 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Head from "next/head";
-import Image from "next/image";
-import Script from "next/script";
-import Link from "next/link";
-import Sidebar from "./main";
-import * as THREE from "three";
 import Navbar from "@/app/components/Navbar";
 import Home from "@/app/components/Home";
 import HomeMobile from "@/app/components/HomeMobile"; // Import the mobile version
@@ -16,8 +10,8 @@ export default function HomePage() {
   const [email, setEmail] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
-
-  
+  const [background, setBackground] = useState("#E6E6E6");
+  const [homeBackground, setHomeBackground] = useState("#E6E6E6");
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -67,7 +61,6 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", handleModelTransform);
   }, []);
 
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -92,12 +85,17 @@ export default function HomePage() {
     setModalVisible(false);
   };
 
+  const setBackgroundColor = (color) => {
+    setBackground(`#E6E6E6`); // Set to the base color
+    setHomeBackground(color);
+  };
 
   return (
-    <div>
+    <div style={{ background }}>
       <Navbar />
-      {isMobile ? <HomeMobile /> : <Home />} {/* Conditionally render based on the viewport */}
+      {isMobile ? <HomeMobile setBackgroundColor={setBackgroundColor} /> : <Home setBackgroundColor={setBackgroundColor} />} {/* Conditionally render based on the viewport */}
 
+      <section id="merge" style={{ background: `linear-gradient(to bottom, ${homeBackground}, #E6E6E6)` }}>
       {/* Additional content */}
       <div>
         <section id="end" className="bg-[#E6E6E6] py-4 sm:py-8 lg:py-8">
@@ -126,24 +124,23 @@ export default function HomePage() {
                     Subscribe
                   </button>
                 </form>
-
               </div>
             </div>
             {modalVisible && (
-        <dialog open className="modal">
-          <div className="modal-box" style={{ background: 'linear-gradient(to bottom, #587792, #284b63, #153243)' }}>
-            <h3 className="text-2xl font-bold">Thank you for your interest!</h3>
-            <p className="py-4">{modalMessage}</p>
-            <div className="modal-action">
-              <button className="btn text-sm font-medium text-white bg-[#456990] hover:bg-[#011936]" onClick={handleCloseModal}>Close</button>
-            </div>
-          </div>
-        </dialog>
-      )}
+              <dialog open className="modal">
+                <div className="modal-box" style={{ background: 'linear-gradient(to bottom, #587792, #284b63, #153243)' }}>
+                  <h3 className="text-2xl font-bold">Thank you for your interest!</h3>
+                  <p className="py-4">{modalMessage}</p>
+                  <div className="modal-action">
+                    <button className="btn text-sm font-medium text-white bg-[#456990] hover:bg-[#011936]" onClick={handleCloseModal}>Close</button>
+                  </div>
+                </div>
+              </dialog>
+            )}
           </div>
           <h2 className="lg:py-8 text-3xl tracking-tight font-extrabold text-center text-[#3CC8FF]">
-              OR
-            </h2>
+            OR
+          </h2>
           <div className="py-4 lg:py-3 px-4 mx-auto max-w-screen-md">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-[#456990]">
               Contact Us
@@ -156,6 +153,7 @@ export default function HomePage() {
           </div>
         </section>
       </div>
+      </section>
     </div>
   );
 }
