@@ -40,22 +40,21 @@ export default function Gallery() {
       </Head>
       <Navbar />
 
-      {/* Products */}
       <div>
-        <section class="bg-white dark:bg-gray-900">
-          <div class="py-4 lg:py-2 px-2 mx-auto max-w-screen-md">
+        <section className="bg-white dark:bg-gray-900">
+          <div className="py-4 lg:py-2 px-2 mx-auto max-w-screen-md">
             <div className="pt-20 lg:pt-24 px-2 mx-auto max-w-screen-md"></div>
-            <h2 class="mb-16 text-4xl tracking-tight font-extrabold text-center text-[#ed6a5a]">
+            <h2 className="mb-16 text-4xl tracking-tight font-extrabold text-center text-[#ed6a5a]">
               View our Gallery
             </h2>
           </div>
         </section>
       </div>
-
+      {/* Products */}
       {/* Row1 */}
-      <div class="bg-[#e6ebe0]">
+      <div className="bg-[#e6ebe0]">
         <div
-          class=" bg-white dark:bg-gray-900"
+          className="bg-white dark:bg-gray-900"
           style={{
             display: "flex",
             flexWrap: "wrap",
@@ -64,9 +63,9 @@ export default function Gallery() {
           }}
         >
           {/* Product1 */}
-          <div class=" bg-[#e6ebe0]">
+          <div className="bg-[#e6ebe0]">
             <div
-              class="box"
+              className="box"
               style={{
                 width: "480px",
                 height: "680px",
@@ -91,8 +90,8 @@ export default function Gallery() {
                     border: "2px solid #5ca4a9",
                   }}
                 >
-                  <div class="progress-bar hide" slot="progress-bar">
-                    <div class="update-bar"></div>
+                  <div className="progress-bar hide" slot="progress-bar">
+                    <div className="update-bar"></div>
                   </div>
                   <button slot="ar-button" id="ar-button">
                     View in your space
@@ -101,29 +100,29 @@ export default function Gallery() {
                 </model-viewer>
               </figure>
               <div
-                class="card-body"
+                className="card-body"
                 style={{
                   backgroundColor: "#5ca4a9",
                 }}
               >
-                <h2 class="card-title font-sans">
+                <h2 className="card-title font-sans">
                   The Retractability Bicycle Wheel:
                 </h2>
-                <p class="font-sans">Reinventing the wheel. Literally! </p>
-                <p class="font-serif">
+                <p className="font-sans">Reinventing the wheel. Literally! </p>
+                <p className="font-serif">
                   {" "}
                   With Retractability&apos;s take on the bicyle wheel, our
                   airless tires allow users to maintain the traditional bike
                   feel, without the fear of popping tires.
                 </p>
-                <div class="card-actions justify-end"></div>
+                <div className="card-actions justify-end"></div>
               </div>
             </div>
           </div>
           {/* Product2 */}
-          <div class=" bg-[#e6ebe0]">
+          <div className="bg-[#e6ebe0]">
             <div
-              class="box"
+              className="box"
               style={{
                 width: "480px",
                 height: "680px",
@@ -148,8 +147,8 @@ export default function Gallery() {
                     border: "2px solid #5ca4a9",
                   }}
                 >
-                  <div class="progress-bar hide" slot="progress-bar">
-                    <div class="update-bar"></div>
+                  <div className="progress-bar hide" slot="progress-bar">
+                    <div className="update-bar"></div>
                   </div>
                   <button slot="ar-button" id="ar-button">
                     View in your space
@@ -158,29 +157,42 @@ export default function Gallery() {
                 </model-viewer>
               </figure>
               <div
-                class="card-body"
+                className="card-body"
                 style={{
                   backgroundColor: "#5ca4a9",
                 }}
               >
-                <h2 class="card-title font-sans">
+                <h2 className="card-title font-sans">
                   The Retractability Bicycle:
                 </h2>
-                <p class="font-sans">
+                <p className="font-sans">
                   Traditional Bikes, with a Compact Design
                 </p>
-                <p class="font-serif">
+                <p className="font-serif">
                   {" "}
                   Retractability Bicycles offer a breath of fresh air to the
                   foldable biking industry. Our bikes are designed to be
                   durable, efficient, and the next step in biking.
                 </p>
-                <div class="card-actions justify-end"></div>
+                <div className="card-actions justify-end"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .box {
+            width: 100%;
+            height: auto;
+          }
+
+          model-viewer {
+            width: 100%;
+            height: 300px;
+          }
+        }
+      `}</style>
     </div>
   );
 }
