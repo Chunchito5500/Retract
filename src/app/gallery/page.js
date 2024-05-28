@@ -39,37 +39,54 @@ export default function Gallery() {
         <meta name="Model Gallery" content="Look at our 3D Models." />
       </Head>
       <Navbar />
+      <style jsx>{`
+        .card-wrapper {
+          margin: 50px;
+        }
 
-      <div>
-        <section className="bg-white dark:bg-gray-900">
+        @media (max-width: 768px) {
+          .box {
+            width: 100% !important;
+            height: auto !important;
+          }
+          .card-wrapper {
+            flex-basis: 100%;
+          }
+        }
+      `}</style>
+      <div
+        style={{
+          background:
+            "linear-gradient(to top, #111827, #12132c, #120d31, #302f4d, #4e425b)",
+        }}
+      >
+        <div>
           <div className="py-4 lg:py-2 px-2 mx-auto max-w-screen-md">
             <div className="pt-20 lg:pt-24 px-2 mx-auto max-w-screen-md"></div>
-            <h2 className="mb-16 text-4xl tracking-tight font-extrabold text-center text-[#ed6a5a]">
+            <h2 className="mb-16 text-4xl tracking-tight font-extrabold text-center text-[#f6957d]">
               View our Gallery
             </h2>
           </div>
-        </section>
-      </div>
-      {/* Products */}
-      {/* Row1 */}
-      <div className="bg-[#e6ebe0]">
+        </div>
+        {/* Products */}
         <div
-          className="bg-white dark:bg-gray-900"
+          className="flex-container"
           style={{
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "space-around",
             paddingBottom: "60px", // This acts as the space between the rows
+            paddingTop: "30px",
           }}
         >
           {/* Product1 */}
-          <div className="bg-[#e6ebe0]">
+          <div className="card-wrapper bg-[#e6ebe0]">
             <div
               className="box"
               style={{
                 width: "480px",
                 height: "680px",
-                backgroundColor: "#DAD7CE",
+                backgroundColor: "#dbe4ec",
                 boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
               }}
             >
@@ -87,7 +104,7 @@ export default function Gallery() {
                   style={{
                     width: "100%",
                     height: "500px",
-                    border: "2px solid #5ca4a9",
+                    border: "2px solid #456990",
                   }}
                 >
                   <div className="progress-bar hide" slot="progress-bar">
@@ -102,7 +119,7 @@ export default function Gallery() {
               <div
                 className="card-body"
                 style={{
-                  backgroundColor: "#5ca4a9",
+                  backgroundColor: "#456990",
                 }}
               >
                 <h2 className="card-title font-sans">
@@ -111,7 +128,7 @@ export default function Gallery() {
                 <p className="font-sans">Reinventing the wheel. Literally! </p>
                 <p className="font-serif">
                   {" "}
-                  With Retractability&apos;s take on the bicyle wheel, our
+                  With Retractability&apos;s take on the bicycle wheel, our
                   airless tires allow users to maintain the traditional bike
                   feel, without the fear of popping tires.
                 </p>
@@ -120,13 +137,13 @@ export default function Gallery() {
             </div>
           </div>
           {/* Product2 */}
-          <div className="bg-[#e6ebe0]">
+          <div className="card-wrapper bg-[#e6ebe0]">
             <div
               className="box"
               style={{
                 width: "480px",
                 height: "680px",
-                backgroundColor: "#DAD7CE",
+                backgroundColor: "#dbe4ec",
                 boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
               }}
             >
@@ -144,7 +161,7 @@ export default function Gallery() {
                   style={{
                     width: "100%",
                     height: "500px",
-                    border: "2px solid #5ca4a9",
+                    border: "2px solid #456990",
                   }}
                 >
                   <div className="progress-bar hide" slot="progress-bar">
@@ -159,7 +176,7 @@ export default function Gallery() {
               <div
                 className="card-body"
                 style={{
-                  backgroundColor: "#5ca4a9",
+                  backgroundColor: "#456990",
                 }}
               >
                 <h2 className="card-title font-sans">
@@ -179,20 +196,9 @@ export default function Gallery() {
             </div>
           </div>
         </div>
-      </div>
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .box {
-            width: 100%;
-            height: auto;
-          }
 
-          model-viewer {
-            width: 100%;
-            height: 300px;
-          }
-        }
-      `}</style>
+        <div style={{ height: "150px" }}></div>
+      </div>
     </div>
   );
 }

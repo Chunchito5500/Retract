@@ -139,8 +139,8 @@ export default function HomeMobile() {
     return (
       <div className="card w-full" style={{ backdropFilter: 'blur(10px)', backgroundColor: 'rgba(255, 255, 255, 0.2)', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.18)' }}>
         <div className="card-body">
-          <h2 className="card-title">{cardtitle}</h2>
-          <p>{content}</p>
+        <h2 className="card-title" style={{ color: '#ffffff' }}>{cardtitle}</h2>
+            <p style={{ color: '#ffffff' }}>{content}</p>
           {icon}
         </div>
       </div>

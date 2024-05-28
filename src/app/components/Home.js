@@ -148,15 +148,15 @@ export default function HomeDesktop({ setBackgroundColor }) {
       setCardStack(prev => [...new Set([feature, ...prev])]); // Add feature to top of stack, remove duplicates
     }
   };
-  
+
   const renderTextCard = (feature) => {
     const { cardtitle, content, style, icon } = featuresConfig[feature];
     return (
       <div className="stack">
         <div className={`card w-96 glass`} style={style}>
           <div className="card-body">
-            <h2 className="card-title">{cardtitle}</h2>
-            <p>{content}</p>
+          <h2 className="card-title" style={{ color: '#ffffff' }}>{cardtitle}</h2>
+            <p style={{ color: '#ffffff' }}>{content}</p>
             {icon}
           </div>
         </div>
@@ -174,22 +174,22 @@ export default function HomeDesktop({ setBackgroundColor }) {
           {title}
         </h1>
       </div>
-  
+
       {/* Dynamic cards generated based on feature selection */}
       {activeFeature && (
-  <div style={{ position: "absolute", top: "40%", left: "5%", zIndex: 2, maxWidth: "300px" }}>
-    <div className="card w-96" style={{ backdropFilter: 'blur(10px)', backgroundColor: 'rgba(255, 255, 255, 0.2)', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.18)' }}>
-      <div className="card-body">
-        <h2 className="card-title">{featuresConfig[activeFeature].cardtitle}</h2>
-        <p>{featuresConfig[activeFeature].content}</p>
-        {featuresConfig[activeFeature].icon}
-      </div>
-    </div>
-  </div>
-)}
+        <div style={{ position: "absolute", top: "40%", left: "5%", zIndex: 2, maxWidth: "300px" }}>
+          <div className="card w-96" style={{ backdropFilter: 'blur(10px)', backgroundColor: 'rgba(255, 255, 255, 0.2)', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.18)' }}>
+            <div className="card-body">
+              <h2 className="card-title">{featuresConfig[activeFeature].cardtitle}</h2>
+              <p>{featuresConfig[activeFeature].content}</p>
+              {featuresConfig[activeFeature].icon}
+            </div>
+          </div>
+        </div>
+      )}
 
 
-  
+
       {/* Model viewer and interaction buttons */}
       <model-viewer
         ref={modelViewerRef}
@@ -201,7 +201,7 @@ export default function HomeDesktop({ setBackgroundColor }) {
         camera-orbit={cameraOrbit}
         style={modelViewerStyle}
       ></model-viewer>
-  
+
       <div style={buttonContainerStyle}>
         {Object.keys(featuresConfig).map(key => (
           <button

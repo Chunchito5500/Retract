@@ -79,13 +79,13 @@ const Navbar = () => {
         )}
         <Link legacyBehavior href="/" passHref>
           <a className="text-white text-xl font-sans absolute left-1/2 transform -translate-x-1/2">
-            <Image src="/retract.svg" alt="Retract" width={80} height={80} />  
+            <Image src="/retract.svg" alt="Retract" width={80} height={80} />
           </a>
         </Link>
         {/* Shopping Cart Icon */}
         <div className="ml-auto flex items-center">
           <button className="text-white text-xl p-2">
-            <FiShoppingCart size={24} />  
+            <FiShoppingCart size={24} />
           </button>
         </div>
       </div>
@@ -95,17 +95,17 @@ const Navbar = () => {
           <ul className="menu p-4">
             <li>
               <Link legacyBehavior href="/" passHref>
-                <a className="text-lg">Home</a>  
+                <a className="text-lg">Home</a>
               </Link>
             </li>
             <li>
               <Link legacyBehavior href="/explore" passHref>
-                <a className="text-lg">Explore Bikes</a>  
+                <a className="text-lg">Explore Bikes</a>
               </Link>
             </li>
             <li>
               <Link legacyBehavior href="/gallery" passHref>
-                <a className="text-lg">Gallery</a>  
+                <a className="text-lg">Gallery</a>
               </Link>
             </li>
           </ul>
@@ -118,11 +118,10 @@ const Navbar = () => {
 const NavLink = ({ href, label, Icon, isActive }) => (
   <Link legacyBehavior href={href} passHref>
     <a
-      className={`flex items-center p-2 text-lg ${
-        isActive ? "text-[#B4CDED]" : "text-[#DCE5E6]"
-      } hover:text-white`}
+      className={`flex items-center p-2 text-lg ${isActive ? "text-[#B4CDED]" : "text-[#DCE5E6]"
+        } hover:text-white`}
     >
-      {Icon && <Icon className="mr-2 h-6 w-6" />} {label}  
+      {Icon && <Icon className="mr-2 h-6 w-6" />} {label}
     </a>
   </Link>
 );

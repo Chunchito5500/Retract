@@ -93,7 +93,7 @@ export default function Explore() {
                   The Quark Foldable Bike
                 </h1>
                 <p className="mt-4 text-gray-500 dark:text-gray-400">
-                  The leap from landlines to cellphones, from desktops to laptops, and now, from traditional bicycles to the retractable Quark. Retractability Bicycles represents the future of biking, setting new standards and advancing the industry.
+                  The leap from landlines to cellphones, from desktops to laptops, and now, from the traditional bicycle to the Retractability Quark. Retractability Bicycles represents the future of biking, setting new standards and advancing the industry.
                 </p>
                 <h3 className="mt-6 text-lg font-medium text-blue-500">
                   Release Date: January 2025
@@ -124,7 +124,7 @@ export default function Explore() {
             <p className="max-w-lg mt-6 text-gray-500 dark:text-gray-400">
               Stick around and be the first to get notified when new models come out!
             </p>
-            
+
           </div>
         </div>
       </div>

@@ -96,63 +96,63 @@ export default function HomePage() {
       {isMobile ? <HomeMobile setBackgroundColor={setBackgroundColor} /> : <Home setBackgroundColor={setBackgroundColor} />} {/* Conditionally render based on the viewport */}
 
       <section id="merge" style={{ background: `linear-gradient(to bottom, ${homeBackground}, #E6E6E6)` }}>
-      {/* Additional content */}
-      <div>
-        <section id="end" className="bg-[#E6E6E6] py-4 sm:py-8 lg:py-8">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid gap-x-8 gap-y-16 justify-center">
-              <div className="max-w-xl lg:max-w-lg text-center">
-                <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-[#456990]">
-                  Sign up to join our interest list and see our progress!
-                </h2>
-                <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-y-4 max-w-md mx-auto">
-                  <input
-                    id="email-address"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    className="w-full rounded-md bg-[#D9E7F0] px-3.5 py-2 text-black shadow-sm ring-1 ring-[#456990] focus:ring-2 focus:ring-indigo-500 sm:text-sm"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <button
-                    type="submit"
-                    className="w-full px-5 py-2 text-sm font-medium text-white bg-[#456990] rounded-md hover:bg-blue-500 focus:bg-blue-500"
-                  >
-                    Subscribe
-                  </button>
-                </form>
-              </div>
-            </div>
-            {modalVisible && (
-              <dialog open className="modal">
-                <div className="modal-box" style={{ background: 'linear-gradient(to bottom, #587792, #284b63, #153243)' }}>
-                  <h3 className="text-2xl font-bold">Thank you for your interest!</h3>
-                  <p className="py-4">{modalMessage}</p>
-                  <div className="modal-action">
-                    <button className="btn text-sm font-medium text-white bg-[#456990] hover:bg-[#011936]" onClick={handleCloseModal}>Close</button>
-                  </div>
+        {/* Additional content */}
+        <div>
+          <section id="end" className="bg-[#E6E6E6] py-4 sm:py-8 lg:py-8">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <div className="grid gap-x-8 gap-y-16 justify-center">
+                <div className="max-w-xl lg:max-w-lg text-center">
+                  <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-[#456990]">
+                    Sign up to join our interest list and see our progress!
+                  </h2>
+                  <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-y-4 max-w-md mx-auto">
+                    <input
+                      id="email-address"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      required
+                      className="w-full rounded-md bg-[#D9E7F0] px-3.5 py-2 text-black shadow-sm ring-1 ring-[#456990] focus:ring-2 focus:ring-indigo-500 sm:text-sm"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <button
+                      type="submit"
+                      className="w-full px-5 py-2 text-sm font-medium text-white bg-[#456990] rounded-md hover:bg-blue-500 focus:bg-blue-500"
+                    >
+                      Subscribe
+                    </button>
+                  </form>
                 </div>
-              </dialog>
-            )}
-          </div>
-          <h2 className="lg:py-8 text-3xl tracking-tight font-extrabold text-center text-[#3CC8FF]">
-            OR
-          </h2>
-          <div className="py-4 lg:py-3 px-4 mx-auto max-w-screen-md">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-[#456990]">
-              Contact Us
+              </div>
+              {modalVisible && (
+                <dialog open className="modal">
+                  <div className="modal-box" style={{ background: 'linear-gradient(to bottom, #587792, #284b63, #153243)' }}>
+                    <h3 className="text-2xl font-bold">Thank you for your interest!</h3>
+                    <p className="py-4">{modalMessage}</p>
+                    <div className="modal-action">
+                      <button className="btn text-sm font-medium text-white bg-[#456990] hover:bg-[#011936]" onClick={handleCloseModal}>Close</button>
+                    </div>
+                  </div>
+                </dialog>
+              )}
+            </div>
+            <h2 className="lg:py-8 text-3xl tracking-tight font-extrabold text-center text-[#3CC8FF]">
+              OR
             </h2>
-            <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
-              Want to know more? Have a question? Need details about our
-              business plan? Let us know at{" "}
-              <font color="#3CC8FF">retractabilitybicycles@gmail.com</font>
-            </p>
-          </div>
-        </section>
-      </div>
+            <div className="py-4 lg:py-3 px-4 mx-auto max-w-screen-md">
+              <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-[#456990]">
+                Contact Us
+              </h2>
+              <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
+                Want to know more? Have a question? Need details about our
+                business plan? Let us know at{" "}
+                <font color="#3CC8FF">retractabilitybicycles@gmail.com</font>
+              </p>
+            </div>
+          </section>
+        </div>
       </section>
     </div>
   );
