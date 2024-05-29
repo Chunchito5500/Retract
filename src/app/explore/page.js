@@ -1,3 +1,5 @@
+// path: ExplorePage.js
+
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
@@ -63,7 +65,7 @@ export default function ExplorePage() {
               The future of <span className="text-blue-400">Biking</span>
             </h1>
             <button
-              className="mt-4 px-5 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500 lg:w-auto"
+              className="glow-button mt-4 lg:w-auto"
               onClick={() => document.getElementById("middle").scrollIntoView({ behavior: "smooth" })}
             >
               Explore Models
@@ -74,5 +76,4 @@ export default function ExplorePage() {
       {isMobile ? <ExploreMobile /> : <Explore />}
     </div>
   );
-
 }

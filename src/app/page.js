@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "@/app/components/Navbar";
 import Home from "@/app/components/Home";
 import HomeMobile from "@/app/components/HomeMobile"; // Import the mobile version
+import CookieNotice from "@/app/components/cookie";
 
 export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -92,6 +93,7 @@ export default function HomePage() {
 
   return (
     <div style={{ background }}>
+      <CookieNotice />
       <Navbar />
       {isMobile ? <HomeMobile setBackgroundColor={setBackgroundColor} /> : <Home setBackgroundColor={setBackgroundColor} />} {/* Conditionally render based on the viewport */}
 
