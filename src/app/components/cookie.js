@@ -100,7 +100,7 @@ export default function CookieNotice() {
               </div>
               <div className="p-4 md:p-5 space-y-4 max-h-[60vh] overflow-y-auto">
                 <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                  This Cookies Policy explains how Retractability Bicycles ("we", "us", "our") uses cookies and similar technologies on our website.
+                  This Cookies Policy explains how Retractability Bicycles (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) uses cookies and similar technologies on our website.
                 </p>
                 <h4 className="text-lg font-medium text-gray-900 dark:text-white">1. What are cookies?</h4>
                 <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
