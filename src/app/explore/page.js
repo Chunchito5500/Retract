@@ -58,7 +58,7 @@ export default function ExplorePage() {
         <meta name="Explore Bikes" content="Learn more about our Bikes." />
       </Head>
       <Navbar />
-      <main className="bg-cover bg-center h-[38rem] bg-[url('/header-image.jpg')]">
+      <main className="bg-cover bg-center h-[38rem] bg-black">
         <div className="flex items-center justify-center h-full bg-gray-900 bg-opacity-40">
           <div className="text-center">
             <h1 className="text-3xl lg:text-4xl font-semibold text-white">

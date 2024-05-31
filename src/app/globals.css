@@ -106,7 +106,7 @@ body {
   --enhanced-glow-color: #5e7ce2;
   --btn-color: #60a3f8;
   border: .25em solid var(--glow-color);
-  padding: .5em 2em;
+  padding: .5em 1.5em;
   color: var(--glow-color);
   font-size: 15px;
   font-weight: bold;

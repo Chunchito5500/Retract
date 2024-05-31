@@ -89,7 +89,7 @@ export default function Explore() {
             </div>
             <div className="card" style={{ width: "100%", maxWidth: "800px", background: 'transparent', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
               <div className="card-body text-center">
-                <h1 className="text-2xl font-semibold text-gray-800 dark:text-white">
+                <h1 className="text-2xl font-semibold text-white">
                   The Quark Foldable Bike
                 </h1>
                 <p className="mt-4 text-gray-500 dark:text-gray-400">
