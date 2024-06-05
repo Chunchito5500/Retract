@@ -5,6 +5,7 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,jsx,ts,tsx}",
+    'node_modules/preline/dist/*.js',
   ],
   theme: {
     extend: {
@@ -19,5 +20,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require("daisyui"), "@tailwindcss/aspect-ratio"],
+  plugins: [
+    require("daisyui"),
+    "@tailwindcss/aspect-ratio",
+    require('preline/plugin'),
+  ],
 };
