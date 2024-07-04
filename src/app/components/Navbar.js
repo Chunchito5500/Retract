@@ -36,7 +36,7 @@ const Navbar = () => {
   const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
 
   return (
-    <div className="navbar-container border-b bg-[#083d77] border-gray-200 dark:border-gray-700">
+    <div className="navbar-container border-b bg-[#083d77] border-gray-700 dark:border-gray-700">
       <div className="navbar glass flex justify-between items-center p-4">
         {!isMobile ? (
           <div className="flex items-center">
@@ -47,12 +47,6 @@ const Navbar = () => {
               isActive={isActive("/")}
             />
             <NavLink
-              href="/explore"
-              label="Explore Bikes"
-              Icon={GrBike}
-              isActive={isActive("/explore")}
-            />
-            <NavLink
               href="/gallery"
               label="Gallery"
               Icon={HiTemplate}
@@ -60,10 +54,13 @@ const Navbar = () => {
             />
           </div>
         ) : (
-          <button onClick={toggleDrawer} className="btn drawer-button">
+          <button
+            onClick={toggleDrawer}
+            className="btn drawer-button bg-customGray hover:bg-customGrayHover p-2 rounded"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-8 w-8 text-white"  // Increased icon size
+              className="h-8 w-8 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -82,7 +79,6 @@ const Navbar = () => {
             <Image src="/retract.svg" alt="Retract" width={80} height={80} />
           </a>
         </Link>
-        {/* Shopping Cart Icon */}
         <div className="ml-auto flex items-center">
           <button className="text-white text-xl p-2">
             <FiShoppingCart size={24} />
@@ -96,11 +92,6 @@ const Navbar = () => {
             <li>
               <Link legacyBehavior href="/" passHref>
                 <a className="text-lg">Home</a>
-              </Link>
-            </li>
-            <li>
-              <Link legacyBehavior href="/explore" passHref>
-                <a className="text-lg">Explore Bikes</a>
               </Link>
             </li>
             <li>

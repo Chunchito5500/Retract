@@ -122,11 +122,11 @@ export default function Gallery() {
                   backgroundColor: "#456990",
                 }}
               >
-                <h2 className="card-title font-sans">
+                <h2 className="card-title font-sans text-white">
                   The Retractability Bicycle Wheel:
                 </h2>
-                <p className="font-sans">Reinventing the wheel. Literally! </p>
-                <p className="font-serif">
+                <p className="font-sans text-white">Reinventing the wheel. Literally! </p>
+                <p className="font-serif text-white">
                   {" "}
                   With Retractability&apos;s take on the bicycle wheel, our
                   airless tires allow users to maintain the traditional bike
@@ -179,13 +179,13 @@ export default function Gallery() {
                   backgroundColor: "#456990",
                 }}
               >
-                <h2 className="card-title font-sans">
+                <h2 className="card-title font-sans text-white">
                   The Retractability Bicycle:
                 </h2>
-                <p className="font-sans">
+                <p className="font-sans text-white">
                   Traditional Bikes, with a Compact Design
                 </p>
-                <p className="font-serif">
+                <p className="font-serif text-white">
                   {" "}
                   Retractability Bicycles offer a breath of fresh air to the
                   foldable biking industry. Our bikes are designed to be

@@ -18,6 +18,10 @@ module.exports = {
         sans: ["Trebuchet MS", "Arial", "sans-serif"],
         serif: ["Verdana", "Times New Roman", "sans-serif"],
       },
+      colors: {
+        customGray: '#444146',
+        customGrayHover: '#302e32',
+      },
     },
   },
   plugins: [

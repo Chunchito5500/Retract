@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Head from "next/head";
 import { MdPedalBike } from "react-icons/md";
+import Link from "next/link";
+
 
 export default function Explore() {
   const models = [
@@ -56,7 +58,7 @@ export default function Explore() {
 
   return (
 
-    <div style={{ background: 'linear-gradient(to bottom, #0a1e2c, #0f2430, #333138, #1A191E, #000103)' }}>
+    <div>
       <section id="middle" className="py-20">
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-center gap-10"> {/* Flex direction is row by default */}
@@ -76,14 +78,14 @@ export default function Explore() {
               <div className="flex items-center justify-center gap-10">
                 <button
                   onClick={goToPrevModel}
-                  className="text-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 p-2 border rounded-full transition-colors duration-300 dark:border-gray-700 dark:text-gray-200"
+                  className="text-gray-200 hover:bg-black p-2 border rounded-full transition-colors duration-300 dark:border-gray-700 dark:text-gray-200"
                   style={{ transform: 'scaleX(-1)' }}
                 >
                   <MdPedalBike size={24} />
                 </button>
                 <button
                   onClick={goToNextModel}
-                  className="text-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 p-2 border rounded-full transition-colors duration-300 dark:border-gray-700 dark:text-gray-200"
+                  className="text-gray-200 hover:bg-black p-2 border rounded-full transition-colors duration-300 dark:border-gray-700 dark:text-gray-200"
                 >
                   <MdPedalBike size={24} />
                 </button>
@@ -94,14 +96,22 @@ export default function Explore() {
                 <h1 className="text-2xl font-semibold text-white">
                   The Quark Foldable Bike
                 </h1>
-                <p className="mt-4 text-gray-500 dark:text-gray-400">
+                <p className="mt-4 text-gray-400 dark:text-gray-400">
                   The leap from landlines to cellphones, from desktops to laptops, and now, from the traditional bicycle to the Retractability Quark. Retractability Bicycles represents the future of biking, setting new standards and advancing the industry.
                 </p>
                 <h3 className="mt-6 text-lg font-medium text-blue-500">
                   Release Date: January 2025
                 </h3>
+                <div style={{ height: '15px' }}></div>
+                <Link legacyBehavior href="/quark" passHref>
+                  <button className="w-1/2 px-5 py-2 text-sm font-medium text-white bg-[#427aa1] rounded-md hover:bg-[#05668d] focus:bg-[#05668d] mx-auto">
+                    Learn More
+                  </button>
+                </Link>
               </div>
             </div>
+
+
           </div>
         </div>
       </section>
@@ -114,25 +124,25 @@ export default function Explore() {
             <div className="card box-compact w-96 bg-base-100 shadow-xl">
               <div
                 role="status"
-                className="flex items-center justify-center h-56 max-w-sm bg-gray-300 rounded-lg animate-slow dark:bg-gray-700"
+                className="flex items-center justify-center h-56 max-w-sm bg-gray-700 rounded-lg animate-slow dark:bg-gray-700"
               >
-                <MdPedalBike className="w-10 h-10 text-gray-200 dark:text-gray-600" />
+                <MdPedalBike className="w-10 h-10 text-gray-600 dark:text-gray-600" />
                 <span className="sr-only">Loading...</span>
               </div>
             </div>
           </div>
           <div className="lg:mx-6 mt-8 lg:w-1/2 lg:px-6">
-            <h1 className="text-2xl font-semibold text-gray-800 dark:text-white lg:text-3xl lg:w-96">
+            <h1 className="text-2xl font-semibold text-white dark:text-white lg:text-3xl lg:w-96">
               New Models Coming Soon!
             </h1>
-            <p className="max-w-lg mt-6 text-gray-500 dark:text-gray-400">
+            <p className="max-w-lg mt-6 text-gray-400 dark:text-gray-400">
               Stick around and be the first to get notified when new models come out!
             </p>
 
           </div>
         </div>
       </div>
-      <div style={{ height: '150px' }}></div>
+      <div style={{ height: '200px' }}></div>
     </div>
   );
 

@@ -1,10 +1,12 @@
+// path: ExploreMobile.js
+
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Head from "next/head";
 import { MdPedalBike } from "react-icons/md";
+import Link from "next/link";
 
-export default function Explore() {
+export default function ExploreMobile() {
   const models = [
     "Renaissance Italian Orange.glb",
     "Oceanic Blue.glb",
@@ -55,10 +57,9 @@ export default function Explore() {
   };
 
   return (
-
-    <div style={{ background: 'linear-gradient(to bottom, #0a1e2c, #0f2430, #333138, #1A191E, #000103)' }}>
-      <section id="middle" className="py-20">
-        <div className="container mx-auto px-6">
+    <div>
+      <section id="middle" className="py-10">
+        <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-center gap-4">
             <model-viewer
               src={`/${currentModel}`}
@@ -72,64 +73,64 @@ export default function Explore() {
               style={{ width: "300px", height: "200px", border: "2px solid #9bc1bc" }}
               className="transition-opacity duration-500"
             />
-            <div className="flex items-center justify-center gap-10">
+            <div className="flex items-center justify-center gap-6">
               <button
                 onClick={goToPrevModel}
-                className="text-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 p-2 border rounded-full transition-colors duration-300 dark:border-gray-700 dark:text-gray-200"
+                className="text-gray-200 hover:bg-black p-2 border rounded-full transition-colors duration-300 dark:border-gray-700 dark:text-gray-200"
                 style={{ transform: 'scaleX(-1)' }}
               >
                 <MdPedalBike size={24} />
               </button>
               <button
                 onClick={goToNextModel}
-                className="text-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 p-2 border rounded-full transition-colors duration-300 dark:border-gray-700 dark:text-gray-200"
+                className="text-gray-200 hover:bg-black p-2 border rounded-full transition-colors duration-300 dark:border-gray-700 dark:text-gray-200"
               >
                 <MdPedalBike size={24} />
               </button>
             </div>
-            <div className="card" style={{ width: "100%", maxWidth: "800px", background: 'transparent', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
+            <div className="card" style={{ width: "100%", maxWidth: "600px", background: 'transparent', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
               <div className="card-body text-center">
                 <h1 className="text-2xl font-semibold text-white">
                   The Quark Foldable Bike
                 </h1>
-                <p className="mt-4 text-gray-500 dark:text-gray-400">
+                <p className="mt-4 text-gray-400 dark:text-gray-400">
                   The leap from landlines to cellphones, from desktops to laptops, and now, from the traditional bicycle to the Retractability Quark. Retractability Bicycles represents the future of biking, setting new standards and advancing the industry.
                 </p>
                 <h3 className="mt-6 text-lg font-medium text-blue-500">
                   Release Date: January 2025
                 </h3>
+                <div style={{ height: '15px' }}></div>
+                <Link legacyBehavior href="/quark" passHref>
+                  <button className="w-1/2 px-5 py-2 text-sm font-medium text-white bg-[#427aa1] rounded-md hover:bg-[#05668d] focus:bg-[#05668d] mx-auto">
+                    Learn More
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-
-
-      <div className="container px-6 py-10 mx-auto">
-        <div className="lg:-mx-6 lg:flex lg:items-center lg:flex-row-reverse">
-          <div className="flex items-center justify-center  ">
-            <div role="status" className="flex items-center justify-center h-56 w-72 bg-gray-300 rounded-lg animate-slow dark:bg-gray-700">
-              <MdPedalBike className="w-20 h-10 text-gray-200 dark:text-gray-600" />
+      <div className="container px-4 py-10 mx-auto">
+        <div className="flex flex-col items-center">
+          <div className="flex items-center justify-center w-full">
+            <div role="status" className="flex items-center justify-center h-56 w-72 bg-gray-700 rounded-lg animate-slow dark:bg-gray-700">
+              <MdPedalBike className="w-20 h-10 text-gray-600 dark:text-gray-600" />
               <span className="sr-only">Loading...</span>
             </div>
           </div>
-
-
-
-          <div className="lg:mx-6 mt-8 lg:w-1/2 lg:px-6">
-            <h1 className="text-2xl font-semibold text-gray-800 dark:text-white lg:text-3xl">
+          <div className="mt-8 text-center">
+            <h1 className="text-2xl font-semibold text-white dark:text-white">
               New Models Coming Soon!
             </h1>
-            <p className="max-w-lg mt-6 text-gray-500 dark:text-gray-400">
+            <p className="max-w-lg mt-6 text-gray-400 dark:text-gray-400">
               Stick around and be the first to get notified when new models come out!
             </p>
-
           </div>
+          
         </div>
+        <div style={{ height: '100px' }}></div>
       </div>
-      <div style={{ height: '100px' }}></div>
     </div>
   );
-
 }

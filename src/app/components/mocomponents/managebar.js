@@ -96,7 +96,7 @@ const ManageNavbar = ({ children }) => {
                                     className="w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700"
                                     onClick={toggleDropdown}
                                 >
-                                    <img className="inline-block size-[38px] rounded-full ring-2 ring-white dark:ring-neutral-800" src="profile.jpg" alt="Image Description" />
+                                    <Image className="inline-block size-[38px] rounded-full ring-2 ring-white dark:ring-neutral-800" src="profile.jpg" alt="Image Description" />
                                 </button>
 
                                 <div className={`hs-dropdown-menu transition-[opacity,margin] duration ${isDropdownOpen ? 'hs-dropdown-open:opacity-100' : 'opacity-0'} ${isDropdownOpen ? 'block' : 'hidden'} absolute top-full right-0 mt-2 min-w-60 bg-white shadow-md rounded-lg p-2 dark:bg-neutral-900 dark:border dark:border-neutral-700`} aria-labelledby="hs-dropdown-with-header">
