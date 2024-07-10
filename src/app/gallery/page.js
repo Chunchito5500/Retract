@@ -92,7 +92,7 @@ export default function Gallery() {
             >
               <figure>
                 <model-viewer
-                  src="tire folded 1.glb"
+                  src="Models/tire folded 1.glb"
                   ar
                   ar-modes="webxr scene-viewer quick-look"
                   camera-controls
@@ -149,7 +149,7 @@ export default function Gallery() {
             >
               <figure>
                 <model-viewer
-                  src="bike unfolded 1.glb"
+                  src="Models/Blue Unfolded.glb"
                   ar
                   ar-modes="webxr scene-viewer quick-look"
                   camera-controls

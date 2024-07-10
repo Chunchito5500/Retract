@@ -6,7 +6,7 @@ import { GiCartwheel } from 'react-icons/gi';
 import { FiMap } from 'react-icons/fi';
 
 export default function HomeMobile() {
-  const [modelSrc, setModelSrc] = useState("Bike Unfolded - Midnight Blue.glb");
+  const [modelSrc, setModelSrc] = useState("Models/Blue Unfolded.glb");
   const [cameraOrbit, setCameraOrbit] = useState("-137deg 2m");
   const [activeFeature, setActiveFeature] = useState(null);
   const [opacity, setOpacity] = useState(1);

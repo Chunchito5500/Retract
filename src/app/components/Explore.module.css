@@ -1,0 +1,9 @@
+.foldedBike img {
+    transform: scale(2.5) scaleX(-1); 
+  }
+  
+  .unfoldedBike img {
+    transform: scale(1.5) scaleX(-1); 
+  }
+  
+  

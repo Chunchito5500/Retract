@@ -1,21 +1,28 @@
-// path: ExploreMobile.js
-
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
 import { MdPedalBike } from "react-icons/md";
+import { IoAlertCircleOutline } from "react-icons/io5";
 import Link from "next/link";
+import Image from "next/image";
+import styles from './Explore.module.css'; // Import the custom CSS module
 
 export default function ExploreMobile() {
   const models = [
-    "Renaissance Italian Orange.glb",
-    "Oceanic Blue.glb",
-    "Oceanic Blue Alt Seat.glb",
-    "Cool Blue with Black Seat.glb",
+    "Models/Orange Unfolded.glb",
+    "Models/Gray Unfolded.glb",
+    "Models/Purple Unfolded.glb",
+  ];
+
+  const foldedModels = [
+    "Models/Orange Folded.glb",
+    "Models/Gray Folded.glb",
+    "Models/Purple Folded.glb",
   ];
 
   const [email, setEmail] = useState("");
   const [currentModel, setCurrentModel] = useState(models[0]);
+  const [isFolded, setIsFolded] = useState(false);
   const modelViewerRef = useRef(null);
 
   useEffect(() => {
@@ -44,16 +51,21 @@ export default function ExploreMobile() {
     }
   };
 
-  const goToNextModel = () => {
-    const currentIndex = models.indexOf(currentModel);
-    const nextIndex = (currentIndex + 1) % models.length;
-    setCurrentModel(models[nextIndex]);
+  const handleModelChange = (model) => {
+    setCurrentModel(isFolded ? foldedModels[models.indexOf(model)] : model);
   };
 
-  const goToPrevModel = () => {
-    const currentIndex = models.indexOf(currentModel);
-    const prevIndex = (currentIndex - 1 + models.length) % models.length;
-    setCurrentModel(models[prevIndex]);
+  const handleSwapClick = () => {
+    setIsFolded((prevFolded) => {
+      const newFolded = !prevFolded;
+      setCurrentModel((prevModel) => {
+        const currentIndex = models.findIndex((m) =>
+          prevModel.includes(m.split("/")[1].split(" ")[0])
+        );
+        return newFolded ? foldedModels[currentIndex] : models[currentIndex];
+      });
+      return newFolded;
+    });
   };
 
   return (
@@ -61,6 +73,29 @@ export default function ExploreMobile() {
       <section id="middle" className="py-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-center gap-4">
+            <label className="swap swap-rotate relative bg-[#82a0bc] p-4 border-white cursor-pointer hover:bg-[#7790ab] border-2">
+              <input
+                type="checkbox"
+                className="absolute inset-0 opacity-0 cursor-pointer"
+                onClick={handleSwapClick}
+              />
+              <div className={`swap-on ${styles.foldedBike}`}>
+                <Image
+                  src="/foldedbike.svg"
+                  alt="Folded Bike"
+                  width={40}
+                  height={40}
+                />
+              </div>
+              <div className={`swap-off ${styles.unfoldedBike}`}>
+                <Image
+                  src="/unfoldedbike.svg"
+                  alt="Unfolded Bike"
+                  width={40}
+                  height={40}
+                />
+              </div>
+            </label>
             <model-viewer
               src={`/${currentModel}`}
               ar
@@ -70,23 +105,31 @@ export default function ExploreMobile() {
               poster="poster.webp"
               shadow-intensity="0"
               autoplay
-              style={{ width: "300px", height: "200px", border: "2px solid #9bc1bc" }}
+              style={{ width: "300px", height: "250px", border: "2px solid #9bc1bc", borderRadius: "12px" }}
               className="transition-opacity duration-500"
             />
             <div className="flex items-center justify-center gap-6">
-              <button
-                onClick={goToPrevModel}
-                className="text-gray-200 hover:bg-black p-2 border rounded-full transition-colors duration-300 dark:border-gray-700 dark:text-gray-200"
-                style={{ transform: 'scaleX(-1)' }}
-              >
-                <MdPedalBike size={24} />
-              </button>
-              <button
-                onClick={goToNextModel}
-                className="text-gray-200 hover:bg-black p-2 border rounded-full transition-colors duration-300 dark:border-gray-700 dark:text-gray-200"
-              >
-                <MdPedalBike size={24} />
-              </button>
+              <input
+                type="radio"
+                name="radio-model"
+                className="radio checked:bg-[#eb8258]"
+                checked={currentModel && currentModel.includes("Orange")}
+                onChange={() => handleModelChange(models[0])}
+              />
+              <input
+                type="radio"
+                name="radio-model"
+                className="radio checked:bg-[#8d918d]"
+                checked={currentModel && currentModel.includes("Gray")}
+                onChange={() => handleModelChange(models[1])}
+              />
+              <input
+                type="radio"
+                name="radio-model"
+                className="radio checked:bg-[#7F71BF]"
+                checked={currentModel && currentModel.includes("Purple")}
+                onChange={() => handleModelChange(models[2])}
+              />
             </div>
             <div className="card" style={{ width: "100%", maxWidth: "600px", background: 'transparent', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
               <div className="card-body text-center">
@@ -105,6 +148,12 @@ export default function ExploreMobile() {
                     Learn More
                   </button>
                 </Link>
+                <div className="flex items-start">
+                  <div className="tooltip tooltip-right" data-tip="These are 3D renders of bike models that are not yet in production but are planned for the near future.">
+                    <IoAlertCircleOutline className="text-red-200" size={32} />
+                    
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -127,7 +176,6 @@ export default function ExploreMobile() {
               Stick around and be the first to get notified when new models come out!
             </p>
           </div>
-          
         </div>
         <div style={{ height: '100px' }}></div>
       </div>
