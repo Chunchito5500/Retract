@@ -72,9 +72,9 @@ export default function Explore() {
     <div>
       <section id="middle" className="py-20">
         <div className="container mx-auto px-6">
-          <div className="flex items-center justify-center gap-10">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
             <div className="flex flex-col items-center justify-center gap-4">
-              <label className="swap swap-rotate relative bg-[#82a0bc] p-4 border-white cursor-pointer hover:bg-[#7790ab] border-2">
+              <label style={{ borderRadius: "6px" }} className="swap swap-rotate relative bg-[#82a0bc] p-4 border-white cursor-pointer hover:bg-[#8da9c2] border-2">
                 <input
                   type="checkbox"
                   className="absolute inset-0 opacity-0 cursor-pointer"
@@ -106,53 +106,70 @@ export default function Explore() {
                 poster="poster.webp"
                 shadow-intensity="0"
                 autoplay
-                style={{ width: "600px", height: "500px", border: "2px solid #9bc1bc", borderRadius: "12px" }}
+                style={{ width: "100vh", maxWidth: "800px", height: "auto", aspectRatio: "4 / 3", border: "2px solid #9bc1bc", borderRadius: "12px" }}
                 className="transition-opacity duration-500"
               />
-              <div className="flex items-center justify-center gap-10">
-                <input
-                  type="radio"
-                  name="radio-model"
-                  className="radio checked:bg-[#eb8258]"
-                  checked={currentModel && currentModel.includes("Orange")}
-                  onChange={() => handleModelChange(models[0])}
-                />
-                <input
-                  type="radio"
-                  name="radio-model"
-                  className="radio checked:bg-[#8d918d]"
-                  checked={currentModel && currentModel.includes("Gray")}
-                  onChange={() => handleModelChange(models[1])}
-                />
-                <input
-                  type="radio"
-                  name="radio-model"
-                  className="radio checked:bg-[#7F71BF]"
-                  checked={currentModel && currentModel.includes("Purple")}
-                  onChange={() => handleModelChange(models[2])}
-                />
+              <div className="flex items-center justify-center gap-4 lg:gap-10">
+                <button
+                  type="button"
+                  className={`btn p-6 rounded ${currentModel.includes("Orange") ? "bg-[#be593d]" : "bg-[#ed8d67]"} hover:bg-[#cf7755]`}
+                  style={{
+                    border: currentModel.includes("Orange") ? "3px solid #262626" : "3px solid #1F1F1F",
+                    borderRadius: currentModel.includes("Orange") ? "12px" : "8px",
+                    width: "1vw",
+                    maxWidth: "100px"
+                  }}
+                  onClick={() => handleModelChange(models[0])}
+                >
+                </button>
+                <button
+                  type="button"
+                  className={`btn p-6 rounded ${currentModel.includes("Gray") ? "bg-[#6f736f]" : "bg-[#8d918d]"} hover:bg-[#808480]`}
+                  style={{
+                    border: currentModel.includes("Gray") ? "3px solid #262626" : "3px solid #1F1F1F",
+                    borderRadius: currentModel.includes("Gray") ? "12px" : "8px",
+                    width: "1vw",
+                    maxWidth: "100px"
+                  }}
+                  onClick={() => handleModelChange(models[1])}
+                >
+                </button>
+                <button
+                  type="button"
+                  className={`btn p-6 rounded ${currentModel.includes("Purple") ? "bg-[#563a89]" : "bg-[#7f71bf]"} hover:bg-[#7367ae]`}
+                  style={{
+                    border: currentModel.includes("Purple") ? "3px solid #262626" : "3px solid #1F1F1F",
+                    borderRadius: currentModel.includes("Purple") ? "12px" : "8px",
+                    width: "1vw",
+                    maxWidth: "100px"
+                  }}
+                  onClick={() => handleModelChange(models[2])}
+                >
+                </button>
               </div>
-
             </div>
-            <div className="card" style={{ width: "800px", background: 'transparent', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
+            <div className="card w-full lg:w-1/2 bg-transparent shadow-md">
               <div className="card-body text-center">
-                <h1 className="text-2xl font-semibold text-white">
-                  The Quark Foldable Bike
+                <h1 className="text-6xl font-raleway text-white">
+                  The Retractability Pioneer
                 </h1>
-                <p className="mt-4 text-gray-400 dark:text-gray-400">
-                  The leap from landlines to cellphones, from desktops to laptops, and now, from the traditional bicycle to the Retractability Quark. Retractability Bicycles represents the future of biking, setting new standards and advancing the industry.
+                <p className="mt-5 text-2xl font-raleway font-medium text-gray-400 dark:text-gray-400">
+                  The leap from landlines to cellphones, from desktops to laptops, and now, from the traditional bicycle to the Retractability Pioneer. Retractability Bicycles represents the future of biking, setting new standards and advancing the industry.
                 </p>
-                <h3 className="mt-6 text-lg font-medium text-blue-500">
+                <h3 className="mt-6 text-lg font-raleway text-blue-500">
                   Release Date: January 2025
                 </h3>
                 <div style={{ height: '15px' }}></div>
-                <Link legacyBehavior href="/quark" passHref>
-                  <button className="w-1/2 px-5 py-2 text-sm font-medium text-white bg-[#427aa1] rounded-md hover:bg-[#05668d] focus:bg-[#05668d] mx-auto">
-                    Learn More
+                <Link href="/quark" passHref>
+                  <button className="learn-more">
+                    <span className="circle" aria-hidden="true">
+                      <span className="icon arrow"></span>
+                    </span>
+                    <span className="button-text font-raleway">Learn More</span>
                   </button>
                 </Link>
                 <div>
-                  <div className="tooltip tooltip-right" data-tip="These are 3D renders of bike models that are not yet in production but are planned for the near future." style={{ position: 'absolute', left: '10px' }}>
+                  <div className="font-raleway tooltip tooltip-right" data-tip="These are 3D renders of bike models that are not yet in production but are planned for the near future." style={{ position: 'absolute', left: '10px' }}>
                     <IoAlertCircleOutline className="text-red-200" size={32} />
                   </div>
                 </div>
@@ -176,10 +193,10 @@ export default function Explore() {
             </div>
           </div>
           <div className="lg:mx-6 mt-8 lg:w-1/2 lg:px-6">
-            <h1 className="text-2xl font-semibold text-white dark:text-white lg:text-3xl lg:w-96">
+            <h1 className="text-2xl font-raleway font-medium text-white dark:text-white lg:text-3xl lg:w-96">
               New Models Coming Soon!
             </h1>
-            <p className="max-w-lg mt-6 text-gray-400 dark:text-gray-400">
+            <p className="max-w-lg mt-6 font-raleway text-gray-400 dark:text-gray-400">
               Stick around and be the first to get notified when new models come out!
             </p>
           </div>

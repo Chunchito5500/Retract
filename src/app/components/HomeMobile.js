@@ -10,7 +10,7 @@ export default function HomeMobile() {
   const [cameraOrbit, setCameraOrbit] = useState("-137deg 2m");
   const [activeFeature, setActiveFeature] = useState(null);
   const [opacity, setOpacity] = useState(1);
-  const [title, setTitle] = useState("The Quark Bike");
+  const [title, setTitle] = useState("The Retractability Pioneer");
   const [titleColor, setTitleColor] = useState("#456990");
   const [backgroundOpacity, setBackgroundOpacity] = useState(1);
   const [cardOpacity, setCardOpacity] = useState(1);
@@ -25,27 +25,27 @@ export default function HomeMobile() {
   const featuresConfig = {
     feature1: {
       cameraOrbit: "180deg 0 0",
-      title: "The Quark Enhanced Bike",
+      title: "The Retractability Pioneer",
       cardtitle: "Innovative Design:",
-      content: "The Quark Foldable Bike reimagines cycling mobility, offering unparalleled convenience without sacrificing style or functionality.",
+      content: "The Retractability Pioneer reimagines cycling mobility, offering unparalleled convenience without sacrificing style or functionality.",
       style: { background: "linear-gradient(to bottom, #587792, #8DB1AB, #3C5862, #E6E6E6 99%)", color: "#ffffff" },
       titleColor: "#ffffff",
       icon: <IoHammer size={44} color="#ffffff" />
     },
     feature2: {
       cameraOrbit: "50deg 2m 2m",
-      title: "The Quark Foldable Bike",
+      title: "The Retractability Pioneer",
       cardtitle: "Durability Redefined:",
-      content: "Say goodbye to the fear of flat tires. The Quark's tires are crafted from a special pop-resistant material, offering peace of mind on any adventure.",
+      content: "Say goodbye to the fear of flat tires. The Pioneer's tires are crafted from a special pop-resistant material, offering peace of mind on any adventure.",
       style: { background: "linear-gradient(to bottom, #34403A, #1e6e37, #285238, #E6E6E6 99%)", color: "#ffffff" },
       titleColor: "#E48F80",
       icon: <GiCartwheel size={44} color="#ffffff" />
     },
     feature3: {
       cameraOrbit: "120deg 90deg 0",
-      title: "The Quark Adaptable Bike",
+      title: "The Retractability Pioneer",
       cardtitle: "Versatility Unmatched:",
-      content: "Engineered for every destination—work, college, parks, urban landscapes, or trails. The Quark Foldable Bike adapts to your lifestyle, ensuring you're ready for wherever life takes you.",
+      content: "Engineered for every destination—work, college, parks, urban landscapes, or trails. The Retractability Pioneer adapts to your lifestyle, ensuring you're ready for wherever life takes you.",
       style: { background: "linear-gradient(to bottom, #6F5060, #51344D, #A78682, #E6E6E6 99%)", color: "#ffffff" },
       titleColor: "#FFEDC3",
       icon: <FiMap size={44} color="#ffffff" />
@@ -120,7 +120,7 @@ export default function HomeMobile() {
     if (activeFeature === feature) {
       setActiveFeature(null);
       setCameraOrbit("-137deg 2m"); // Reset to original camera orbit
-      setTitle("The Quark Bike");
+      setTitle("The Retractability Pioneer");
       setTitleColor("#456990");
     } else {
       setOpacity(0); // Start fade-out
@@ -150,10 +150,10 @@ export default function HomeMobile() {
   return (
     <div style={layoutContainerStyle}>
       <div style={titlesAndCardContentStyle}>
-        <p className="text-base font-semibold leading-7" style={{ color: titleColor }}>
+        <p className="text-base font-raleway leading-7" style={{ color: titleColor }}>
           The new way to bike
         </p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight" style={{ color: titleColor }}>
+        <h1 className="mt-2 text-5xl font-raleway font-medium tracking-tight" style={{ color: titleColor }}>
           {title}
         </h1>
       </div>

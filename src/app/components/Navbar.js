@@ -39,7 +39,7 @@ const Navbar = () => {
     <div className="navbar-container border-b bg-[#083d77] border-gray-700 dark:border-gray-700">
       <div className="navbar glass flex justify-between items-center p-4">
         {!isMobile ? (
-          <div className="flex items-center">
+          <div className="flex items-center font-raleway font-medium">
             <NavLink
               href="/"
               label="Home"
@@ -76,7 +76,7 @@ const Navbar = () => {
         )}
         <Link legacyBehavior href="/" passHref>
           <a className="text-white text-xl font-sans absolute left-1/2 transform -translate-x-1/2">
-            <Image src="/retract.svg" alt="Retract" width={80} height={80} />
+            <Image src="/retractenhanced.svg" alt="Retract" width={80} height={80} />
           </a>
         </Link>
         <div className="ml-auto flex items-center">
@@ -91,12 +91,12 @@ const Navbar = () => {
           <ul className="menu p-4">
             <li>
               <Link legacyBehavior href="/" passHref>
-                <a className="text-lg">Home</a>
+                <a className="text-lg font-raleway">Home</a>
               </Link>
             </li>
             <li>
               <Link legacyBehavior href="/gallery" passHref>
-                <a className="text-lg">Gallery</a>
+                <a className="text-lg font-raleway">Gallery</a>
               </Link>
             </li>
           </ul>

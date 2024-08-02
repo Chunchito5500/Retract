@@ -17,6 +17,13 @@ module.exports = {
       fontFamily: {
         sans: ["Trebuchet MS", "Arial", "sans-serif"],
         serif: ["Verdana", "Times New Roman", "sans-serif"],
+        raleway: ["Raleway", "sans-serif"],
+        manrope: ["Manrope", "sans-serif"],
+        quicksand: ["Quicksand", "sans-serif"],
+        convergence: ["Convergence", "sans-serif"]
+      },
+      fontWeight: {
+        'medium': 500,
       },
       colors: {
         customGray: '#444146',

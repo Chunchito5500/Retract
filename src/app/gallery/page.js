@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
 import Script from "next/script";
 
 export default function Gallery() {
@@ -63,7 +64,7 @@ export default function Gallery() {
         <div>
           <div className="py-4 lg:py-2 px-2 mx-auto max-w-screen-md">
             <div className="pt-20 lg:pt-24 px-2 mx-auto max-w-screen-md"></div>
-            <h2 className="mb-16 text-4xl tracking-tight font-extrabold text-center text-[#f6957d]">
+            <h2 className="mb-16 text-4xl tracking-tight font-raleway text-center text-[#f6957d]">
               View our Gallery
             </h2>
           </div>
@@ -122,11 +123,11 @@ export default function Gallery() {
                   backgroundColor: "#456990",
                 }}
               >
-                <h2 className="card-title font-sans text-white">
+                <h2 className="card-title font-raleway text-white">
                   The Retractability Bicycle Wheel:
                 </h2>
-                <p className="font-sans text-white">Reinventing the wheel. Literally! </p>
-                <p className="font-serif text-white">
+                <p className="font-raleway text-white">Reinventing the wheel. Literally! </p>
+                <p className="font-raleway text-white">
                   {" "}
                   With Retractability&apos;s take on the bicycle wheel, our
                   airless tires allow users to maintain the traditional bike
@@ -162,6 +163,7 @@ export default function Gallery() {
                     width: "100%",
                     height: "500px",
                     border: "2px solid #456990",
+                    
                   }}
                 >
                   <div className="progress-bar hide" slot="progress-bar">
@@ -179,13 +181,13 @@ export default function Gallery() {
                   backgroundColor: "#456990",
                 }}
               >
-                <h2 className="card-title font-sans text-white">
+                <h2 className="card-title font-raleway text-white">
                   The Retractability Bicycle:
                 </h2>
-                <p className="font-sans text-white">
+                <p className="font-raleway text-white">
                   Traditional Bikes, with a Compact Design
                 </p>
-                <p className="font-serif text-white">
+                <p className="font-raleway text-white">
                   {" "}
                   Retractability Bicycles offer a breath of fresh air to the
                   foldable biking industry. Our bikes are designed to be
@@ -196,8 +198,8 @@ export default function Gallery() {
             </div>
           </div>
         </div>
-
         <div style={{ height: "150px" }}></div>
+        <Footer />
       </div>
     </div>
   );

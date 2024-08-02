@@ -5,6 +5,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Head from "next/head";
 import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
 import Explore from "@/app/components/Explore";
 import ExploreMobile from "@/app/components/ExploreMobile";
 import { MdPedalBike } from "react-icons/md";
@@ -86,20 +87,23 @@ export default function ExplorePage() {
         <meta name="Explore Bikes" content="Learn more about our Bikes." />
       </Head>
       <Navbar />
-      <main className="bg-cover bg-center h-[38rem] bg-black">
-        <div className="flex items-center justify-center h-full bg-gray-900 bg-opacity-40">
+      <main
+        className="relative bg-cover bg-center h-[38rem] bg-black"
+        style={{ backgroundImage: `url('/RetractGrayBike.png')`, }}
+      >
+        <div className="absolute inset-0 bg-black opacity-80"></div>
+        <div className="relative flex items-center justify-center h-full">
           <div className="text-center">
-            <h1 className="text-3xl lg:text-4xl font-semibold text-white">
+            <h1 className="text-3xl lg:text-4xl font-raleway font-medium text-white">
               The future of <span className="text-blue-400">Biking</span>
             </h1>
             <button
-              className="glow-button mt-4 lg:w-auto"
+              className="font-raleway glow-button mt-4 lg:w-auto"
               onClick={() => document.getElementById("middle").scrollIntoView({ behavior: "smooth" })}
             >
               Explore Models
             </button>
           </div>
-
         </div>
       </main>
       <div style={{ background: 'linear-gradient(to bottom, #0a1e2c, #0f2430, #333138, #1A191E, #000103)' }}>
@@ -108,7 +112,7 @@ export default function ExplorePage() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="grid gap-x-8 gap-y-16 justify-center">
               <div className="max-w-xl lg:max-w-lg text-center">
-                <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-blue-400">
+                <h2 className="mb-4 text-4xl tracking-tight font-raleway font-medium text-center text-blue-400">
                   Sign up to join our interest list and see our progress!
                 </h2>
                 <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-y-4 max-w-md mx-auto">
@@ -118,15 +122,15 @@ export default function ExplorePage() {
                     type="email"
                     autoComplete="email"
                     required
-                    className="w-full rounded-md bg-[#D9E7F0] px-3.5 py-2 text-black shadow-sm ring-1 ring-[#456990] focus:ring-2 focus:ring-indigo-500 sm:text-sm"
+                    className="w-full rounded-md bg-[#D9E7F0] px-3.5 py-2 text-black font-raleway shadow-sm ring-1 ring-[#456990] focus:ring-2 focus:ring-indigo-500 sm:text-sm"
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <button
                     type="submit"
-                    className="w-full px-5 py-2 text-sm font-medium text-white bg-blue-400 rounded-md hover:bg-blue-500 focus:bg-blue-500"
-                  >
+                    className="w-full px-4 py-2 text-bold gap-x-2 font-raleway text-white bg-blue-400 rounded-full border border-transparent hover:bg-blue-500 focus:bg-blue-500"
+                  > 
                     Subscribe
                   </button>
                 </form>
@@ -144,14 +148,15 @@ export default function ExplorePage() {
               </dialog>
             )}
           </div>
-          <h2 className="lg:py-8 text-3xl tracking-tight font-extrabold text-center text-[#3CC8FF]">
+          <div style={{ height: '50px' }}></div>
+          <h2 className="lg:py-8 text-3xl tracking-tight font-raleway font-medium text-center text-[#3CC8FF]">
             OR
           </h2>
           <div className="py-4 lg:py-3 px-4 mx-auto max-w-screen-md">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-blue-400">
+            <h2 className="mb-4 text-4xl tracking-tight font-raleway font-medium text-center text-blue-400">
               Contact Us
             </h2>
-            <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
+            <p className="mb-8 lg:mb-16 font-raleway font-medium text-center font-raleway text-gray-500 dark:text-gray-400 sm:text-xl">
               Want to know more? Have a question? Need details about our
               business plan? Let us know at{" "}
               <font color="#3CC8FF">retractabilitybicycles@gmail.com</font>
@@ -159,8 +164,8 @@ export default function ExplorePage() {
           </div>
         </div>
         <div style={{ height: '90px' }}></div>
+        <Footer />
       </div>
-      
     </div>
   );
 }
