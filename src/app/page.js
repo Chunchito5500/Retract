@@ -91,7 +91,7 @@ export default function ExplorePage() {
         className="relative bg-cover bg-center h-[38rem] bg-black"
         style={{ backgroundImage: `url('/RetractGrayBike.png')`, }}
       >
-        <div className="absolute inset-0 bg-black opacity-80"></div>
+        <div className="absolute inset-0 bg-black opacity-70"></div>
         <div className="relative flex items-center justify-center h-full">
           <div className="text-center">
             <h1 className="text-3xl lg:text-4xl font-raleway font-medium text-white">
