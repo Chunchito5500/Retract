@@ -179,13 +179,15 @@ export default function ExploreMobile() {
               <span className="sr-only">Loading...</span>
             </div>
           </div>
-          <div className="mt-8 text-center">
+          <div className="card w-full bg-transparent shadow-md lg:mx-6 mt-8 text-center">
+          <div className="card-body">
             <h1 className="text-2xl font-raleway font-medium text-white dark:text-white lg:text-3xl lg:w-96">
               New Models Coming Soon!
             </h1>
             <p className="max-w-lg mt-6 font-raleway text-gray-400 dark:text-gray-400">
               Stick around and be the first to get notified when new models come out!
             </p>
+          </div>
           </div>
         </div>
         <div style={{ height: '100px' }}></div>
