@@ -113,8 +113,8 @@ export default function ExploreMobile() {
                 type="button"
                 className={`btn p-5 rounded ${currentModel.includes("Orange") ? "bg-[#be593d]" : "bg-[#ed8d67]"} hover:bg-[#cf7755]`}
                 style={{
-                  border: currentModel.includes("Orange") ? "3px solid #262626" : "3px solid #1F1F1F",
-                  borderRadius: currentModel.includes("Orange") ? "15px" : "6px"
+                  border: currentModel.includes("Orange") ? "3px solid #1F1F1F" : "3px solid #1F1F1F",
+                  borderRadius: currentModel.includes("Orange") ? "20px" : "8px"
                 }}
                 onClick={() => handleModelChange(models[0])}
               >
@@ -123,8 +123,8 @@ export default function ExploreMobile() {
                 type="button"
                 className={`btn p-5 rounded ${currentModel.includes("Gray") ? "bg-[#6f736f]" : "bg-[#8d918d]"} hover:bg-[#808480]`}
                 style={{
-                  border: currentModel.includes("Gray") ? "3px solid #262626" : "3px solid #1F1F1F",
-                  borderRadius: currentModel.includes("Gray") ? "15px" : "6px"
+                  border: currentModel.includes("Gray") ? "3px solid #1F1F1F" : "3px solid #1F1F1F",
+                  borderRadius: currentModel.includes("Gray") ? "20px" : "8px"
                 }}
                 onClick={() => handleModelChange(models[1])}
               >
@@ -133,8 +133,8 @@ export default function ExploreMobile() {
                 type="button"
                 className={`btn p-5 rounded ${currentModel.includes("Purple") ? "bg-[#563a89]" : "bg-[#7f71bf]"} hover:bg-[#7367ae]`}
                 style={{
-                  border: currentModel.includes("Purple") ? "3px solid #262626" : "3px solid #1F1F1F",
-                  borderRadius: currentModel.includes("Purple") ? "15px" : "6px"
+                  border: currentModel.includes("Purple") ? "3px solid #1F1F1F" : "3px solid #1F1F1F",
+                  borderRadius: currentModel.includes("Purple") ? "20px" : "8px"
                 }}
                 onClick={() => handleModelChange(models[2])}
               >

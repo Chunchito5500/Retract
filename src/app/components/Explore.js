@@ -114,8 +114,8 @@ export default function Explore() {
                   type="button"
                   className={`btn p-6 rounded ${currentModel.includes("Orange") ? "bg-[#be593d]" : "bg-[#ed8d67]"} hover:bg-[#cf7755]`}
                   style={{
-                    border: currentModel.includes("Orange") ? "3px solid #262626" : "3px solid #1F1F1F",
-                    borderRadius: currentModel.includes("Orange") ? "12px" : "8px",
+                    border: currentModel.includes("Orange") ? "3px solid #1F1F1F" : "3px solid #1F1F1F",
+                    borderRadius: currentModel.includes("Orange") ? "20px" : "8px",
                     width: "1vw",
                     maxWidth: "100px"
                   }}
@@ -126,8 +126,8 @@ export default function Explore() {
                   type="button"
                   className={`btn p-6 rounded ${currentModel.includes("Gray") ? "bg-[#6f736f]" : "bg-[#8d918d]"} hover:bg-[#808480]`}
                   style={{
-                    border: currentModel.includes("Gray") ? "3px solid #262626" : "3px solid #1F1F1F",
-                    borderRadius: currentModel.includes("Gray") ? "12px" : "8px",
+                    border: currentModel.includes("Gray") ? "3px solid #1F1F1F" : "3px solid #1F1F1F",
+                    borderRadius: currentModel.includes("Gray") ? "20px" : "8px",
                     width: "1vw",
                     maxWidth: "100px"
                   }}
@@ -138,8 +138,8 @@ export default function Explore() {
                   type="button"
                   className={`btn p-6 rounded ${currentModel.includes("Purple") ? "bg-[#563a89]" : "bg-[#7f71bf]"} hover:bg-[#7367ae]`}
                   style={{
-                    border: currentModel.includes("Purple") ? "3px solid #262626" : "3px solid #1F1F1F",
-                    borderRadius: currentModel.includes("Purple") ? "12px" : "8px",
+                    border: currentModel.includes("Purple") ? "3px solid #1F1F1F" : "3px solid #1F1F1F",
+                    borderRadius: currentModel.includes("Purple") ? "20px" : "8px",
                     width: "1vw",
                     maxWidth: "100px"
                   }}

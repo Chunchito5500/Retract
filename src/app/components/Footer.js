@@ -58,7 +58,7 @@ const Footer = () => {
             © 2024 <a href="https://flowbite.com" className="hover:underline font-raleway font-medium">Retractability™</a>. All Rights Reserved.
           </span> */}
           <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-            <a href="https://instagram.com/retractability" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+            <a href="https://instagram.com/retractability_bikes" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
               <FaInstagram className="w-5 h-5" />
             </a>
             <a href="https://www.youtube.com/@Retractability" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
