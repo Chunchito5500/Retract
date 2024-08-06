@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { MdPedalBike } from "react-icons/md";
@@ -52,11 +50,16 @@ export default function Explore() {
       animationTimeout = setTimeout(startAnimation, 60000); // Restart animation after 60 seconds
     };
 
-    document.querySelector("label.swap").addEventListener("click", resetAnimationTimeout);
+    const swapElement = document.querySelector("label.swap");
+    if (swapElement) {
+      swapElement.addEventListener("click", resetAnimationTimeout);
+    }
 
     return () => {
       clearTimeout(animationTimeout);
-      document.querySelector("label.swap").removeEventListener("click", resetAnimationTimeout);
+      if (swapElement) {
+        swapElement.removeEventListener("click", resetAnimationTimeout);
+      }
     };
   }, []);
 
