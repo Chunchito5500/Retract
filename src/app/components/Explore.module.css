@@ -1,9 +1,58 @@
+/* Explore.module.css */
 .foldedBike img {
-    transform: scale(2.5) scaleX(-1); 
+  transform: scale(2.5) scaleX(-1);
+}
+
+.unfoldedBike img {
+  transform: scale(1.5) scaleX(-1);
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.arrow-left {
+  left: -80px;
+  transform: translateY(-50%) rotate(-45deg); /* Point right */
+}
+
+.arrow-right {
+  right: -80px;
+  transform: translateY(-50%) rotate(135deg); /* Point left */
+}
+
+.arrow span {
+  display: block;
+  width: 1.5vw;
+  height: 1.5vw;
+  border-bottom: 5px solid white;
+  border-right: 5px solid white;
+  margin: -10px;
+  animation: animate 2s infinite;
+  animation-play-state: paused;
+}
+
+.arrow span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+  animation-delay: -0.4s;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: translate(-20px, -20px);
   }
-  
-  .unfoldedBike img {
-    transform: scale(1.5) scaleX(-1); 
+  50% {
+    opacity: 1;
   }
-  
-  
+  100% {
+    opacity: 0;
+    transform: translate(20px, 20px);
+  }
+}

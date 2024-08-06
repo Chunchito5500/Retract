@@ -31,6 +31,35 @@ export default function Explore() {
     }
   }, []);
 
+  useEffect(() => {
+    const arrowElements = document.querySelectorAll(`.${styles.arrow} span`);
+    const startAnimation = () => {
+      arrowElements.forEach(span => {
+        span.style.animationPlayState = "running";
+      });
+    };
+    const stopAnimation = () => {
+      arrowElements.forEach(span => {
+        span.style.animationPlayState = "paused";
+      });
+    };
+
+    let animationTimeout = setTimeout(startAnimation, 2000); // Start animation after 2 seconds on page load
+
+    const resetAnimationTimeout = () => {
+      clearTimeout(animationTimeout);
+      stopAnimation();
+      animationTimeout = setTimeout(startAnimation, 60000); // Restart animation after 60 seconds
+    };
+
+    document.querySelector("label.swap").addEventListener("click", resetAnimationTimeout);
+
+    return () => {
+      clearTimeout(animationTimeout);
+      document.querySelector("label.swap").removeEventListener("click", resetAnimationTimeout);
+    };
+  }, []);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -74,35 +103,45 @@ export default function Explore() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
             <div className="flex flex-col items-center justify-center gap-4">
-              <label style={{
-                border: "3px solid #D0D0D0",
-                borderRadius: "6px"
-              }}
-                className="swap swap-rotate relative bg-[#82a0bc] p-4 border-[white] cursor-pointer hover:bg-[#8da9c2] border-2">
-                <input
-                  type="checkbox"
-                  className="absolute inset-0 opacity-0 cursor-pointer"
-                  onClick={handleSwapClick}
-                />
-                <div className={`swap-on ${styles.foldedBike}`}>
-                  <Image
-                    src="/foldedbike.svg"
-                    alt="Folded Bike"
-                    width={40}
-                    height={40}
-                  />
+              <div className="flex items-center relative">
+                <div className={`${styles.arrow} ${styles['arrow-left']}`}>
+                  <span></span>
                 </div>
-                <div className={`swap-off ${styles.unfoldedBike}`}>
-                  <Image
-                    src="/unfoldedbike.svg"
-                    alt="Unfolded Bike"
-                    width={40}
-                    height={40}
+                <label
+                  style={{
+                    border: "3px solid #D0D0D0",
+                    borderRadius: "6px",
+                  }}
+                  className="swap swap-rotate relative bg-[#82a0bc] p-4 border-[white] cursor-pointer hover:bg-[#8da9c2] border-2"
+                >
+                  <input
+                    type="checkbox"
+                    className="absolute inset-0 opacity-0 cursor-pointer"
+                    onClick={handleSwapClick}
                   />
+                  <div className={`swap-on ${styles.foldedBike}`}>
+                    <Image
+                      src="/foldedbike.svg"
+                      alt="Folded Bike"
+                      width={40}
+                      height={40}
+                    />
+                  </div>
+                  <div className={`swap-off ${styles.unfoldedBike}`}>
+                    <Image
+                      src="/unfoldedbike.svg"
+                      alt="Unfolded Bike"
+                      width={40}
+                      height={40}
+                    />
+                  </div>
+                </label>
+                <div className={`${styles.arrow} ${styles['arrow-right']}`}>
+                  <span></span>
                 </div>
-              </label>
+              </div>
               <model-viewer
-                src={`/${currentModel}`}
+                src={currentModel}
                 ar
                 ar-modes="webxr scene-viewer quick-look"
                 camera-controls
@@ -110,46 +149,74 @@ export default function Explore() {
                 poster="poster.webp"
                 shadow-intensity="0"
                 autoplay
-                style={{ width: "100vh", maxWidth: "800px", height: "auto", aspectRatio: "4 / 3", border: "2px solid #A0A0A0", borderRadius: "12px" }}
+                style={{
+                  width: "100vh",
+                  maxWidth: "800px",
+                  height: "auto",
+                  aspectRatio: "4 / 3",
+                  border: "2px solid #A0A0A0",
+                  borderRadius: "12px",
+                }}
                 className="transition-opacity duration-500"
               />
               <div className="flex items-center justify-center gap-4 lg:gap-10">
                 <button
                   type="button"
-                  className={`btn p-6 rounded ${currentModel.includes("Orange") ? "bg-[#be593d]" : "bg-[#ed8d67]"} hover:bg-[#cf7755]`}
+                  className={`btn p-6 rounded ${
+                    currentModel.includes("Orange")
+                      ? "bg-[#be593d]"
+                      : "bg-[#ed8d67]"
+                  } hover:bg-[#cf7755]`}
                   style={{
-                    border: currentModel.includes("Orange") ? "3px solid #1F1F1F" : "3px solid #1F1F1F",
-                    borderRadius: currentModel.includes("Orange") ? "20px" : "8px",
+                    border: currentModel.includes("Orange")
+                      ? "3px solid #1F1F1F"
+                      : "3px solid #1F1F1F",
+                    borderRadius: currentModel.includes("Orange")
+                      ? "20px"
+                      : "8px",
                     width: "1vw",
-                    maxWidth: "100px"
+                    maxWidth: "100px",
                   }}
                   onClick={() => handleModelChange(models[0])}
-                >
-                </button>
+                ></button>
                 <button
                   type="button"
-                  className={`btn p-6 rounded ${currentModel.includes("Gray") ? "bg-[#6f736f]" : "bg-[#8d918d]"} hover:bg-[#808480]`}
+                  className={`btn p-6 rounded ${
+                    currentModel.includes("Gray")
+                      ? "bg-[#6f736f]"
+                      : "bg-[#8d918d]"
+                  } hover:bg-[#808480]`}
                   style={{
-                    border: currentModel.includes("Gray") ? "3px solid #1F1F1F" : "3px solid #1F1F1F",
-                    borderRadius: currentModel.includes("Gray") ? "20px" : "8px",
+                    border: currentModel.includes("Gray")
+                      ? "3px solid #1F1F1F"
+                      : "3px solid #1F1F1F",
+                    borderRadius: currentModel.includes("Gray")
+                      ? "20px"
+                      : "8px",
                     width: "1vw",
-                    maxWidth: "100px"
+                    maxWidth: "100px",
                   }}
                   onClick={() => handleModelChange(models[1])}
-                >
-                </button>
+                ></button>
                 <button
                   type="button"
-                  className={`btn p-6 rounded ${currentModel.includes("Purple") ? "bg-[#563a89]" : "bg-[#7f71bf]"} hover:bg-[#7367ae]`}
+                  className={`btn p-6 rounded ${
+                    currentModel.includes("Purple")
+                      ? "bg-[#563a89]"
+                      : "bg-[#7f71bf]"
+                  } hover:bg-[#7367ae]`}
                   style={{
-                    border: currentModel.includes("Purple") ? "3px solid #1F1F1F" : "3px solid #1F1F1F",
-                    borderRadius: currentModel.includes("Purple") ? "20px" : "8px",
+                    border: currentModel.includes("Purple")
+                      ? "3px solid #1F1F1F"
+                      : "3px solid #1F1F1F",
+                    borderRadius: currentModel.includes("Purple")
+                      ? "20px"
+                      : "8px",
                     width: "1vw",
-                    maxWidth: "100px"
+                    maxWidth: "100px",
                   }}
                   onClick={() => handleModelChange(models[2])}
-                >
-                </button>
+                ></button>
               </div>
             </div>
             <div className="card w-full lg:w-1/2 bg-transparent shadow-md">
@@ -161,21 +228,33 @@ export default function Explore() {
                   <i>Pioneering the Future of Foldable Bikes</i>
                 </p>
                 <p className="mt-5 text-2xl font-raleway font-medium text-gray-400 dark:text-gray-400">
-                  Our innovative design blends the convenience of folding with the excellence of a traditional bike. Unlike other foldable bikes, the Retractability Pioneer offers unparalleled portability without compromising on ride quality, stability, or size. Discover the next generation of bicycles, setting new standards and advancing the industry.                </p>
+                  Our innovative design blends the convenience of folding with
+                  the excellence of a traditional bike. Unlike other foldable
+                  bikes, the Retractability Pioneer offers unparalleled
+                  portability without compromising on ride quality, stability,
+                  or size. Discover the next generation of bicycles, setting new
+                  standards and advancing the industry.{" "}
+                </p>
                 <h3 className="mt-6 text-lg font-raleway text-blue-500">
                   Release Date: January 2025
                 </h3>
-                <div style={{ height: '15px' }}></div>
+                <div style={{ height: "15px" }}></div>
                 <Link href="/quark" passHref>
                   <button className="learn-more">
                     <span className="circle" aria-hidden="true">
                       <span className="icon arrow"></span>
                     </span>
-                    <span className="button-text font-raleway">Learn More</span>
+                    <span className="button-text font-raleway">
+                      Learn More
+                    </span>
                   </button>
                 </Link>
                 <div>
-                  <div className="font-raleway tooltip tooltip-right" data-tip="These are 3D renders of bike models that are not yet in production but are planned for the near future." style={{ position: 'absolute', left: '10px' }}>
+                  <div
+                    className="font-raleway tooltip tooltip-right"
+                    data-tip="These are 3D renders of bike models that are not yet in production but are planned for the near future."
+                    style={{ position: "absolute", left: "10px" }}
+                  >
                     <IoAlertCircleOutline className="text-red-200" size={32} />
                   </div>
                 </div>
@@ -186,11 +265,8 @@ export default function Explore() {
       </section>
 
       <div className="container px-6 py-10 mx-auto">
-
         <div className="lg:-mx-6 lg:flex lg:items-center lg:flex-row-reverse">
-
           <div className="flex items-center justify-between px-36 mt-12 lg:mt-0 lg:w-1/2">
-
             <div className="card box-compact w-96 bg-base-100 shadow-xl">
               <div
                 role="status"
@@ -208,13 +284,14 @@ export default function Explore() {
                 New Models Coming Soon!
               </h1>
               <p className="max-w-lg mt-5 font-raleway text-gray-400 dark:text-gray-400">
-                Stick around and be the first to get notified when new models come out!
+                Stick around and be the first to get notified when new models
+                come out!
               </p>
             </div>
           </div>
         </div>
       </div>
-      <div style={{ height: '200px' }}></div>
+      <div style={{ height: "200px" }}></div>
     </div>
   );
 }

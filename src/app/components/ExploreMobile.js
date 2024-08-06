@@ -31,6 +31,36 @@ export default function ExploreMobile() {
     }
   }, []);
 
+  useEffect(() => {
+    const arrowElements = document.querySelectorAll(`.${styles.arrow} span`);
+    const startAnimation = () => {
+      arrowElements.forEach(span => {
+        span.style.animationPlayState = "running";
+      });
+    };
+    const stopAnimation = () => {
+      arrowElements.forEach(span => {
+        span.style.animationPlayState = "paused";
+      });
+    };
+
+    let animationTimeout = setTimeout(startAnimation, 2000); // Start animation after 2 seconds on page load
+
+    const resetAnimationTimeout = () => {
+      clearTimeout(animationTimeout);
+      stopAnimation();
+      animationTimeout = setTimeout(startAnimation, 60000); // Restart animation after 60 seconds
+    };
+
+    document.querySelector("label.swap").addEventListener("click", resetAnimationTimeout);
+
+    return () => {
+      clearTimeout(animationTimeout);
+      document.querySelector("label.swap").removeEventListener("click", resetAnimationTimeout);
+    };
+  }, []);
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -73,29 +103,43 @@ export default function ExploreMobile() {
       <section id="middle" className="py-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-center gap-4">
-            <label style={{ borderRadius: "6px" }} className="swap swap-rotate relative bg-[#82a0bc] p-4 border-white cursor-pointer hover:bg-[#7790ab] border-2">
-              <input
-                type="checkbox"
-                className="absolute inset-0 opacity-0 cursor-pointer"
-                onClick={handleSwapClick}
-              />
-              <div className={`swap-on ${styles.foldedBike}`}>
-                <Image
-                  src="/foldedbike.svg"
-                  alt="Folded Bike"
-                  width={40}
-                  height={40}
-                />
+          <div className="flex items-center relative">
+                <div className={`${styles.arrow} ${styles['arrow-left']}`}>
+                  <span></span>
+                </div>
+                <label
+                  style={{
+                    border: "3px solid #D0D0D0",
+                    borderRadius: "6px",
+                  }}
+                  className="swap swap-rotate relative bg-[#82a0bc] p-4 border-[white] cursor-pointer hover:bg-[#8da9c2] border-2"
+                >
+                  <input
+                    type="checkbox"
+                    className="absolute inset-0 opacity-0 cursor-pointer"
+                    onClick={handleSwapClick}
+                  />
+                  <div className={`swap-on ${styles.foldedBike}`}>
+                    <Image
+                      src="/foldedbike.svg"
+                      alt="Folded Bike"
+                      width={40}
+                      height={40}
+                    />
+                  </div>
+                  <div className={`swap-off ${styles.unfoldedBike}`}>
+                    <Image
+                      src="/unfoldedbike.svg"
+                      alt="Unfolded Bike"
+                      width={40}
+                      height={40}
+                    />
+                  </div>
+                </label>
+                <div className={`${styles.arrow} ${styles['arrow-right']}`}>
+                  <span></span>
+                </div>
               </div>
-              <div className={`swap-off ${styles.unfoldedBike}`}>
-                <Image
-                  src="/unfoldedbike.svg"
-                  alt="Unfolded Bike"
-                  width={40}
-                  height={40}
-                />
-              </div>
-            </label>
             <model-viewer
               src={`/${currentModel}`}
               ar
