@@ -192,7 +192,7 @@ export default function ExploreMobile() {
                 <p className="mt-3 text-2xl font-raleway text-[#A0A0A0]">
                   <i>Pioneering the Future of Foldable Bikes</i>
                 </p>
-                <p className="mt-4 font-raleway font-medium text-gray-400 dark:text-gray-400">
+                <p className="mt-4 font-raleway font-raleway text-gray-400 dark:text-gray-400">
                 Our innovative design blends the convenience of folding with the excellence of a traditional bike. Unlike other foldable bikes, the Retractability Pioneer offers unparalleled portability without compromising on ride quality, stability, or size. Discover the next generation of bicycles, setting new standards and advancing the industry.                </p>
                 <h3 className="mt-6 text-lg font-raleway text-blue-500">
                   Release Date: January 2025
@@ -203,7 +203,7 @@ export default function ExploreMobile() {
                     <span className="circle" aria-hidden="true">
                       <span className="icon arrow"></span>
                     </span>
-                    <span className="button-text">Learn More</span>
+                    <span className="button-text font-raleway">Learn More</span>
                   </button>
                 </Link>
                 <div>
