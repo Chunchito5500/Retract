@@ -74,7 +74,11 @@ export default function Explore() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
             <div className="flex flex-col items-center justify-center gap-4">
-              <label style={{ borderRadius: "6px" }} className="swap swap-rotate relative bg-[#82a0bc] p-4 border-white cursor-pointer hover:bg-[#8da9c2] border-2">
+              <label style={{
+                border: "3px solid #D0D0D0",
+                borderRadius: "6px"
+              }}
+                className="swap swap-rotate relative bg-[#82a0bc] p-4 border-[white] cursor-pointer hover:bg-[#8da9c2] border-2">
                 <input
                   type="checkbox"
                   className="absolute inset-0 opacity-0 cursor-pointer"
@@ -106,7 +110,7 @@ export default function Explore() {
                 poster="poster.webp"
                 shadow-intensity="0"
                 autoplay
-                style={{ width: "100vh", maxWidth: "800px", height: "auto", aspectRatio: "4 / 3", border: "2px solid #9bc1bc", borderRadius: "12px" }}
+                style={{ width: "100vh", maxWidth: "800px", height: "auto", aspectRatio: "4 / 3", border: "2px solid #A0A0A0", borderRadius: "12px" }}
                 className="transition-opacity duration-500"
               />
               <div className="flex items-center justify-center gap-4 lg:gap-10">
@@ -153,9 +157,11 @@ export default function Explore() {
                 <h1 className="text-6xl font-raleway text-white">
                   The Retractability Pioneer
                 </h1>
-                <p className="mt-5 text-2xl font-raleway font-medium text-gray-400 dark:text-gray-400">
-                  The leap from landlines to cellphones, from desktops to laptops, and now, from the traditional bicycle to the Retractability Pioneer. Retractability Bicycles represents the future of biking, setting new standards and advancing the industry.
+                <p className="mt-3 text-3xl font-raleway text-[#A0A0A0]">
+                  <i>Pioneering the Future of Foldable Bikes</i>
                 </p>
+                <p className="mt-5 text-2xl font-raleway font-medium text-gray-400 dark:text-gray-400">
+                  Our innovative design blends the convenience of folding with the excellence of a traditional bike. Unlike other foldable bikes, the Retractability Pioneer offers unparalleled portability without compromising on ride quality, stability, or size. Discover the next generation of bicycles, setting new standards and advancing the industry.                </p>
                 <h3 className="mt-6 text-lg font-raleway text-blue-500">
                   Release Date: January 2025
                 </h3>
@@ -180,11 +186,11 @@ export default function Explore() {
       </section>
 
       <div className="container px-6 py-10 mx-auto">
-        
+
         <div className="lg:-mx-6 lg:flex lg:items-center lg:flex-row-reverse">
-          
+
           <div className="flex items-center justify-between px-36 mt-12 lg:mt-0 lg:w-1/2">
-          
+
             <div className="card box-compact w-96 bg-base-100 shadow-xl">
               <div
                 role="status"
@@ -197,13 +203,13 @@ export default function Explore() {
           </div>
 
           <div className="card w-full bg-transparent shadow-md lg:mx-6 ">
-          <div className="card-body">
-            <h1 className="text-center text-2xl font-raleway font-medium text-white dark:text-white lg:text-3xl lg:w-96">
-              New Models Coming Soon!
-            </h1>
-            <p className="max-w-lg mt-5 font-raleway text-gray-400 dark:text-gray-400">
-              Stick around and be the first to get notified when new models come out!
-            </p>
+            <div className="card-body">
+              <h1 className="text-center text-2xl font-raleway font-medium text-white dark:text-white lg:text-3xl lg:w-96">
+                New Models Coming Soon!
+              </h1>
+              <p className="max-w-lg mt-5 font-raleway text-gray-400 dark:text-gray-400">
+                Stick around and be the first to get notified when new models come out!
+              </p>
             </div>
           </div>
         </div>

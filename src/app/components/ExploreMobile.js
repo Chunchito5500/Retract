@@ -105,7 +105,7 @@ export default function ExploreMobile() {
               poster="poster.webp"
               shadow-intensity="0"
               autoplay
-              style={{ width: "300px", height: "250px", border: "2px solid #9bc1bc", borderRadius: "12px" }}
+              style={{ width: "300px", height: "250px", border: "2px solid #A0A0A0", borderRadius: "12px" }}
               className="transition-opacity duration-500"
             />
             <div className="flex items-center justify-center gap-6">
@@ -145,9 +145,11 @@ export default function ExploreMobile() {
                 <h1 className="text-3xl font-raleway text-white">
                 The Retractability Pioneer
                 </h1>
-                <p className="mt-4 font-raleway font-medium text-gray-400 dark:text-gray-400">
-                  The leap from landlines to cellphones, from desktops to laptops, and now, from the traditional bicycle to the Retractability Pioneer. Retractability Bicycles represents the future of biking, setting new standards and advancing the industry.
+                <p className="mt-3 text-2xl font-raleway text-[#A0A0A0]">
+                  <i>Pioneering the Future of Foldable Bikes</i>
                 </p>
+                <p className="mt-4 font-raleway font-medium text-gray-400 dark:text-gray-400">
+                Our innovative design blends the convenience of folding with the excellence of a traditional bike. Unlike other foldable bikes, the Retractability Pioneer offers unparalleled portability without compromising on ride quality, stability, or size. Discover the next generation of bicycles, setting new standards and advancing the industry.                </p>
                 <h3 className="mt-6 text-lg font-raleway text-blue-500">
                   Release Date: January 2025
                 </h3>
