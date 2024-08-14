@@ -17,7 +17,7 @@ const Footer = () => {
             </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-            {/* <div>
+            <div>
               <h2 className="mb-6 text-sm font-raleway font-medium text-gray-300 uppercase dark:text-white">About</h2>
               <ul className="text-gray-400 dark:text-gray-400">
                 <li className="mb-4 font-raleway">
@@ -27,7 +27,7 @@ const Footer = () => {
                   <a href="https://tailwindcss.com/" className="hover:underline"></a>
                 </li>
               </ul>
-            </div> */}
+            </div>
             {/* <div>
               <h2 className="mb-6 text-sm font-raleway text-gray-300 uppercase dark:text-white">Projects</h2>
               <ul className="text-gray-400 dark:text-gray-400">

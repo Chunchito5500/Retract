@@ -108,7 +108,9 @@ export default function ExplorePage() {
       </main>
       <div style={{ background: 'linear-gradient(to bottom, #0a1e2c, #0f2430, #333138, #1A191E, #000103)' }}>
         {isMobile ? <ExploreMobile /> : <Explore />}
-        <div>
+        <section id="inputsection">
+          <div>
+          
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="grid gap-x-8 gap-y-16 justify-center">
               <div className="max-w-xl lg:max-w-lg text-center">
@@ -163,6 +165,7 @@ export default function ExplorePage() {
             </p>
           </div>
         </div>
+        </section>
         <div style={{ height: '90px' }}></div>
         <Footer />
       </div>
