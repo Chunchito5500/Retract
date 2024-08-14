@@ -284,7 +284,7 @@ export default function AboutUs() {
                 </h2>
                 <a
                   href="/#inputsection"
-                  className="mt-5 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-gray-300 bg-white hover:bg-[#CBCBCB] hover:border-[#CBCBCB] text-gray-800 hover:text-white shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
+                  className="mt-5 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-gray-300 bg-white hover:bg-[#94918e] hover:border-[#94918e] text-gray-800 hover:text-white shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
                 >
                   Join our Interest List
                   <svg
