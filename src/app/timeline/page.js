@@ -1,135 +1,115 @@
 "use client";
 
-import Image from "next/image";
+import { motion } from "framer-motion";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-import { HiLightBulb } from "react-icons/hi";
-import { FaBalanceScale } from "react-icons/fa";
-import { AiOutlineTeam } from "react-icons/ai";
 import { useState } from "react";
-import { GiHammerBreak } from "react-icons/gi";
-import { CiDeliveryTruck } from "react-icons/ci";
-import { MdDirectionsBike } from "react-icons/md";
+
+const cardVariants = {
+  offscreen: {
+    y: 300,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
+};
 
 export default function Timeline() {
-    const [activeTab, setActiveTab] = useState("tab1");
+  const timelineData = [
+    {
+      year: "1",
+      title: "Kickstart manufacturing and sales in Arizona",
+      description:
+        "We will begin with a large marketing campaign to showcase our product and gain preorders which will allow us to build the products and slowly grow.",
+    },
+    {
+      year: "2",
+      title: "Scale Production",
+      description:
+        "Scale up production, expand to additional states, and enhance customization options.",
+    },
+    {
+      year: "3",
+      title: "Nationwide Distribution",
+      description:
+        "Nationwide distribution in the U.S., alongside the introduction of new models.",
+    },
+    {
+      year: "4",
+      title: "International Launch",
+      description:
+        "Enter international markets, starting with Canada and Europe.",
+    },
+    {
+      year: "5",
+      title: "Expand product range",
+      description:
+        "Diversify our product range and target global bike-friendly countries.",
+    },
+  ];
 
-    const handleTabClick = (tab) => {
-        setActiveTab(tab);
-    };
+  return (
+    <div>
+      <Navbar />
+      <section className="bg-[white] dark:bg-gray-900">
+        <div
+          style={{
+            background:
+              "linear-gradient(to top, #84828f, #6a687a, #536271, #3e4c5e, #2c3d55)",
+          }}
+        >
+          <div className="max-w-5xl px-4 xl:px-0 py-10 lg:pt-20 lg:pb-20 mx-auto">
+            <div className="max-w-3xl mb-10 lg:mb-14">
+              <h2 className="font-raleway text-4xl text-white py-4">
+                Our Timeline
+              </h2>
+              <p className="mt-1 font-raleway text-[#D1D1D1]">
+                While we&apos;re in the early stages of our company and our goals, we&apos;ve outlined a comprehensive timeline detailing our future plans and how you can help make an impact on our journey.
+              </p>
+            </div>
+            <div className="relative">
+              {/* Timeline Line */}
+              <div className="absolute inset-y-0 left-1/2 w-px bg-neutral-800 transform -translate-x-1/2" />
 
-    return (
-        <div>
-            <Navbar />
-            <section className="bg-[white] dark:bg-gray-900">
-                <div
-                    style={{
-                        background:
-                            "linear-gradient(to top, #84828f, #6a687a, #536271, #3e4c5e, #2c3d55)",
-                    }}
+              {timelineData.map((item, index) => (
+                <motion.div
+                  key={item.year}
+                  className={`flex items-center gap-x-5 py-8 relative z-10 ${index % 2 === 0 ? "justify-start" : "justify-end"
+                    }`}
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{ once: true, amount: 0.8 }}
+                  variants={cardVariants}
                 >
-                    <div className="max-w-5xl px-4 xl:px-0 py-10 lg:pt-20 lg:pb-20 mx-auto">
-                        <div className="max-w-3xl mb-10 lg:mb-14">
-                            <h2 className="font-raleway text-4xl text-white py-4">Our Timeline</h2>
-                            <p className="mt-1 font-raleway text-[#D1D1D1]">While we&apos;re in the early stages of our company and our goals, we&apos;ve outlined a comprehensive timeline detailing our future plans and how you can help make an impact on our journey.</p>
-                        </div>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
-                            <div>
-                                <div className="mb-4">
-                                    <h3 className="text-[#f6957d] font-raleway text-xs uppercase">
-                                        Year
-                                    </h3>
-                                </div>
-                                <div className="flex gap-x-5 ms-1">
-                                    <div className="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
-                                        <div className="relative z-10 size-8 flex justify-center items-center">
-                                            <span className="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-[#f6957d] font-semibold text-xs uppercase rounded-full">
-                                                1
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className="grow pt-0.5 pb-8 sm:pb-12">
-                                        <p className="text-sm lg:text-base text-neutral-400">
-                                            <span className="text-white">Kickstart manufacturing and sales in Arizona </span> <br />
-                                            We will begin with a large marketing campaign to showcase our product and gain preorders which will allow us to build the products and slowly grow.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="flex gap-x-5 ms-1">
-                                    <div className="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
-                                        <div className="relative z-10 size-8 flex justify-center items-center">
-                                            <span className="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-[#f6957d] font-semibold text-xs uppercase rounded-full">
-                                                2
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className="grow pt-0.5 pb-8 sm:pb-12">
-                                        <p className="text-sm lg:text-base text-neutral-400">
-                                            <span className="text-white">Scale Production</span> <br />
-                                            Scale up production, expand to additional states, and enhance customization options.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="flex gap-x-5 ms-1">
-                                    <div className="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
-                                        <div className="relative z-10 size-8 flex justify-center items-center">
-                                            <span className="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-[#f6957d] font-semibold text-xs uppercase rounded-full">
-                                                3
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className="grow pt-0.5 pb-8 sm:pb-12">
-                                        <p className="text-sm md:text-base text-neutral-400">
-                                            <span className="text-white">Nationwide Distribution</span> <br />
-                                            Nationwide distribution in the U.S., alongside the introduction of new models.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="flex gap-x-5 ms-1">
-                                    <div className="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
-                                        <div className="relative z-10 size-8 flex justify-center items-center">
-                                            <span className="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-[#f6957d] font-semibold text-xs uppercase rounded-full">
-                                                4
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className="grow pt-0.5 pb-8 sm:pb-12">
-                                        <p className="text-sm md:text-base text-neutral-400">
-                                            <span className="text-white">International Launch</span> <br />
-                                            Enter international markets, starting with Canada and Europe.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="flex gap-x-5 ms-1">
-                                    <div className="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
-                                        <div className="relative z-10 size-8 flex justify-center items-center">
-                                            <span className="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-[#f6957d] font-semibold text-xs uppercase rounded-full">
-                                                5
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className="grow pt-0.5 pb-8 sm:pb-12">
-                                        <p className="text-sm md:text-base text-neutral-400">
-                                            <span className="text-white">Expand product range</span> <br />
-                                            Diversify our product range and target global bike-friendly countries.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="flex gap-x-5 ms-1">
-                                    <div className="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
-                                        <div className="relative z-10 size-8 flex justify-center items-center">
-                                            <span className="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-[#f6957d] font-semibold text-xs uppercase rounded-full">
-                                                ...
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <Footer />
+                  <div
+                    className={`w-full max-w-xs p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg transform ${index % 2 === 0 ? "translate-x-10" : "-translate-x-10"
+                      }`}
+                  >
+                    <span className="text-xs uppercase font-semibold text-[#f6957d]">
+                      Year {item.year}
+                    </span>
+                    <h3 className="mt-3 text-xl font-bold text-gray-900 dark:text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          <Footer />
         </div>
-    );
+      </section>
+      
+    </div>
+  );
 }

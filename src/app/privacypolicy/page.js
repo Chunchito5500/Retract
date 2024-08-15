@@ -7,6 +7,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { useState } from "react";
 
 export default function Privacy() {
+    // Initialize with all tabs open
     const [activeTabs, setActiveTabs] = useState(["tab1", "tab2", "tab3", "tab4", "tab5"]);
 
     const handleTabClick = (tab) => {
@@ -45,7 +46,7 @@ export default function Privacy() {
                                     </div>
                                 </div>
 
-                                <button type="button" className="hs-collapse-toggle py-5 px-4 w-full inline-flex items-center justify-between gap-x-2 text-md font-raleway rounded-lg border border-transparent text-white bg-[#5297c2] hover:bg-[#71a7c7] focus:outline-none focus:bg-[#71a7c7] disabled:opacity-50 disabled:pointer-events-none" id="hs-basic-collapse-1" aria-expanded={activeTabs.includes("tab1")} aria-controls="hs-basic-collapse-heading-1" onClick={() => handleTabClick("tab1")}>
+                                <button type="button" className="hs-collapse-toggle py-5 px-4 w-full inline-flex items-center justify-between gap-x-2 text-md font-raleway rounded-lg border border-transparent text-white bg-[#5297c2] hover:bg-[#71a7c7] focus:outline-none focus:bg-[#71a7c7] disabled:opacity-50 disabled:pointer-events-none" id="hs-basic-collapse-2" aria-expanded={activeTabs.includes("tab2")} aria-controls="hs-basic-collapse-heading-2" onClick={() => handleTabClick("tab2")}>
                                     Data Use
                                     <MdKeyboardArrowDown className={`hs-collapse-open:rotate-180 shrink-0 ${activeTabs.includes("tab2") ? "rotate-180" : ""}`} />
                                 </button>
@@ -57,7 +58,7 @@ export default function Privacy() {
                                     </div>
                                 </div>
 
-                                <button type="button" className="hs-collapse-toggle py-5 px-4 w-full inline-flex items-center justify-between gap-x-2 text-md font-raleway rounded-lg border border-transparent text-white bg-[#5297c2] hover:bg-[#71a7c7] focus:outline-none focus:bg-[#71a7c7] disabled:opacity-50 disabled:pointer-events-none" id="hs-basic-collapse-1" aria-expanded={activeTabs.includes("tab1")} aria-controls="hs-basic-collapse-heading-1" onClick={() => handleTabClick("tab1")}>
+                                <button type="button" className="hs-collapse-toggle py-5 px-4 w-full inline-flex items-center justify-between gap-x-2 text-md font-raleway rounded-lg border border-transparent text-white bg-[#5297c2] hover:bg-[#71a7c7] focus:outline-none focus:bg-[#71a7c7] disabled:opacity-50 disabled:pointer-events-none" id="hs-basic-collapse-3" aria-expanded={activeTabs.includes("tab3")} aria-controls="hs-basic-collapse-heading-3" onClick={() => handleTabClick("tab3")}>
                                     Data Rights
                                     <MdKeyboardArrowDown className={`hs-collapse-open:rotate-180 shrink-0 ${activeTabs.includes("tab3") ? "rotate-180" : ""}`} />
                                 </button>
@@ -69,7 +70,7 @@ export default function Privacy() {
                                     </div>
                                 </div>
 
-                                <button type="button" className="hs-collapse-toggle py-5 px-4 w-full inline-flex items-center justify-between gap-x-2 text-md font-raleway rounded-lg border border-transparent text-white bg-[#5297c2] hover:bg-[#71a7c7] focus:outline-none focus:bg-[#71a7c7] disabled:opacity-50 disabled:pointer-events-none" id="hs-basic-collapse-1" aria-expanded={activeTabs.includes("tab1")} aria-controls="hs-basic-collapse-heading-1" onClick={() => handleTabClick("tab1")}>
+                                <button type="button" className="hs-collapse-toggle py-5 px-4 w-full inline-flex items-center justify-between gap-x-2 text-md font-raleway rounded-lg border border-transparent text-white bg-[#5297c2] hover:bg-[#71a7c7] focus:outline-none focus:bg-[#71a7c7] disabled:opacity-50 disabled:pointer-events-none" id="hs-basic-collapse-4" aria-expanded={activeTabs.includes("tab4")} aria-controls="hs-basic-collapse-heading-4" onClick={() => handleTabClick("tab4")}>
                                     Data Transfers
                                     <MdKeyboardArrowDown className={`hs-collapse-open:rotate-180 shrink-0 ${activeTabs.includes("tab4") ? "rotate-180" : ""}`} />
                                 </button>
@@ -81,7 +82,7 @@ export default function Privacy() {
                                     </div>
                                 </div>
 
-                                <button type="button" className="hs-collapse-toggle py-5 px-4 w-full inline-flex items-center justify-between gap-x-2 text-md font-raleway rounded-lg border border-transparent text-white bg-[#5297c2] hover:bg-[#71a7c7] focus:outline-none focus:bg-[#71a7c7] disabled:opacity-50 disabled:pointer-events-none" id="hs-basic-collapse-1" aria-expanded={activeTabs.includes("tab1")} aria-controls="hs-basic-collapse-heading-1" onClick={() => handleTabClick("tab1")}>
+                                <button type="button" className="hs-collapse-toggle py-5 px-4 w-full inline-flex items-center justify-between gap-x-2 text-md font-raleway rounded-lg border border-transparent text-white bg-[#5297c2] hover:bg-[#71a7c7] focus:outline-none focus:bg-[#71a7c7] disabled:opacity-50 disabled:pointer-events-none" id="hs-basic-collapse-5" aria-expanded={activeTabs.includes("tab5")} aria-controls="hs-basic-collapse-heading-5" onClick={() => handleTabClick("tab5")}>
                                     Data Updates
                                     <MdKeyboardArrowDown className={`hs-collapse-open:rotate-180 shrink-0 ${activeTabs.includes("tab5") ? "rotate-180" : ""}`} />
                                 </button>
