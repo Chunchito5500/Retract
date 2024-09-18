@@ -3,7 +3,7 @@ import Link from "next/link";
 import { MdPedalBike } from "react-icons/md";
 import { IoAlertCircleOutline } from "react-icons/io5";
 import Image from "next/image";
-import styles from './Explore.module.css';
+import styles from "./Explore.module.css";
 
 export default function Explore() {
   const models = [
@@ -32,12 +32,12 @@ export default function Explore() {
   useEffect(() => {
     const arrowElements = document.querySelectorAll(`.${styles.arrow} span`);
     const startAnimation = () => {
-      arrowElements.forEach(span => {
+      arrowElements.forEach((span) => {
         span.style.animationPlayState = "running";
       });
     };
     const stopAnimation = () => {
-      arrowElements.forEach(span => {
+      arrowElements.forEach((span) => {
         span.style.animationPlayState = "paused";
       });
     };
@@ -107,7 +107,7 @@ export default function Explore() {
           <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
             <div className="flex flex-col items-center justify-center gap-4">
               <div className="flex items-center relative">
-                <div className={`${styles.arrow} ${styles['arrow-left']}`}>
+                <div className={`${styles.arrow} ${styles["arrow-left"]}`}>
                   <span></span>
                 </div>
                 <label
@@ -139,7 +139,7 @@ export default function Explore() {
                     />
                   </div>
                 </label>
-                <div className={`${styles.arrow} ${styles['arrow-right']}`}>
+                <div className={`${styles.arrow} ${styles["arrow-right"]}`}>
                   <span></span>
                 </div>
               </div>
@@ -227,6 +227,7 @@ export default function Explore() {
                 <h1 className="text-6xl font-raleway text-white">
                   The Retractability Pioneer
                 </h1>
+
                 <p className="mt-3 text-3xl font-raleway text-[#A0A0A0]">
                   <i>Pioneering the Future of Foldable Bikes</i>
                 </p>
@@ -241,15 +242,16 @@ export default function Explore() {
                 <h3 className="mt-6 text-lg font-raleway text-blue-500">
                   Release Date: January 2025
                 </h3>
+                <p className="mt-1/2 text-sm font-raleway text-[#A0A0A0]">
+                  <b>Pat. Pend.</b>
+                </p>
                 <div style={{ height: "15px" }}></div>
                 <Link href="/quark" passHref>
                   <button className="learn-more">
                     <span className="circle" aria-hidden="true">
                       <span className="icon arrow"></span>
                     </span>
-                    <span className="button-text font-raleway">
-                      Learn More
-                    </span>
+                    <span className="button-text font-raleway">Learn More</span>
                   </button>
                 </Link>
                 <div>

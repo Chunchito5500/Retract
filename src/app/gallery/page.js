@@ -126,12 +126,17 @@ export default function Gallery() {
                 <h2 className="card-title font-raleway text-white">
                   The Retractability Bicycle Wheel:
                 </h2>
-                <p className="font-raleway text-white">Reinventing the wheel. Literally! </p>
+                <p className="font-raleway text-white">
+                  Reinventing the wheel. Literally!{" "}
+                </p>
                 <p className="font-raleway text-white">
                   {" "}
                   With Retractability&apos;s take on the bicycle wheel, our
                   airless tires allow users to maintain the traditional bike
                   feel, without the fear of popping tires.
+                </p>
+                <p className="mt-1/2 text-sm font-raleway text-[#afafaf]">
+                  <b>Pat. Pend.</b>
                 </p>
                 <div className="card-actions justify-end"></div>
               </div>
@@ -163,7 +168,6 @@ export default function Gallery() {
                     width: "100%",
                     height: "500px",
                     border: "2px solid #456990",
-                    
                   }}
                 >
                   <div className="progress-bar hide" slot="progress-bar">
@@ -192,6 +196,9 @@ export default function Gallery() {
                   Retractability Bicycles offer a breath of fresh air to the
                   foldable biking industry. Our bikes are designed to be
                   durable, efficient, and the next step in biking.
+                </p>
+                <p className="mt-1/2 text-sm font-raleway text-[#afafaf]">
+                  <b>Pat. Pend.</b>
                 </p>
                 <div className="card-actions justify-end"></div>
               </div>
