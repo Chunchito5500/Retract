@@ -263,7 +263,7 @@ export default function Contact() {
 
                   <div class="mt-3 text-center">
                     <p class="text-sm text-white">
-                      We'll get back to you in 3-5 business days.
+                      We will get back to you in 3-5 business days.
                     </p>
                   </div>
                 </div>
