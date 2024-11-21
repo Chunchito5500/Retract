@@ -1,0 +1,42 @@
+@keyframes pulsate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.separator-line {
+  height: 15px; /* Adjust thickness */
+  background: linear-gradient(
+    to right,
+    #4e4b5c,
+    #a37871,
+    #bea2c2,
+    #bdadea,
+    #4381c1
+  );
+  background-size: 300% 300%;
+  animation: pulsate 5s infinite alternate;
+  margin-bottom: 0px; /* Space before the next section */
+}
+
+.navbar {
+  background-color: rgba(29, 38, 59, 0); /* Fully transparent */
+  transition: background-color 0.3s ease;
+}
+
+.navbar:hover {
+  background-color: rgba(29, 38, 59, 0.85); /* Opaque background on hover */
+}
+
+.navbar-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10; /* Ensure navbar is above other elements */
+}

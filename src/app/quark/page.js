@@ -70,11 +70,19 @@ export default function HomePage() {
     <div style={{ background }}>
       <CookieNotice />
       <Navbar />
-      {isMobile ? <HomeMobile setBackgroundColor={setBackgroundColor} /> : <Home setBackgroundColor={setBackgroundColor} />} {/* Conditionally render based on the viewport */}
-
-      <section id="merge" style={{ background: `linear-gradient(to bottom, ${homeBackground}, #E6E6E6)` }}>
+      {isMobile ? (
+        <HomeMobile setBackgroundColor={setBackgroundColor} />
+      ) : (
+        <Home setBackgroundColor={setBackgroundColor} />
+      )}{" "}
+      {/* Conditionally render based on the viewport */}
+      <section
+        id="merge"
+        style={{
+          background: `linear-gradient(to bottom, ${homeBackground}, #E6E6E6)`,
+        }}
+      >
         {/* Additional content */}
-        
       </section>
     </div>
   );

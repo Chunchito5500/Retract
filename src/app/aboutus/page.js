@@ -21,7 +21,9 @@ export default function AboutUs() {
       <div id="parallax-world-of-ugg">
         {/* Parallax Section */}
         <section>
-          <div className="text-center bg-[#f4f3ee] py-20 px-4">
+          <div className="text-center bg-[#a3aaac] py-20 px-4">
+            <div style={{ height: "75px" }}></div>
+
             <h3 className="text-sm uppercase tracking-widest text-gray-600">
               About Us
             </h3>
@@ -37,7 +39,7 @@ export default function AboutUs() {
             style={{
               paddingTop: "200px",
               paddingBottom: "200px",
-              backgroundImage: "url('/RealBikePics/Rbikedown.jpeg')",
+              backgroundImage: "url('/printpics/otra.jpg')",
               backgroundAttachment: "fixed",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
@@ -52,10 +54,10 @@ export default function AboutUs() {
         </section>
 
         <section>
-          <div className="bg-[#d8d6d0] py-16 mx-auto">
+          <div className="bg-[#b79e7e] py-16 mx-auto">
             <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="bg-[#9B9B96] p-10 rounded-xl shadow-2xl">
-                <p className="text-xl font-raleway text-white leading-relaxed tracking-wide">
+              <div className="bg-[#9f886b] p-10 rounded-xl shadow-2xl">
+                <p className="text-xl text-white leading-relaxed tracking-wide">
                   At Retractability, we design and manufacture bicycles that
                   retain the size and performance of traditional bikes but are
                   engineered to fold into a compact size, small enough to fit
@@ -94,11 +96,11 @@ export default function AboutUs() {
         </section>
 
         <section>
-          <div className="relative overflow-hidden bg-[#bcb8b1] py-10">
+          <div className="relative overflow-hidden bg-[#a69d8b] py-10">
             <div className="relative z-10 bg-opacity-75 backdrop-filter backdrop-blur-lg py-10">
               <div className="max-w-[95rem] mx-auto px-6 sm:px-8 lg:px-12">
                 <div className="max-w-4xl text-center mx-auto">
-                  <div className="mt-5 max-w-4xl mx-auto bg-[#848380] p-10 rounded-xl shadow-2xl">
+                  <div className="mt-5 max-w-4xl mx-auto bg-[#a69d8b] p-10 rounded-xl shadow-2xl">
                     <p className="text-lg text-white leading-relaxed">
                       We are two college students who love biking and found a
                       lot of flaws in the current biking systems, not just at
@@ -171,9 +173,9 @@ export default function AboutUs() {
 
         {/* what we do section */}
         <section>
-          <div className="bg-[#8a817c] py-14 px-4 sm:px-6 lg:px-8 mx-auto">
+          <div className="bg-[#b79e7e] py-14 px-4 sm:px-6 lg:px-8 mx-auto">
             <div className="max-w-[95rem] mx-auto">
-              <div className="bg-[#9A8E82] p-10 rounded-xl shadow-2xl">
+              <div className="bg-[#91795a] p-10 rounded-xl shadow-2xl">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div className="lg:w-3/4">
                     <h2 className="text-4xl font-extrabold text-white">
@@ -269,8 +271,8 @@ export default function AboutUs() {
         </section>
 
         <section id="The Team">
-          <div className="bg-[#5c5651] py-16 px-4 sm:px-6 lg:px-8 mx-auto">
-            <div className="bg-[#726c67] p-10 rounded-xl shadow-2xl">
+          <div className="bg-[#97765a] py-16 px-4 sm:px-6 lg:px-8 mx-auto">
+            <div className="bg-[#b38f70] p-10 rounded-xl shadow-2xl">
               <div className="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
                 <h2 className="text-2xl font-bold md:text-4xl md:leading-tight text-white">
                   We&apos;re proud to call Arizona our home, where innovation
@@ -291,7 +293,7 @@ export default function AboutUs() {
                     rel="noopener noreferrer"
                   >
                     <Image
-                      className="rounded-xl object-cover object-center w-48 h-48 mx-auto transition duration-300 ease-in-out hover:shadow-lg dark:hover:shadow-black/30"
+                      className="rounded-xl object-cover object-center w-48 h-48 mx-auto transition duration-200 ease-in-out hover:shadow-lg dark:hover:shadow-black/30"
                       src="/Lucas.jpg"
                       alt="Lucas Somoshegyi-Szokol"
                       width={192}
@@ -314,7 +316,7 @@ export default function AboutUs() {
                     rel="noopener noreferrer"
                   >
                     <Image
-                      className="rounded-xl object-cover object-center w-48 h-48 mx-auto transition duration-300 ease-in-out hover:shadow-lg dark:hover:shadow-black/30"
+                      className="rounded-xl object-cover object-center w-48 h-48 mx-auto transition duration-200 ease-in-out hover:shadow-lg dark:hover:shadow-black/30"
                       src="/Baselp.jpg"
                       alt="Basel Kurian"
                       width={192}

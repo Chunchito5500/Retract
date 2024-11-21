@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { IoHammer } from 'react-icons/io5';
-import { GiCartwheel } from 'react-icons/gi';
-import { FiMap } from 'react-icons/fi';
+import React, { useState, useEffect, useRef } from "react";
+import { IoHammer } from "react-icons/io5";
+import { GiCartwheel } from "react-icons/gi";
+import { FiMap } from "react-icons/fi";
 
 export default function HomeDesktop({ setBackgroundColor }) {
   const [modelSrc, setModelSrc] = useState("Models/Blue Unfolded.glb");
@@ -24,28 +24,43 @@ export default function HomeDesktop({ setBackgroundColor }) {
       cameraOrbit: "180deg 0 0",
       title: "The Retractability Pioneer",
       cardtitle: "Innovative Design:",
-      content: "The Retractability Pioneer reimagines cycling mobility, offering unparalleled convenience without sacrificing style or functionality.",
-      style: { background: "linear-gradient(to bottom, #587792, #8DB1AB, #3C5862, #E6E6E6 99%)", color: "#ffffff" },
+      content:
+        "The Retractability Pioneer reimagines cycling mobility, offering unparalleled convenience without sacrificing style or functionality.",
+      style: {
+        background:
+          "linear-gradient(to bottom, #587792, #8DB1AB, #3C5862, #E6E6E6 99%)",
+        color: "#ffffff",
+      },
       titleColor: "#ffffff",
-      icon: <IoHammer size={44} color="#ffffff" />
+      icon: <IoHammer size={44} color="#ffffff" />,
     },
     feature2: {
       cameraOrbit: "50deg 2m 2m",
       title: "The Retractability Pioneer",
       cardtitle: "Durability Redefined:",
-      content: "Say goodbye to the fear of flat tires. The Pioneer's tires are crafted from a special pop-resistant material, offering peace of mind on any adventure.",
-      style: { background: "linear-gradient(to bottom, #34403A, #1e6e37, #285238, #E6E6E6 99%)", color: "#ffffff" },
+      content:
+        "Say goodbye to the fear of flat tires. The Pioneer's tires are crafted from a special pop-resistant material, offering peace of mind on any adventure.",
+      style: {
+        background:
+          "linear-gradient(to bottom, #34403A, #1e6e37, #285238, #E6E6E6 99%)",
+        color: "#ffffff",
+      },
       titleColor: "#E48F80",
-      icon: <GiCartwheel size={44} color="#ffffff" />
+      icon: <GiCartwheel size={44} color="#ffffff" />,
     },
     feature3: {
       cameraOrbit: "120deg 90deg 0",
       title: "The Retractability Pioneer",
       cardtitle: "Versatility Unmatched:",
-      content: "Engineered for every destination—work, college, parks, urban landscapes, or trails. The Retractability Pioneer adapts to your lifestyle, ensuring you're ready for wherever life takes you.",
-      style: { background: "linear-gradient(to bottom, #6F5060, #51344D, #A78682, #E6E6E6 99%)", color: "#ffffff" },
+      content:
+        "Engineered for every destination—work, college, parks, urban landscapes, or trails. The Retractability Pioneer adapts to your lifestyle, ensuring you're ready for wherever life takes you.",
+      style: {
+        background:
+          "linear-gradient(to bottom, #6F5060, #51344D, #A78682, #E6E6E6 99%)",
+        color: "#ffffff",
+      },
       titleColor: "#FFEDC3",
-      icon: <FiMap size={44} color="#ffffff" />
+      icon: <FiMap size={44} color="#ffffff" />,
     },
   };
 
@@ -70,7 +85,8 @@ export default function HomeDesktop({ setBackgroundColor }) {
     color: "#fff",
   };
 
-  const defaultBackground = "linear-gradient(to bottom, #859EB8 10%, #C0C6CC 30%, #E6E6E6 90%)";
+  const defaultBackground =
+    "linear-gradient(to bottom, #859EB8 10%, #C0C6CC 30%, #E6E6E6 90%)";
 
   const layoutContainerStyle = {
     display: "flex",
@@ -81,9 +97,11 @@ export default function HomeDesktop({ setBackgroundColor }) {
     width: "100%",
     height: "100vh",
     padding: "20px",
-    background: activeFeature ? featuresConfig[activeFeature].style.background : defaultBackground,
+    background: activeFeature
+      ? featuresConfig[activeFeature].style.background
+      : defaultBackground,
     boxSizing: "border-box",
-    transition: "background 500ms ease-in-out"
+    transition: "background 500ms ease-in-out",
   };
 
   const titlesAndCardContentStyle = {
@@ -124,14 +142,14 @@ export default function HomeDesktop({ setBackgroundColor }) {
     top: "40%",
     left: "5%",
     zIndex: 2,
-    maxWidth: "300px"
+    maxWidth: "300px",
   };
 
   const handleFeatureClick = (feature) => {
     if (activeFeature === feature) {
       setActiveFeature(null);
       setCameraOrbit("-137deg 2m"); // Reset to original camera orbit
-      setCardStack(prev => prev.filter(f => f !== feature)); // Remove feature from stack
+      setCardStack((prev) => prev.filter((f) => f !== feature)); // Remove feature from stack
       setTitle("The Retractability Pioneer");
       setTitleColor("#456990");
       setBackgroundColor(defaultBackground);
@@ -144,8 +162,10 @@ export default function HomeDesktop({ setBackgroundColor }) {
       setActiveFeature(feature);
       setTitle(featuresConfig[feature].title);
       setTitleColor(featuresConfig[feature].titleColor);
-      setBackgroundColor(featuresConfig[feature].style.background.split(", ")[1]);
-      setCardStack(prev => [...new Set([feature, ...prev])]); // Add feature to top of stack, remove duplicates
+      setBackgroundColor(
+        featuresConfig[feature].style.background.split(", ")[1]
+      );
+      setCardStack((prev) => [...new Set([feature, ...prev])]); // Add feature to top of stack, remove duplicates
     }
   };
 
@@ -155,8 +175,10 @@ export default function HomeDesktop({ setBackgroundColor }) {
       <div className="stack">
         <div className={`card w-96 glass`} style={style}>
           <div className="card-body">
-          <h2 className="card-title" style={{ color: '#ffffff' }}>{cardtitle}</h2>
-            <p style={{ color: '#ffffff' }}>{content}</p>
+            <h2 className="card-title" style={{ color: "#ffffff" }}>
+              {cardtitle}
+            </h2>
+            <p style={{ color: "#ffffff" }}>{content}</p>
             {icon}
           </div>
         </div>
@@ -166,29 +188,55 @@ export default function HomeDesktop({ setBackgroundColor }) {
 
   return (
     <div style={layoutContainerStyle}>
+      <div style={{ height: "100px" }}></div>
+
       <div style={titlesAndCardContentStyle}>
-        <p className="text-1xl font-raleway font-medium leading-7" style={{ color: titleColor }}>
+        <p
+          className="text-1xl font-raleway font-medium leading-7"
+          style={{ color: titleColor }}
+        >
           The new way to bike
         </p>
-        <h1 className="mt-2 text-6xl font-raleway font-medium tracking-tight" style={{ color: titleColor }}>
+        <h1
+          className="mt-2 text-6xl font-raleway font-medium tracking-tight"
+          style={{ color: titleColor }}
+        >
           {title}
         </h1>
       </div>
 
       {/* Dynamic cards generated based on feature selection */}
       {activeFeature && (
-        <div style={{ position: "absolute", top: "40%", left: "5%", zIndex: 2, maxWidth: "300px" }}>
-          <div className="card w-96" style={{ backdropFilter: 'blur(10px)', backgroundColor: 'rgba(255, 255, 255, 0.2)', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.18)' }}>
+        <div
+          style={{
+            position: "absolute",
+            top: "40%",
+            left: "5%",
+            zIndex: 2,
+            maxWidth: "300px",
+          }}
+        >
+          <div
+            className="card w-96"
+            style={{
+              backdropFilter: "blur(10px)",
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              borderRadius: "20px",
+              border: "1px solid rgba(255, 255, 255, 0.18)",
+            }}
+          >
             <div className="card-body">
-              <h2 className="card-title font-raleway font-medium">{featuresConfig[activeFeature].cardtitle}</h2>
-              <p className="font-raleway">{featuresConfig[activeFeature].content}</p>
+              <h2 className="card-title font-raleway font-medium">
+                {featuresConfig[activeFeature].cardtitle}
+              </h2>
+              <p className="font-raleway">
+                {featuresConfig[activeFeature].content}
+              </p>
               {featuresConfig[activeFeature].icon}
             </div>
           </div>
         </div>
       )}
-
-
 
       {/* Model viewer and interaction buttons */}
       <model-viewer
@@ -203,7 +251,7 @@ export default function HomeDesktop({ setBackgroundColor }) {
       ></model-viewer>
 
       <div style={buttonContainerStyle}>
-        {Object.keys(featuresConfig).map(key => (
+        {Object.keys(featuresConfig).map((key) => (
           <button
             key={key}
             onClick={() => handleFeatureClick(key)}
