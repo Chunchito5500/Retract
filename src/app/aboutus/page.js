@@ -304,7 +304,7 @@ export default function AboutUs() {
                     <h3 className="text-lg font-medium text-white sm:text-base lg:text-lg">
                       Lucas Somoshegyi-Szokol
                     </h3>
-                    <p className="text-xs text-gray-400 sm:text-sm lg:text-base">
+                    <p className="text-xs text-gray-200 sm:text-sm lg:text-base">
                       Founder / CEO
                     </p>
                   </div>
@@ -327,7 +327,7 @@ export default function AboutUs() {
                     <h3 className="text-lg font-medium text-white sm:text-base lg:text-lg">
                       Basel Kurian
                     </h3>
-                    <p className="text-xs text-gray-400 sm:text-sm lg:text-base">
+                    <p className="text-xs text-gray-200 sm:text-sm lg:text-base">
                       Founder / CTO
                     </p>
                   </div>
@@ -341,7 +341,7 @@ export default function AboutUs() {
                 </h2>
                 <a
                   href="/#inputsection"
-                  className="mt-5 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-gray-300 bg-white hover:bg-[#74716f] hover:border-[#94918e] text-gray-800 shadow-sm focus:outline-none focus:bg-gray-50"
+                  className="mt-5 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-gray-300 bg-white hover:bg-[#e5e1de] hover:border-[#94918e] text-gray-800 shadow-sm focus:outline-none focus:bg-gray-50"
                 >
                   Join our Interest List
                   <svg

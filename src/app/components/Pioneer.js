@@ -60,7 +60,7 @@ export default function Pioneer() {
               <div className="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
                 {/* Text Side */}
                 <div className="transition-opacity duration-500 opacity-100">
-                  <h1 className="block text-3xl font-raleway text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">
+                  <h1 className="block text-3xl font-raleway sm:text-4xl lg:text-6xl lg:leading-tight text-white">
                     The Retractability Pioneer
                   </h1>
                   <p className="mt-3 text-3xl font-raleway text-[#A0A0A0]">
