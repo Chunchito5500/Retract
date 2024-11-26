@@ -214,7 +214,7 @@ export default function Privacy() {
                       feel free to{" "}
                       <a
                         class="font-raleway text-gray-200  decoration-2 hover:underline focus:outline-none focus:underline font-medium"
-                        href="/contact"
+                        href="/"
                       >
                         contact us
                       </a>
