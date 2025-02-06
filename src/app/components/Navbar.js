@@ -1,150 +1,171 @@
-import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { IoIosHome } from "react-icons/io";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation"; // Get current route
+import { MdOutlinePedalBike } from "react-icons/md";
 import { HiTemplate } from "react-icons/hi";
+import { BsChatQuote } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
 import Image from "next/image";
-import "../styles.css"; // Ensure you import the CSS file
-import { IoIosCall } from "react-icons/io";
-import { BsChatQuote } from "react-icons/bs";
+import Link from "next/link";
+
+import HomeNav from "./navcomponents/HomeNav";
+import GalleryNav from "./navcomponents/GalleryNav";
+import AboutNav from "./navcomponents/AboutNav";
+import MobileNav from "./navcomponents/MobileNav"; // import your mobile component
 
 const Navbar = () => {
-  const pathname = usePathname();
   const [isMobile, setIsMobile] = useState(false);
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const drawerRef = useRef();
+  const [activeMenu, setActiveMenu] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
 
-  const isActive = (path) => pathname === path;
+  // Track if the mobile nav (hamburger) is open
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  const pathname = usePathname(); // current path
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize();
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+
+    handleResize(); // run once on mount
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (drawerRef.current && !drawerRef.current.contains(event.target)) {
-        setIsDrawerOpen(false);
-      }
-    };
+  const toggleMenu = (menu) => {
+    setActiveMenu((prev) => (prev === menu ? null : menu));
+  };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [drawerRef]);
+  const isMenuActive = (menu) => activeMenu === menu;
+  const isAnyMenuActive = activeMenu !== null;
 
-  const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
+  // Simple arrow icon
+  const ArrowIcon = ({ isOpen }) => (
+    <svg
+      className={`ml-2 h-6 w-6 transform transition-transform ${
+        isOpen ? "rotate-180" : "rotate-0"
+      }`}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  );
 
   return (
     <div className="navbar-container">
-      <div className="navbar  flex justify-between items-center p-4 hover:bg-[#1d263b]">
+      {/* --- The Navbar "bar" itself --- */}
+      <div
+        className={`navbar flex items-center justify-between p-4 text-white transition-all ${
+          scrolled || isAnyMenuActive ? "navbar-active" : "navbar-transparent"
+        } hover:bg-[#1d263b]`}
+      >
+        {/* ============ Left Section ============ */}
+        {/* If NOT mobile, show original three nav buttons. 
+            If mobile, show the hamburger button. */}
         {!isMobile ? (
-          <div className="flex items-center font-raleway font-medium">
-            <NavLink
-              href="/"
-              label="Home"
-              Icon={IoIosHome}
-              isActive={isActive("/")}
-            />
-            <NavLink
-              href="/gallery"
-              label="Gallery"
-              Icon={HiTemplate}
-              isActive={isActive("/gallery")}
-            />
-            <NavLink
-              href="/aboutus"
-              label="About Us"
-              Icon={BsChatQuote}
-              isActive={isActive("/aboutus")}
-            />
-            {/* <NavLink
-              href="/contact"
-              label="Contact"
-              Icon={IoIosCall}
-              isActive={isActive("/contact")}
-            /> */}
+          <div className="flex items-center space-x-4">
+            <button
+              className="flex items-center p-2 text-lg font-raleway hover:text-gray-400"
+              onClick={() => toggleMenu("home")}
+            >
+              <MdOutlinePedalBike className="mr-2 h-6 w-6" />
+              Bikes
+              <ArrowIcon isOpen={isMenuActive("home")} />
+            </button>
+
+            <button
+              className="flex items-center p-2 text-lg font-raleway hover:text-gray-400"
+              onClick={() => toggleMenu("gallery")}
+            >
+              <HiTemplate className="mr-2 h-6 w-6" />
+              Gallery
+              <ArrowIcon isOpen={isMenuActive("gallery")} />
+            </button>
+
+            <button
+              className="flex items-center p-2 text-lg font-raleway hover:text-gray-400"
+              onClick={() => toggleMenu("aboutus")}
+            >
+              <BsChatQuote className="mr-2 h-6 w-6" />
+              About Us
+              <ArrowIcon isOpen={isMenuActive("aboutus")} />
+            </button>
           </div>
         ) : (
+          /* Hamburger Button for mobile screens */
           <button
-            onClick={toggleDrawer}
-            className="btn drawer-button bg-customGray hover:bg-customGrayHover p-2 rounded"
+            className="flex flex-col space-y-[4px] p-2"
+            onClick={() => setMobileNavOpen(!mobileNavOpen)}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-8 w-8 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
+            <span className="block w-6 h-[2px] bg-white"></span>
+            <span className="block w-6 h-[2px] bg-white"></span>
+            <span className="block w-6 h-[2px] bg-white"></span>
           </button>
         )}
-        <Link legacyBehavior href="/" passHref>
-          <a className="text-white text-xl font-sans absolute left-1/2 transform -translate-x-1/2">
-            <Image
-              src="/retractenhanced.svg"
-              alt="Retract"
-              width={80}
-              height={80}
-            />
-          </a>
+
+        {/* ============ Center Section: Logo ============ */}
+        <Link href="/" className="absolute left-1/2 transform -translate-x-1/2">
+          <Image
+            src="/retractenhanced.svg"
+            alt="Retract Logo"
+            width={80}
+            height={40}
+            className="object-contain"
+          />
         </Link>
-        <div className="ml-auto flex items-center">
-          <button className="text-white text-xl p-2">
+
+        {/* ============ Right Section: Shopping Cart ============ */}
+        <div className="ml-auto">
+          <button className="flex items-center text-xl p-2 hover:text-gray-400">
             <FiShoppingCart size={24} />
           </button>
         </div>
       </div>
 
-      {isMobile && isDrawerOpen && (
-        <div className="drawer-content glass" ref={drawerRef}>
-          <ul className="menu p-4">
-            <li>
-              <Link legacyBehavior href="/" passHref>
-                <a className="text-lg font-raleway">Home</a>
-              </Link>
-            </li>
-            <li>
-              <Link legacyBehavior href="/gallery" passHref>
-                <a className="text-lg font-raleway">Gallery</a>
-              </Link>
-            </li>
-            <li>
-              <Link legacyBehavior href="/aboutus" passHref>
-                <a className="text-lg font-raleway">About Us</a>
-              </Link>
-            </li>
-            {/* <li>
-              <Link legacyBehavior href="/gallery" passHref>
-                <a className="text-lg font-raleway">Contact</a>
-              </Link>
-            </li> */}
-          </ul>
+      {/* --- If on desktop, show subnav dropdowns under the main nav bar. 
+             If on mobile, the subnav is handled inside <MobileNav/> below. --- */}
+      {!isMobile && (
+        <div className="relative">
+          {activeMenu === "home" && (
+            <div className="animate-slideDown">
+              <HomeNav />
+            </div>
+          )}
+          {activeMenu === "gallery" && (
+            <div className="animate-slideDown">
+              <GalleryNav />
+            </div>
+          )}
+          {activeMenu === "aboutus" && (
+            <div className="animate-slideDown">
+              <AboutNav />
+            </div>
+          )}
         </div>
+      )}
+
+      {/* --- If mobile AND hamburger is open, show the MobileNav. --- */}
+      {isMobile && mobileNavOpen && (
+        <MobileNav onClose={() => setMobileNavOpen(false)} />
+      )}
+      {mobileNavOpen && (
+        <MobileNav
+          open={mobileNavOpen}
+          onClose={() => setMobileNavOpen(false)}
+        />
       )}
     </div>
   );
 };
-
-const NavLink = ({ href, label, Icon, isActive }) => (
-  <Link legacyBehavior href={href} passHref>
-    <a
-      className={`flex items-center p-2 text-lg ${
-        isActive ? "text-[#7389a7]" : "text-[#DCE5E6]"
-      } hover:text-white `}
-    >
-      {Icon && <Icon className="mr-2 h-6 w-6" />} {label}
-    </a>
-  </Link>
-);
 
 export default Navbar;

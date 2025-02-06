@@ -7,6 +7,8 @@ import Navbar from "@/app/components/Navbar";
 import Home from "@/app/components/Home";
 import HomeMobile from "@/app/components/HomeMobile"; // Import the mobile version
 import CookieNotice from "@/app/components/cookie";
+import "../globals.css";
+import "../styles.css";
 
 export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);

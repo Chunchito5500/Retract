@@ -6,6 +6,8 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { SlidingWheelCard } from "@/app/components/Gallerymodels/slidingwheel";
 import { RetractabilityBikeCard } from "@/app/components/Gallerymodels/RetractabilityBikeCard";
+import "../globals.css";
+import "../styles.css";
 
 export default function Gallery() {
   return (
@@ -14,7 +16,6 @@ export default function Gallery() {
         <title>Gallery</title>
         <meta name="Model Gallery" content="Look at our 3D Models." />
       </Head>
-      <Navbar />
       <style jsx>{`
         .flex-container {
           display: grid;
@@ -40,6 +41,8 @@ export default function Gallery() {
             "linear-gradient(to top, #111827, #12132c, #120d31, #302f4d, #4e425b)",
         }}
       >
+        <Navbar />
+        <div style={{ height: "40px" }}></div>
         <div className="py-4 lg:py-2 px-2 mx-auto max-w-screen-md">
           <div style={{ height: "80px" }}></div>
 

@@ -5,6 +5,8 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useState } from "react";
+import "../globals.css";
+import "../styles.css";
 
 export default function Privacy() {
   // Initialize with all tabs open
@@ -213,7 +215,7 @@ export default function Privacy() {
                       questions or concerns about our privacy policy, please
                       feel free to{" "}
                       <a
-                        class="font-raleway text-gray-200  decoration-2 hover:underline focus:outline-none focus:underline font-medium"
+                        classN="font-raleway text-gray-200  decoration-2 hover:underline focus:outline-none focus:underline font-medium"
                         href="/"
                       >
                         contact us

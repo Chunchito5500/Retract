@@ -7,6 +7,8 @@ import { useState } from "react";
 import { HiLightBulb } from "react-icons/hi";
 import { FaBalanceScale } from "react-icons/fa";
 import { AiOutlineTeam } from "react-icons/ai";
+import "../globals.css";
+import "../styles.css";
 
 export default function AboutUs() {
   const [activeTab, setActiveTab] = useState("tab1");
@@ -18,6 +20,7 @@ export default function AboutUs() {
   return (
     <div>
       <Navbar />
+
       <div id="parallax-world-of-ugg">
         {/* Parallax Section */}
         <section>

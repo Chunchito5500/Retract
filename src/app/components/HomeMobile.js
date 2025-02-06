@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
-import { IoHammer } from 'react-icons/io5';
-import { GiCartwheel } from 'react-icons/gi';
-import { FiMap } from 'react-icons/fi';
+import React, { useState, useEffect, useRef } from "react";
+import { IoHammer } from "react-icons/io5";
+import { GiCartwheel } from "react-icons/gi";
+import { FiMap } from "react-icons/fi";
 
 export default function HomeMobile() {
   const [modelSrc, setModelSrc] = useState("Models/Blue Unfolded.glb");
@@ -27,28 +27,43 @@ export default function HomeMobile() {
       cameraOrbit: "180deg 0 0",
       title: "The Retractability Pioneer",
       cardtitle: "Innovative Design:",
-      content: "The Retractability Pioneer reimagines cycling mobility, offering unparalleled convenience without sacrificing style or functionality.",
-      style: { background: "linear-gradient(to bottom, #587792, #8DB1AB, #3C5862, #E6E6E6 99%)", color: "#ffffff" },
+      content:
+        "The Retractability Pioneer reimagines cycling mobility, offering unparalleled convenience without sacrificing style or functionality.",
+      style: {
+        background:
+          "linear-gradient(to bottom, #587792, #8DB1AB, #3C5862, #E6E6E6 99%)",
+        color: "#ffffff",
+      },
       titleColor: "#ffffff",
-      icon: <IoHammer size={44} color="#ffffff" />
+      icon: <IoHammer size={44} color="#ffffff" />,
     },
     feature2: {
       cameraOrbit: "50deg 2m 2m",
       title: "The Retractability Pioneer",
       cardtitle: "Durability Redefined:",
-      content: "Say goodbye to the fear of flat tires. The Pioneer's tires are crafted from a special pop-resistant material, offering peace of mind on any adventure.",
-      style: { background: "linear-gradient(to bottom, #34403A, #1e6e37, #285238, #E6E6E6 99%)", color: "#ffffff" },
+      content:
+        "Say goodbye to the fear of flat tires. The Pioneer's tires are crafted from a special pop-resistant material, offering peace of mind on any adventure.",
+      style: {
+        background:
+          "linear-gradient(to bottom, #34403A, #1e6e37, #285238, #E6E6E6 99%)",
+        color: "#ffffff",
+      },
       titleColor: "#E48F80",
-      icon: <GiCartwheel size={44} color="#ffffff" />
+      icon: <GiCartwheel size={44} color="#ffffff" />,
     },
     feature3: {
       cameraOrbit: "120deg 90deg 0",
       title: "The Retractability Pioneer",
       cardtitle: "Versatility Unmatched:",
-      content: "Engineered for every destination—work, college, parks, urban landscapes, or trails. The Retractability Pioneer adapts to your lifestyle, ensuring you're ready for wherever life takes you.",
-      style: { background: "linear-gradient(to bottom, #6F5060, #51344D, #A78682, #E6E6E6 99%)", color: "#ffffff" },
+      content:
+        "Engineered for every destination—work, college, parks, urban landscapes, or trails. The Retractability Pioneer adapts to your lifestyle, ensuring you're ready for wherever life takes you.",
+      style: {
+        background:
+          "linear-gradient(to bottom, #6F5060, #51344D, #A78682, #E6E6E6 99%)",
+        color: "#ffffff",
+      },
       titleColor: "#FFEDC3",
-      icon: <FiMap size={44} color="#ffffff" />
+      icon: <FiMap size={44} color="#ffffff" />,
     },
   };
 
@@ -72,7 +87,8 @@ export default function HomeMobile() {
     color: "#fff",
   };
 
-  const defaultBackground = "linear-gradient(to bottom, #859EB8 10%, #C0C6CC 30%, #E6E6E6 90%)";
+  const defaultBackground =
+    "linear-gradient(to bottom, #859EB8 10%, #C0C6CC 30%, #E6E6E6 90%)";
 
   const layoutContainerStyle = {
     display: "flex",
@@ -83,7 +99,9 @@ export default function HomeMobile() {
     width: "100%",
     height: "100vh",
     padding: "20px",
-    background: activeFeature ? featuresConfig[activeFeature].style.background : defaultBackground,
+    background: activeFeature
+      ? featuresConfig[activeFeature].style.background
+      : defaultBackground,
     boxSizing: "border-box",
     transition: "background 500ms ease-in-out, opacity 500ms ease-in-out",
     opacity: backgroundOpacity,
@@ -137,10 +155,20 @@ export default function HomeMobile() {
   const renderTextCard = (feature) => {
     const { cardtitle, content, style, icon } = featuresConfig[feature];
     return (
-      <div className="card w-full" style={{ backdropFilter: 'blur(10px)', backgroundColor: 'rgba(255, 255, 255, 0.2)', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.18)' }}>
+      <div
+        className="card w-full"
+        style={{
+          backdropFilter: "blur(10px)",
+          backgroundColor: "rgba(255, 255, 255, 0.2)",
+          borderRadius: "20px",
+          border: "1px solid rgba(255, 255, 255, 0.18)",
+        }}
+      >
         <div className="card-body">
-        <h2 className="card-title" style={{ color: '#ffffff' }}>{cardtitle}</h2>
-            <p style={{ color: '#ffffff' }}>{content}</p>
+          <h2 className="card-title" style={{ color: "#ffffff" }}>
+            {cardtitle}
+          </h2>
+          <p style={{ color: "#ffffff" }}>{content}</p>
           {icon}
         </div>
       </div>
@@ -149,11 +177,19 @@ export default function HomeMobile() {
 
   return (
     <div style={layoutContainerStyle}>
+      <div style={{ height: "100px" }}></div>
+
       <div style={titlesAndCardContentStyle}>
-        <p className="text-base font-raleway leading-7" style={{ color: titleColor }}>
+        <p
+          className="text-base font-raleway leading-7"
+          style={{ color: titleColor }}
+        >
           The new way to bike
         </p>
-        <h1 className="mt-2 text-5xl font-raleway font-medium tracking-tight" style={{ color: titleColor }}>
+        <h1
+          className="mt-2 text-5xl font-raleway font-medium tracking-tight"
+          style={{ color: titleColor }}
+        >
           {title}
         </h1>
       </div>
@@ -169,7 +205,7 @@ export default function HomeMobile() {
         style={modelViewerStyle}
       ></model-viewer>
       <div style={buttonContainerStyle}>
-        {["feature1", "feature2", "feature3"].map(key => (
+        {["feature1", "feature2", "feature3"].map((key) => (
           <button
             key={key}
             onClick={() => handleFeatureClick(key)}

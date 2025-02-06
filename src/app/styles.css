@@ -1,3 +1,4 @@
+/* Base Animations */
 @keyframes pulsate {
   0% {
     background-position: 0% 50%;
@@ -10,33 +11,87 @@
   }
 }
 
+/* Separator Line */
 .separator-line {
   height: 15px; /* Adjust thickness */
   background: linear-gradient(
     to right,
-    #4e4b5c,
-    #a37871,
-    #bea2c2,
-    #bdadea,
-    #4381c1
+    #464e55,
+    #00072d,
+    #001c55,
+    #0a2472,
+    #a6e1fa
   );
   background-size: 300% 300%;
   animation: pulsate 5s infinite alternate;
   margin-bottom: 0px; /* Space before the next section */
 }
 
-.navbar {
-  background-color: rgba(29, 38, 59, 0); /* Fully transparent */
-  transition: background-color 0.3s ease;
-}
-
-.navbar:hover {
-  background-color: rgba(29, 38, 59, 0.85); /* Opaque background on hover */
-}
-
 .navbar-container {
-  position: absolute;
+  position: absolute; /* Ensure navbar stays at the top */
   top: 0;
   width: 100%;
-  z-index: 10; /* Ensure navbar is above other elements */
+  z-index: 10; /* Ensure navbar stays above other elements */
+}
+/* Ensure navbar is transparent by default */
+.navbar {
+  background-color: transparent !important;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Make navbar opaque when scrolling or when a menu is active */
+.navbar-active {
+  background-color: rgba(29, 38, 59, 0.85) !important;
+}
+
+/* Hover effect should apply on all pages */
+.navbar:hover {
+  background-color: rgba(29, 38, 59, 0.85) !important;
+}
+
+/* Ensure dropdown menus animate properly */
+.animate-slideDown {
+  animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+/* Apply the animations */
+.mobile-nav {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.mobile-nav-close {
+  animation: slideOut 0.3s ease-in-out;
 }

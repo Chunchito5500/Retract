@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { useState } from "react";
+import "../globals.css";
+import "../styles.css";
 
 const cardVariants = {
   offscreen: {
@@ -71,7 +73,10 @@ export default function Timeline() {
                 Our Timeline
               </h2>
               <p className="mt-1 font-raleway text-[#D1D1D1]">
-                While we&apos;re in the early stages of our company and our goals, we&apos;ve outlined a comprehensive timeline detailing our future plans and how you can help make an impact on our journey.
+                While we&apos;re in the early stages of our company and our
+                goals, we&apos;ve outlined a comprehensive timeline detailing
+                our future plans and how you can help make an impact on our
+                journey.
               </p>
             </div>
             <div className="relative">
@@ -81,16 +86,18 @@ export default function Timeline() {
               {timelineData.map((item, index) => (
                 <motion.div
                   key={item.year}
-                  className={`flex items-center gap-x-5 py-8 relative z-10 ${index % 2 === 0 ? "justify-start" : "justify-end"
-                    }`}
+                  className={`flex items-center gap-x-5 py-8 relative z-10 ${
+                    index % 2 === 0 ? "justify-start" : "justify-end"
+                  }`}
                   initial="offscreen"
                   whileInView="onscreen"
                   viewport={{ once: true, amount: 0.8 }}
                   variants={cardVariants}
                 >
                   <div
-                    className={`w-full max-w-xs p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg transform ${index % 2 === 0 ? "translate-x-10" : "-translate-x-10"
-                      }`}
+                    className={`w-full max-w-xs p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg transform ${
+                      index % 2 === 0 ? "translate-x-10" : "-translate-x-10"
+                    }`}
                   >
                     <span className="text-xs uppercase font-semibold text-[#f6957d]">
                       Year {item.year}
@@ -109,7 +116,6 @@ export default function Timeline() {
           <Footer />
         </div>
       </section>
-      
     </div>
   );
 }

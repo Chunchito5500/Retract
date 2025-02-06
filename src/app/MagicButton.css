@@ -1,0 +1,74 @@
+/* MagicButton.css */
+
+/* 
+   Base styles for .magic-button:
+   - Remove position: relative;
+   - Let Tailwind apply 'fixed' or 'absolute' or whatever.
+   - Keep the overflow hidden if you like, and define
+     custom properties for the conic gradient transitions.
+*/
+.magic-button {
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+
+  /* Custom props for the "border" effect */
+  --c: #8a9b0f; /* Border color */
+  --b: 10px; /* Border thickness */
+  --g: 5px; /* Gap on hover */
+  --_g: #0000 25%, var(--c) 0; /* Gradient pattern: partly transparent, partly color */
+  --_i: 200%; /* Start with the gradient mostly "off screen" */
+
+  padding: calc(var(--g) + var(--b));
+  cursor: pointer;
+}
+
+/* 
+   When hovered, we set --_i to 100%.
+   This reveals the border gradient.
+*/
+.magic-button:hover {
+  --_i: 100%;
+  /* 
+    We also animate background-size a bit later
+    for a nice "expanding" effect.
+  */
+  transition: 0.3s, background-size 0.3s 0.3s;
+}
+
+/* =========================================
+   LEFT VARIANT: "From top-left" style
+   ========================================= */
+.magic-button[data-variant="left"] {
+  background:
+    /* 1st conic gradient */ conic-gradient(
+        from 180deg at top var(--b) right var(--b),
+        var(--_g)
+      )
+      /* position and size */ var(--_i, 200%) 0 / 200% var(--_i, var(--b))
+      no-repeat,
+    /* 2nd conic gradient */
+      conic-gradient(at bottom var(--b) left var(--b), var(--_g))
+      /* position and size */ 0 var(--_i, 200%) / var(--_i, var(--b)) 200%
+      no-repeat;
+
+  transition: 0.3s, background-position 0.3s 0.3s;
+}
+
+/* =========================================
+   RIGHT VARIANT: "From bottom-right" style
+   (Inverted angles so the border can animate
+   in from the bottom/right side.)
+   ========================================= */
+.magic-button[data-variant="right"] {
+  background:
+    /* 1st conic gradient: anchored at bottom-right, zero degrees */ conic-gradient(
+        from 0deg at bottom var(--b) right var(--b),
+        var(--_g)
+      )
+      var(--_i, 200%) 0 / 200% var(--_i, var(--b)) no-repeat,
+    /* 2nd conic gradient: anchored at top-left */
+      conic-gradient(at top var(--b) left var(--b), var(--_g)) 0 var(--_i, 200%) /
+      var(--_i, var(--b)) 200% no-repeat;
+
+  transition: 0.3s, background-position 0.3s 0.3s;
+}

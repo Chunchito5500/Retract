@@ -1,5 +1,3 @@
-// pages/ExplorePage.js
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -8,9 +6,15 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import Explore from "@/app/components/Explore";
 import Signup from "@/app/components/signup";
-import { HiOutlineMail } from "react-icons/hi";
 import ExploreMobile from "@/app/components/ExploreMobile";
+import { HiOutlineMail } from "react-icons/hi";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "./styles.css";
+import "./MagicButton.css"; // Ensure this CSS file is properly imported
 
 export default function ExplorePage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -38,32 +42,105 @@ export default function ExplorePage() {
     <div>
       <Head>
         <title>Explore</title>
-        <meta name="description" content="Learn more about our Bikes." />
+        <meta name="Retractability Bicycles" content="Foldable Bikes" />
       </Head>
       <Navbar />
-      <main
-        className="relative bg-cover bg-center h-[45rem] bg-black"
-        style={{ backgroundImage: `url('/RetractGrayBike.png')` }}
+      {/* Carousel for Background */}
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={0}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{ delay: 10000 }}
+        navigation
+        pagination={{ clickable: true }}
+        className="h-[45rem]"
       >
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative flex items-center justify-center h-full">
-          <div className="text-center">
-            <h1 className="text-3xl lg:text-4xl font-raleway font-medium text-white">
-              The future of <span className="text-blue-400">Biking</span>
-            </h1>
-            <button
-              className="font-raleway glow-button mt-4 lg:w-auto"
-              onClick={() =>
-                document
-                  .getElementById("middle")
-                  .scrollIntoView({ behavior: "smooth" })
-              }
-            >
-              Explore Models
-            </button>
+        <SwiperSlide>
+          <div
+            className="relative bg-cover bg-center h-full"
+            style={{
+              backgroundImage: "url('/RetractGrayBike.png')",
+            }}
+          >
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+            <div className="relative flex items-center justify-center h-full">
+              <div className="text-center">
+                <h1 className="text-3xl lg:text-4xl font-raleway font-medium text-white">
+                  The future of <span className="text-blue-400">Biking</span>
+                </h1>
+                <button
+                  className="font-raleway glow-button mt-4 lg:w-auto"
+                  onClick={() =>
+                    document
+                      .getElementById("middle")
+                      .scrollIntoView({ behavior: "smooth" })
+                  }
+                >
+                  Explore Models
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      </main>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div
+            className="relative bg-cover bg-center h-full"
+            style={{
+              backgroundImage: "url('/bikerenders/CityFeel.png')",
+            }}
+          >
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+            <div className="relative flex items-center justify-center h-full">
+              <div className="text-center">
+                <h1 className="text-3xl lg:text-4xl font-raleway font-medium text-white">
+                  Experience Innovation
+                </h1>
+                <button
+                  className="font-raleway glow-button mt-4 lg:w-auto"
+                  onClick={() =>
+                    document
+                      .getElementById("middle")
+                      .scrollIntoView({ behavior: "smooth" })
+                  }
+                >
+                  Explore Models
+                </button>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div
+            className="relative bg-cover bg-center h-full"
+            style={{
+              backgroundImage: "url('/bikerenders/Rooftop.png')",
+            }}
+          >
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+            <div className="relative flex items-center justify-center h-full">
+              <div className="text-center">
+                <h1 className="text-3xl lg:text-4xl font-raleway font-medium text-white">
+                  Discover the Future
+                </h1>
+                <button
+                  className="font-raleway glow-button mt-4 lg:w-auto"
+                  onClick={() =>
+                    document
+                      .getElementById("middle")
+                      .scrollIntoView({ behavior: "smooth" })
+                  }
+                >
+                  Explore Models
+                </button>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+      </Swiper>
+
       <div className="separator-line"></div>
       <div
         style={{
@@ -82,7 +159,19 @@ export default function ExplorePage() {
       {showButton && (
         <button
           onClick={handleOpenModal}
-          className="fixed bottom-6 right-4 z-50 inline-flex items-center gap-x-2 px-4 py-3 text-base font-medium rounded-lg border border-transparent bg-[#1d263b] text-white hover:bg-[#1f2a45] focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+          className="
+          magic-button
+          fixed bottom-6 right-4 z-50
+          inline-flex items-center gap-x-2
+          px-4 py-3 text-base font-medium
+          rounded-lg border border-transparent
+          bg-[#1d263b] text-white
+          hover:bg-[#1f2a45]
+          focus:outline-none
+          focus:bg-blue-700
+          disabled:opacity-50
+          disabled:pointer-events-none
+        "
         >
           <HiOutlineMail className="w-5 h-5" />
           Join our interest list!
