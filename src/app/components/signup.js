@@ -46,16 +46,18 @@ export default function Signup({ isVisible, onClose }) {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center ${
-        isMobile ? "w-full h-full bg-black/50" : "bg-transparent"
-      }`}
+      className={`fixed inset-x-0 ${
+        isMobile
+          ? "bottom-0 w-full"
+          : "inset-0 flex items-center justify-center"
+      } z-50`}
     >
       <div
         className={`relative ${
           isMobile
-            ? "w-full h-full bg-white rounded-none"
-            : "max-w-md w-full bg-white rounded-xl"
-        } border border-t-4 border-t-blue-600 shadow-lg p-6 dark:bg-neutral-900 dark:border-neutral-700 dark:border-t-blue-500 dark:shadow-neutral-700/70`}
+            ? "w-full bg-white rounded-t-xl p-6 shadow-lg border-t border-gray-300"
+            : "max-w-md w-full bg-white rounded-xl p-6 shadow-lg border border-gray-300"
+        } dark:bg-neutral-900 dark:border-neutral-700`}
       >
         {/* Close Button */}
         <button
