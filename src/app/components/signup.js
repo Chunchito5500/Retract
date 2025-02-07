@@ -46,17 +46,17 @@ export default function Signup({ isVisible, onClose }) {
 
   return (
     <div
-      className={`fixed inset-x-0 ${
+      className={`fixed z-50 ${
         isMobile
-          ? "bottom-0 w-full"
-          : "inset-0 flex items-center justify-center"
-      } z-50`}
+          ? "inset-x-0 bottom-0 w-full" // Mobile: full-width modal at bottom
+          : "bottom-4 right-4 max-w-md w-full" // Desktop: bottom-right corner
+      }`}
     >
       <div
         className={`relative ${
           isMobile
             ? "w-full bg-white rounded-t-xl p-6 shadow-lg border-t border-gray-300"
-            : "max-w-md w-full bg-white rounded-xl p-6 shadow-lg border border-gray-300"
+            : "bg-white rounded-xl p-6 shadow-lg border border-gray-300"
         } dark:bg-neutral-900 dark:border-neutral-700`}
       >
         {/* Close Button */}
