@@ -116,7 +116,7 @@ export default function ExplorePage() {
           <div
             className="relative bg-cover bg-center h-full"
             style={{
-              backgroundImage: "url('/bikerenders/Rooftop.png')",
+              backgroundImage: "url('/bikerenders/OrangeReal.png')",
             }}
           >
             <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -160,21 +160,22 @@ export default function ExplorePage() {
         <button
           onClick={handleOpenModal}
           className="
-          magic-button
-          fixed bottom-6 right-4 z-50
-          inline-flex items-center gap-x-2
-          px-4 py-3 text-base font-medium
-          rounded-lg border border-transparent
-          bg-[#1d263b] text-white
-          hover:bg-[#1f2a45]
-          focus:outline-none
-          focus:bg-blue-700
-          disabled:opacity-50
-          disabled:pointer-events-none
-        "
+      magic-button
+      fixed bottom-6 right-4 z-50
+      inline-flex items-center gap-x-2
+      px-4 py-3 text-base font-medium
+      rounded-lg border border-transparent
+      bg-[#1d263b] text-white
+      hover:bg-[#1f2a45]
+      focus:outline-none
+      focus:bg-blue-700
+      disabled:opacity-50
+      disabled:pointer-events-none
+    "
         >
           <HiOutlineMail className="w-5 h-5" />
-          Join our interest list!
+          {!isMobile && <span>Join our interest list!</span>}{" "}
+          {/* ✅ Only show text on desktop */}
         </button>
       )}
     </div>
