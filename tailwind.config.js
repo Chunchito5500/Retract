@@ -5,7 +5,7 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,jsx,ts,tsx}",
-    'node_modules/preline/dist/*.js',
+    "node_modules/preline/dist/*.js",
   ],
   theme: {
     extend: {
@@ -20,20 +20,20 @@ module.exports = {
         raleway: ["Raleway", "sans-serif"],
         manrope: ["Manrope", "sans-serif"],
         quicksand: ["Quicksand", "sans-serif"],
-        convergence: ["Convergence", "sans-serif"]
+        convergence: ["Convergence", "sans-serif"],
       },
       fontWeight: {
-        'medium': 500,
+        medium: 500,
       },
       colors: {
-        customGray: '#444146',
-        customGrayHover: '#302e32',
+        customGray: "#444146",
+        customGrayHover: "#302e32",
       },
     },
   },
   plugins: [
     require("daisyui"),
     "@tailwindcss/aspect-ratio",
-    require('preline/plugin'),
+    require("preline/plugin"),
   ],
 };

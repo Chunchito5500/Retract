@@ -20,7 +20,7 @@ const AboutNav = () => (
         <div className="bg-white h-[3px] w-0 group-hover:w-full transition-all duration-500"></div>
       </a>
       <a
-        href="#"
+        href="/blog"
         className="font-raleway text-white group"
         style={{ fontSize: "36px" }} // Set font size directly
       >

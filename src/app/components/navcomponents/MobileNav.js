@@ -1,4 +1,4 @@
-import React, { useState } from "react"; // ✅ Import React
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { IoIosHome } from "react-icons/io";
 import { HiTemplate } from "react-icons/hi";
@@ -16,9 +16,17 @@ import { MdOutlinePedalBike } from "react-icons/md";
  */
 const MobileNav = ({ open, onClose }) => {
   const [closing, setClosing] = useState(false);
-  const [usersOpen, setUsersOpen] = useState(false); // ✅ Add this line
+  const [usersOpen, setUsersOpen] = useState(false);
   const [sub1Open, setSub1Open] = useState(false);
   const [sub2Open, setSub2Open] = useState(false);
+
+  useEffect(() => {
+    // Dynamically load the Instagram embed script
+    const script = document.createElement("script");
+    script.src = "https://www.instagram.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
   const handleClose = () => {
     setClosing(true);
@@ -27,13 +35,16 @@ const MobileNav = ({ open, onClose }) => {
       onClose();
     }, 300); // Matches animation duration
   };
+
   // Outer overlay classes: show/hide via Tailwind based on `open`
   const overlayClass = open
     ? "opacity-100 pointer-events-auto"
     : "opacity-0 pointer-events-none";
 
   // Sidebar transition classes
-  const sidebarClass = open ? "translate-x-0" : "-translate-x-full";
+  const sidebarClass = open
+    ? "translate-x-0 opacity-100"
+    : "-translate-x-full opacity-0";
 
   return (
     <>
@@ -46,6 +57,8 @@ const MobileNav = ({ open, onClose }) => {
         }`}
         onClick={handleClose}
       />
+
+      {/* “Phantom” White Sidebar (optional) */}
       <div
         className={`fixed top-0 left-0 bottom-0 w-64 z-[60] bg-white border-r border-gray-200 
                     transform transition-transform duration-300 ${
@@ -66,7 +79,7 @@ const MobileNav = ({ open, onClose }) => {
           </button>
         </header>
 
-        {/* Navigation content */}
+        {/* Minimal nav content in the white sidebar */}
         <nav className="overflow-y-auto h-full px-4 pb-8">
           <Link
             href="/"
@@ -78,10 +91,10 @@ const MobileNav = ({ open, onClose }) => {
         </nav>
       </div>
 
-      {/* Sidebar itself */}
+      {/* Actual “Dark” Sidebar */}
       <div
-        className={`fixed top-0 left-0 bottom-0 w-64 z-[60] bg-[#1d263b] border-r border-[#29344f] 
-                    transform transition-transform duration-300 ${sidebarClass}`}
+        className={`fixed top-0 left-0 bottom-0 w-64 z-[60] bg-[#1d263b] border-r border-[#29344f]
+              transform transition-all duration-500 ease-in-out ${sidebarClass}`}
         role="dialog"
         aria-modal="true"
       >
@@ -103,7 +116,7 @@ const MobileNav = ({ open, onClose }) => {
           {/* Example top-level link */}
           <Link
             href="/"
-            className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-100 
+            className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-100
                        rounded-lg hover:bg-[#29344f]"
             onClick={onClose}
           >
@@ -111,11 +124,11 @@ const MobileNav = ({ open, onClose }) => {
             Home
           </Link>
 
-          {/* Example ACCORDION: “Bikes” section replicating your “Pioneer/Pioneer Lite” */}
+          {/* Example ACCORDION: “Bikes” section */}
           <div className="mt-2">
             <button
               type="button"
-              className="w-full flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-100 
+              className="w-full flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-100
                          rounded-lg hover:bg-[#29344f] focus:outline-none"
               onClick={() => setUsersOpen(!usersOpen)}
             >
@@ -134,11 +147,8 @@ const MobileNav = ({ open, onClose }) => {
                 <path d="M6 9l6 6 6-6" />
               </svg>
             </button>
-
-            {/* If open, show the sub-items */}
             {usersOpen && (
               <div className="mt-1 ml-6">
-                {/* “Pioneer” link */}
                 <Link
                   href="/quark"
                   className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
@@ -146,14 +156,15 @@ const MobileNav = ({ open, onClose }) => {
                 >
                   Pioneer
                 </Link>
-                {/* “Pioneer Lite” link */}
-                {/* <Link
-                  href="/pioneerlite"
-                  className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
-                  onClick={onClose}
-                >
-                  Pioneer Lite
-                </Link> */}
+                {/* 
+                  <Link
+                    href="/pioneerlite"
+                    className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
+                    onClick={onClose}
+                  >
+                    Pioneer Lite
+                  </Link> 
+                */}
               </div>
             )}
           </div>
@@ -162,7 +173,7 @@ const MobileNav = ({ open, onClose }) => {
           <div className="mt-2">
             <button
               type="button"
-              className="w-full flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-100 
+              className="w-full flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-100
                          rounded-lg hover:bg-[#29344f] focus:outline-none"
               onClick={() => setSub1Open(!sub1Open)}
             >
@@ -180,7 +191,6 @@ const MobileNav = ({ open, onClose }) => {
                 <path d="M6 9l6 6 6-6" />
               </svg>
             </button>
-
             {sub1Open && (
               <div className="mt-1 ml-6">
                 <Link
@@ -190,13 +200,15 @@ const MobileNav = ({ open, onClose }) => {
                 >
                   Main Gallery
                 </Link>
-                {/* <Link
-                  href="/gallery#features"
-                  className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
-                  onClick={onClose}
-                >
-                  Features
-                </Link> */}
+                {/*
+                  <Link
+                    href="/gallery#features"
+                    className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
+                    onClick={onClose}
+                  >
+                    Features
+                  </Link> 
+                */}
                 <Link
                   href="/privacypolicy"
                   className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
@@ -212,7 +224,7 @@ const MobileNav = ({ open, onClose }) => {
           <div className="mt-2">
             <button
               type="button"
-              className="w-full flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-100 
+              className="w-full flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-100
                          rounded-lg hover:bg-[#29344f] focus:outline-none"
               onClick={() => setSub2Open(!sub2Open)}
             >
@@ -230,7 +242,6 @@ const MobileNav = ({ open, onClose }) => {
                 <path d="M6 9l6 6 6-6" />
               </svg>
             </button>
-
             {sub2Open && (
               <div className="mt-1 ml-6">
                 <Link
@@ -240,54 +251,34 @@ const MobileNav = ({ open, onClose }) => {
                 >
                   About
                 </Link>
-                {/* <Link
-                  href="/contact"
-                  className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
-                  onClick={onClose}
-                >
-                  Contact
-                </Link>
-                <Link
-                  href="/blog"
-                  className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
-                  onClick={onClose}
-                >
-                  Blog
-                </Link>
-                <Link
-                  href="/newsletter"
-                  className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
-                  onClick={onClose}
-                >
-                  Newsletter
-                </Link> */}
+                {/*
+                  <Link
+                    href="/contact"
+                    className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
+                    onClick={onClose}
+                  >
+                    Contact
+                  </Link>
+                  <Link
+                    href="/blog"
+                    className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
+                    onClick={onClose}
+                  >
+                    Blog
+                  </Link>
+                  <Link
+                    href="/newsletter"
+                    className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
+                    onClick={onClose}
+                  >
+                    Newsletter
+                  </Link>
+                */}
               </div>
             )}
           </div>
 
-          {/* You can add images/cards inside the sidebar, just like your Desktop subnavs. */}
-          <div className="mt-6">
-            {/* <div className="col-span-2">
-              <div className="card lg:card-side bg-base-100 shadow-xl">
-                <figure>
-                  <img
-                    src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
-                    alt="Album"
-                    className="object-cover h-48 w-full lg:h-auto lg:w-1/3"
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">New album is released!</h2>
-                  <p>Click the button to listen on Spotiwhy app.</p>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Listen</button>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-          </div>
-
-          {/* Another image/card */}
+          {/* Another image/card could go here if needed */}
         </nav>
       </div>
     </>

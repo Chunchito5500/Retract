@@ -4,13 +4,13 @@ import { MdPedalBike } from "react-icons/md";
 import { IoAlertCircleOutline } from "react-icons/io5";
 import Image from "next/image";
 import styles from "./Explore.module.css";
-import Pioneer from "@/app/components/Pioneer";
+import TablePioneer from "@/app/components/TablePioneer";
 
 export default function Explore() {
   return (
     <div>
       <div style={{ height: "75px" }}></div>
-      <Pioneer />
+      <TablePioneer />
       <div style={{ height: "150px" }}></div>
       <div className="container px-6 py-10 mx-auto">
         <div className="bg-[#303d5a] shadow-lg rounded-lg p-10 md:p-10 border transition-all duration-500">

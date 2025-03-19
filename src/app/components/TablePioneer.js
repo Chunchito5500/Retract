@@ -40,7 +40,7 @@ export default function TablePioneer() {
                     new standards and advancing the industry.
                   </p>
                   <h3 className="mt-6 text-lg font-raleway text-blue-500 flex items-center">
-                    Release Date: January 2025
+                    Release Date: June 2025
                     <span
                       className="tooltip tooltip-right"
                       data-tip="These are concept images representing future bike models."
