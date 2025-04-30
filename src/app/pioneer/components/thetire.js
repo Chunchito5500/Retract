@@ -14,6 +14,8 @@ const SourceSans = localFont({
   src: "../../fonts/SourceSans3-Regular.ttf",
 });
 
+const scrollSpeedMultiplier = 2; // Increase animation speed when scrolling
+
 const TheTire = () => {
   // Refs and state for the sliding model animation
   const modelViewerRef = useRef(null);
@@ -59,12 +61,10 @@ const TheTire = () => {
       if (middleCardRef.current && modelViewerRef.current) {
         const rect = middleCardRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
-        // Calculate progress: when the top of the middle card is at bottom of viewport => 0,
-        // and when the bottom of the card is at the top => 1.
-        const progress = Math.min(
-          Math.max((windowHeight - rect.top) / (windowHeight + rect.height), 0),
-          1
-        );
+        // Compute raw progress
+        const raw = (windowHeight - rect.top) / (windowHeight + rect.height);
+        // Apply multiplier and clamp to [0,1]
+        const progress = Math.min(Math.max(raw * scrollSpeedMultiplier, 0), 1);
         const newTime = progress * totalAnimationDuration;
         setSliderValue(newTime); // internal update only
         modelViewerRef.current.currentTime = newTime;
