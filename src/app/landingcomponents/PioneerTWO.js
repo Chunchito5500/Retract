@@ -28,10 +28,10 @@ export default function PioneerTWO() {
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <section
         id="middle"
-        className="max-w-[89.5rem] mx-auto bg-[#333544] border-4 border-[#525674] transition-all duration-500"
+        className="w-full max-w-full mx-auto px-4 sm:px-6 bg-[#333544] border-4 border-[#525674] transition-all duration-500 overflow-x-hidden"
       >
         {/* Default Mode */}
         {!isExpanded && (

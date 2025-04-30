@@ -28,7 +28,7 @@ const Footer = () => {
                 className="mr-2 h-18"
               />
               <span
-                className={`self-center text-5xl font-raleway font-medium whitespace-nowrap text-white ${BebasNeue.className}`}
+                className={`self-center text-3xl sm:text-4xl md:text-5xl font-raleway font-medium text-white ${BebasNeue.className}`}
               >
                 Retractability Bicycles
               </span>

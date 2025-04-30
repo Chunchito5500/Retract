@@ -18,7 +18,7 @@ export default function AboutUs() {
   };
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Navbar />
 
       <div id="parallax-world-of-ugg">
@@ -30,7 +30,7 @@ export default function AboutUs() {
             <h3 className="text-sm uppercase tracking-widest text-gray-300">
               About Us
             </h3>
-            <h1 className="text-5xl uppercase tracking-widest text-gray-200 font-raleway mt-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-widest text-gray-200 font-raleway mt-4">
               Retractability Bicycles
             </h1>
           </div>
@@ -38,19 +38,12 @@ export default function AboutUs() {
 
         <section>
           <div
-            className="flex items-center justify-center text-center bg-gray-900"
+            className="py-16 md:py-32 bg-gray-900 bg-center bg-cover bg-fixed opacity-85 flex items-center justify-center text-center"
             style={{
-              paddingTop: "200px",
-              paddingBottom: "200px",
               backgroundImage: "url('/printpics/otra.jpg')",
-              backgroundAttachment: "fixed",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center center",
-              opacity: 0.85,
             }}
           >
-            <h2 className="text-6xl text-white tracking-wide uppercase">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-wide uppercase">
               Our Mission Statement
             </h2>
           </div>
@@ -59,8 +52,8 @@ export default function AboutUs() {
         <section>
           <div className="bg-[#333544] py-16 mx-auto">
             <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="bg-[#404353] p-10 rounded-xl shadow-2xl">
-                <p className="text-xl text-white leading-relaxed tracking-wide">
+              <div className="bg-[#404353] p-6 sm:p-8 md:p-10 rounded-xl shadow-2xl">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white leading-relaxed tracking-wide">
                   At Retractability, we don’t believe in sacrificing quality for
                   convenience, especially when it comes to bikes. Cycling isn’t
                   only a pastime, but a necessity for many, and it should be
@@ -82,6 +75,8 @@ export default function AboutUs() {
                 className="w-full h-full object-cover rounded-xl"
                 src="/tableteam.JPG"
                 alt="What we do image"
+                width={800}
+                height={400}
               />
             </div>
             <div className="mt-5 lg:mt-16 grid lg:grid-cols-3 gap-8 lg:gap-12">
@@ -150,19 +145,12 @@ export default function AboutUs() {
         {/* Meet the Team Section */}
         <section>
           <div
-            className="flex items-center justify-center text-center bg-gray-900"
+            className="py-16 md:py-32 bg-gray-900 bg-center bg-cover bg-fixed opacity-85 flex items-center justify-center text-center"
             style={{
-              paddingTop: "200px",
-              paddingBottom: "200px",
               backgroundImage: "url('/AZ.jpg')",
-              backgroundAttachment: "fixed",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center center",
-              opacity: 0.85,
             }}
           >
-            <h2 className="text-6xl text-white tracking-wide uppercase">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-wide uppercase">
               Meet the Team
             </h2>
           </div>
