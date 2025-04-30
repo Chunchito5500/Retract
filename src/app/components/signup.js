@@ -55,14 +55,14 @@ export default function Signup({ isVisible, onClose }) {
       <div
         className={`relative ${
           isMobile
-            ? "w-full bg-white rounded-t-xl p-6 shadow-lg border-t border-gray-300"
-            : "bg-white rounded-xl p-6 shadow-lg border border-gray-300"
+            ? "w-full bg-[#333544] rounded-t-xl p-6 shadow-lg border-t border-gray-300"
+            : "bg-[#333544] rounded-xl p-6 shadow-lg border border-gray-300"
         } dark:bg-neutral-900 dark:border-neutral-700`}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+          className="absolute top-4 right-4 text-gray-400 hover:text-gray-200 "
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -79,10 +79,10 @@ export default function Signup({ isVisible, onClose }) {
         </button>
 
         {/* Modal Content */}
-        <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+        <h3 className="text-xl font-bold text-gray-300 ">
           Join our Interest List!
         </h3>
-        <p className="mt-2 text-gray-500 dark:text-neutral-400">
+        <p className="mt-2 text-gray-200">
           Sign up to join our interest list and see our progress!
         </p>
 
@@ -91,14 +91,14 @@ export default function Signup({ isVisible, onClose }) {
           <input
             type="email"
             placeholder="Email address"
-            className="w-full rounded-md border border-gray-300 bg-white p-3 text-gray-800 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-200 shadow-sm transition focus:border-blue-500 focus:ring focus:ring-blue-400 focus:outline-none"
+            className="w-full rounded-md border border-gray-300 bg-white p-3 text-gray-800 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-200 shadow-sm transition focus:border-[#ccc5b9] focus:ring focus:ring-[#b5aea2] focus:outline-none"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
           <button
             type="submit"
-            className="mt-4 w-full rounded-md bg-blue-600 px-4 py-2 text-white font-semibold text-sm hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="mt-4 w-full rounded-md bg-[#ccc5b9] px-4 py-2 text-white font-semibold text-sm hover:bg-[#9d978e] focus:bg-[#ccc5b9] focus:outline-none focus:ring-2 focus:ring-[#b5aea2]"
           >
             Sign Up
           </button>
@@ -106,9 +106,7 @@ export default function Signup({ isVisible, onClose }) {
 
         {/* Response Message */}
         {modalMessage && (
-          <p className="mt-4 text-sm text-blue-600 dark:text-blue-400">
-            {modalMessage}
-          </p>
+          <p className="mt-4 text-sm text-[#ccc5b9]">{modalMessage}</p>
         )}
       </div>
     </div>

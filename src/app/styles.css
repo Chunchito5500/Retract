@@ -33,9 +33,9 @@
   width: 100%;
   z-index: 10; /* Ensure navbar stays above other elements */
 }
-/* Ensure navbar is transparent by default */
+/* Navbar is opaque by default */
 .navbar {
-  background-color: transparent !important;
+  background-color: rgba(29, 38, 59, 0.85) !important;
   transition: background-color 0.3s ease-in-out;
 }
 
@@ -44,9 +44,8 @@
   background-color: rgba(29, 38, 59, 0.85) !important;
 }
 
-/* Hover effect should apply on all pages */
-.navbar:hover {
-  background-color: rgba(29, 38, 59, 0.85) !important;
+.navbar-green {
+  background-color: rgba(28, 124, 84, 0.85) !important;
 }
 
 /* Ensure dropdown menus animate properly */

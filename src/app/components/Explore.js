@@ -5,12 +5,13 @@ import { IoAlertCircleOutline } from "react-icons/io5";
 import Image from "next/image";
 import styles from "./Explore.module.css";
 import TablePioneer from "@/app/components/TablePioneer";
+import PioneerTWO from "@/app/landingcomponents/PioneerTWO";
 
 export default function Explore() {
   return (
     <div>
       <div style={{ height: "75px" }}></div>
-      <TablePioneer />
+      <PioneerTWO />
       <div style={{ height: "150px" }}></div>
       <div className="container px-6 py-10 mx-auto">
         <div className="bg-[#303d5a] shadow-lg rounded-lg p-10 md:p-10 border transition-all duration-500">

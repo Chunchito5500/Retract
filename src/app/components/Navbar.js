@@ -11,6 +11,14 @@ import HomeNav from "./navcomponents/HomeNav";
 import GalleryNav from "./navcomponents/GalleryNav";
 import AboutNav from "./navcomponents/AboutNav";
 import MobileNav from "./navcomponents/MobileNav"; // import your mobile component
+import localFont from "next/font/local";
+
+const BebasNeue = localFont({
+  src: "../fonts/BebasNeue-Regular.ttf",
+});
+const Roboto = localFont({
+  src: "../fonts/Roboto-Regular.ttf",
+});
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -21,6 +29,7 @@ const Navbar = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   const pathname = usePathname(); // current path
+  const isGreenPage = pathname.startsWith("/green");
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -66,8 +75,12 @@ const Navbar = () => {
       {/* --- The Navbar "bar" itself --- */}
       <div
         className={`navbar flex items-center justify-between p-4 text-white transition-all ${
-          scrolled || isAnyMenuActive ? "navbar-active" : "navbar-transparent"
-        } hover:bg-[#1d263b]`}
+          isGreenPage // green page? give it the green class first
+            ? "navbar-green"
+            : scrolled || isAnyMenuActive
+            ? "navbar-active" // otherwise fall back to blue when scrolled
+            : ""
+        }`}
       >
         {/* ============ Left Section ============ */}
         {/* If NOT mobile, show original three nav buttons. 
@@ -75,7 +88,7 @@ const Navbar = () => {
         {!isMobile ? (
           <div className="flex items-center space-x-4">
             <button
-              className="flex items-center p-2 text-lg font-raleway hover:text-gray-400"
+              className={`flex items-center p-2 text-2xl font-raleway hover:text-gray-400 ${BebasNeue.className}`}
               onClick={() => toggleMenu("home")}
             >
               <MdOutlinePedalBike className="mr-2 h-6 w-6" />
@@ -84,7 +97,7 @@ const Navbar = () => {
             </button>
 
             <button
-              className="flex items-center p-2 text-lg font-raleway hover:text-gray-400"
+              className={`flex items-center p-2 text-2xl font-raleway hover:text-gray-400 ${BebasNeue.className}`}
               onClick={() => toggleMenu("gallery")}
             >
               <HiTemplate className="mr-2 h-6 w-6" />
@@ -93,7 +106,7 @@ const Navbar = () => {
             </button>
 
             <button
-              className="flex items-center p-2 text-lg font-raleway hover:text-gray-400"
+              className={`flex items-center p-2 text-2xl font-raleway hover:text-gray-400 ${BebasNeue.className}`}
               onClick={() => toggleMenu("aboutus")}
             >
               <BsChatQuote className="mr-2 h-6 w-6" />
@@ -116,7 +129,7 @@ const Navbar = () => {
         {/* ============ Center Section: Logo ============ */}
         <Link href="/" className="absolute left-1/2 transform -translate-x-1/2">
           <Image
-            src="/retractenhanced.svg"
+            src="/white_retractenhanced.svg"
             alt="Retract Logo"
             width={80}
             height={40}

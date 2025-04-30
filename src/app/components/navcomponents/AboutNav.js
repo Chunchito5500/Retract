@@ -11,12 +11,12 @@ const AboutNav = () => (
         About Us
         <div className="bg-white h-[3px] w-0 group-hover:w-full transition-all duration-500"></div>
       </a>
-      {/* <a
-        href="#"
+      <a
+        href="/green"
         className="font-raleway text-white group"
         style={{ fontSize: "36px" }} // Set font size directly
       >
-        Contact Us
+        Green Initiative
         <div className="bg-white h-[3px] w-0 group-hover:w-full transition-all duration-500"></div>
       </a>
       <a
@@ -24,10 +24,10 @@ const AboutNav = () => (
         className="font-raleway text-white group"
         style={{ fontSize: "36px" }} // Set font size directly
       >
-        Blog Page
+        Blogs
         <div className="bg-white h-[3px] w-0 group-hover:w-full transition-all duration-500"></div>
       </a>
-      <a
+      {/* <a
         href="/privacypolicy"
         className="font-raleway text-white group"
         style={{ fontSize: "36px" }} // Set font size directly

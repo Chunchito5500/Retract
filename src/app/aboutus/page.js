@@ -24,13 +24,13 @@ export default function AboutUs() {
       <div id="parallax-world-of-ugg">
         {/* Parallax Section */}
         <section>
-          <div className="text-center bg-[#a3aaac] py-20 px-4">
+          <div className="text-center bg-[#3a3d4b] py-20 px-4">
             <div style={{ height: "75px" }}></div>
 
-            <h3 className="text-sm uppercase tracking-widest text-gray-600">
+            <h3 className="text-sm uppercase tracking-widest text-gray-300">
               About Us
             </h3>
-            <h1 className="text-5xl uppercase tracking-widest text-gray-800 font-raleway mt-4">
+            <h1 className="text-5xl uppercase tracking-widest text-gray-200 font-raleway mt-4">
               Retractability Bicycles
             </h1>
           </div>
@@ -57,20 +57,17 @@ export default function AboutUs() {
         </section>
 
         <section>
-          <div className="bg-[#b79e7e] py-16 mx-auto">
+          <div className="bg-[#333544] py-16 mx-auto">
             <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="bg-[#9f886b] p-10 rounded-xl shadow-2xl">
+              <div className="bg-[#404353] p-10 rounded-xl shadow-2xl">
                 <p className="text-xl text-white leading-relaxed tracking-wide">
-                  At Retractability, we design and manufacture bicycles that
-                  retain the size and performance of traditional bikes but are
-                  engineered to fold into a compact size, small enough to fit
-                  into a large backpack or suitcase. Our mission is rooted in
-                  our passion for cycling, where we seek to eliminate the
-                  inconvenience of carrying and storing bicycles, without
-                  compromising on stability or speed. By reimagining the
-                  bicycle, we offer a seamless blend of portability and
-                  functionality, allowing users to enjoy the full benefits of
-                  biking with unparalleled ease of transport.
+                  At Retractability, we don’t believe in sacrificing quality for
+                  convenience, especially when it comes to bikes. Cycling isn’t
+                  only a pastime, but a necessity for many, and it should be
+                  smarter and more adaptable. We challenge the conventional
+                  design of bikes to create something that fits seamlessly into
+                  everyday life. The way people move is evolving, and so should
+                  their bicycles.
                 </p>
                 <div className="border-b-4 border-[#d8d6d0] w-36 mx-auto mt-10"></div>
               </div>
@@ -78,175 +75,73 @@ export default function AboutUs() {
           </div>
         </section>
 
-        <section>
-          <div
-            className="flex items-center justify-center text-center bg-gray-900"
-            style={{
-              paddingTop: "200px",
-              paddingBottom: "200px",
-              backgroundImage: "url('/RealBikePics/Lworking2.jpeg')",
-              backgroundAttachment: "fixed",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center center",
-              opacity: 0.85,
-            }}
-          >
-            <h2 className="text-6xl text-white tracking-wide uppercase">
-              Who are We?
-            </h2>
-          </div>
-        </section>
-
-        <section>
-          <div className="relative overflow-hidden bg-[#a69d8b] py-10">
-            <div className="relative z-10 bg-opacity-75 backdrop-filter backdrop-blur-lg py-10">
-              <div className="max-w-[95rem] mx-auto px-6 sm:px-8 lg:px-12">
-                <div className="max-w-4xl text-center mx-auto">
-                  <div className="mt-5 max-w-4xl mx-auto bg-[#a69d8b] p-10 rounded-xl shadow-2xl">
-                    <p className="text-lg text-white leading-relaxed">
-                      We are two college students who love biking and found a
-                      lot of flaws in the current biking systems, not just at
-                      our university, but around the world. We decided it was
-                      important to fix these flaws, so we did just that!
-                      <br />
-                      <br />
-                      Originally, to get around our college campus, we were torn
-                      between bikes and skateboards. We chose skateboards over
-                      bikes solely for their ease of storage, both in our dorms
-                      and around campus. However, due to our inexperience with
-                      skating, we encountered lots of hiccups.
-                      <br />
-                      <br />
-                      We then thought: is it really better to have a bike and
-                      wheel it around everywhere, getting a lock and running the
-                      risk of theft? We wanted the portability and ease of
-                      storage that a skateboard offers, combined with the
-                      stability and secure riding experience of a full-sized
-                      bicycle. So we considered foldable bikes—best of both
-                      worlds, right?
-                      <br />
-                      <br />
-                      Nope.
-                      <br />
-                      <br />
-                      Foldable bikes, while innovative, cut out a lot of what
-                      bicycles have to offer. Bikes are large and can get you
-                      where you need to go with minimal effort, depending on the
-                      distance. However, foldable bikes reduce tire size, making
-                      you exert more energy just to cover the same distance as a
-                      regular bike. The folding features also fall short;
-                      they’re still cumbersome to carry around and don’t really
-                      fit anywhere easily. So, what’s the point of having a
-                      foldable bike?
-                      <br />
-                      <br />
-                      That’s why we developed the Retractability Pioneer—a
-                      bicycle that truly has the best of both worlds and excels
-                      in every way. This isn’t just a foldable bike; it’s the
-                      next step in bicycle evolution.
-                    </p>
-                    <div className="border-b-4 border-[#bcb8b1] w-36 mx-auto mt-10"></div>
-                  </div>
-                </div>
-              </div>
+        <section className="bg-[#333544]">
+          <div className="bg-[#333544] max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+            <div className="aspect-w-16 aspect-h-7">
+              <Image
+                className="w-full h-full object-cover rounded-xl"
+                src="/tableteam.JPG"
+                alt="What we do image"
+              />
             </div>
-          </div>
-        </section>
-
-        <section>
-          <div
-            className="flex items-center justify-center text-center bg-gray-900"
-            style={{
-              paddingTop: "200px",
-              paddingBottom: "200px",
-              backgroundImage: "url('/RealBikePics/Bworking2.jpeg')",
-              backgroundAttachment: "fixed",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center center",
-              opacity: 0.85,
-            }}
-          >
-            <h2 className="text-6xl text-white tracking-wide uppercase">
-              What we do:
-            </h2>
-          </div>
-        </section>
-
-        {/* what we do section */}
-        <section>
-          <div className="bg-[#b79e7e] py-14 px-4 sm:px-6 lg:px-8 mx-auto">
-            <div className="max-w-[95rem] mx-auto">
-              <div className="bg-[#91795a] p-10 rounded-xl shadow-2xl">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                  <div className="lg:w-3/4">
-                    <h2 className="text-4xl font-extrabold text-white">
-                      Innovation, Precision, Trust
-                    </h2>
-                    <p className="mt-4 text-lg text-gray-200">
-                      At Retractability, we are redefining the bicycle by
-                      retaining the size and functionality of a full-sized bike
-                      while introducing foldability that allows it to fit into
-                      backpacks and suitcases. Our designs emphasize portability
-                      without compromising on performance, making our bikes more
-                      convenient than ever before. This is the next evolution in
-                      biking, where creativity meets practicality, and
-                      innovation leads the way.
-                    </p>
+            <div className="mt-5 lg:mt-16 grid lg:grid-cols-3 gap-8 lg:gap-12">
+              <div className="lg:col-span-1">
+                <h2 className="font-bold text-2xl md:text-3xl text-white">
+                  What we do:
+                </h2>
+                <p className="text-xl mt-2 md:mt-4 text-gray-200">
+                  Revolutionizing bikes with a compact design that fits
+                  effortlessly into a backpack!
+                </p>
+              </div>
+              <div className="lg:col-span-2">
+                <div className="grid sm:grid-cols-2 gap-8 md:gap-12">
+                  <div className="flex gap-x-5">
+                    <span className="shrink-0 mt-1 size-6 text-white">
+                      <HiLightBulb className="h-7 w-7 text-[#EBE6E8]" />
+                    </span>
+                    <div className="grow">
+                      <h3 className="text-lg font-semibold text-[#EBE6E8]">
+                        Driven by Innovation
+                      </h3>
+                      <p className="mt-1 text-gray-200">
+                        Our unique take on the bicycle allows for full-sized
+                        bikes to fold and fit into small spaces, offering
+                        unparalleled portability and convenience.
+                      </p>
+                    </div>
                   </div>
-
-                  <div className="space-y-8">
-                    <div className="flex gap-x-6">
-                      <span className="shrink-0 inline-flex justify-center items-center h-14 w-14 rounded-full border border-[#bfbab5] bg-[#bfbab5] text-white shadow-lg">
-                        <HiLightBulb className="h-7 w-7" />
-                      </span>
-                      <div className="grow">
-                        <h3 className="text-xl font-semibold text-[#EBE6E8]">
-                          Driven by Innovation
-                        </h3>
-                        <p className="mt-2 text-gray-200">
-                          Our unique take on the bicycle allows for full-sized
-                          bikes to fold and fit into small spaces, offering
-                          unparalleled portability and convenience.
-                        </p>
-                      </div>
+                  <div className="flex gap-x-5">
+                    <span className="shrink-0 mt-1 size-6 text-white">
+                      <FaBalanceScale className="h-7 w-7 text-[#EBE6E8]" />
+                    </span>
+                    <div className="grow">
+                      <h3 className="text-lg font-semibold text-[#EBE6E8]">
+                        Precision in Design
+                      </h3>
+                      <p className="mt-1 text-gray-200">
+                        Our bikes are meticulously designed with foldability and
+                        portability at their core, ensuring you get the best of
+                        both worlds.
+                      </p>
                     </div>
-
-                    <div className="flex gap-x-6">
-                      <span className="shrink-0 inline-flex justify-center items-center h-14 w-14 rounded-full border border-[#bfbab5] bg-[#bfbab5] text-white shadow-lg">
-                        <FaBalanceScale className="h-7 w-7" />
-                      </span>
-                      <div className="grow">
-                        <h3 className="text-xl font-semibold text-[#EBE6E8]">
-                          Precision in Design
-                        </h3>
-                        <p className="mt-2 text-gray-200">
-                          Our bikes are meticulously designed with foldability
-                          and portability at their core, ensuring you get the
-                          best of both worlds.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex gap-x-6">
-                      <span className="shrink-0 inline-flex justify-center items-center h-14 w-14 rounded-full border border-[#bfbab5] bg-[#bfbab5] text-white shadow-lg">
-                        <AiOutlineTeam className="h-7 w-7" />
-                      </span>
-                      <div className="grow">
-                        <h3 className="text-xl font-semibold text-[#EBE6E8]">
-                          A Team You Can Trust
-                        </h3>
-                        <p className="mt-2 text-gray-200">
-                          Our commitment to quality and innovation ensures that
-                          your experience with us is built on trust, from the
-                          first ride to the last.
-                        </p>
-                      </div>
+                  </div>
+                  <div className="flex gap-x-5">
+                    <span className="shrink-0 mt-1 size-6 text-white">
+                      <AiOutlineTeam className="h-7 w-7 text-[#EBE6E8]" />
+                    </span>
+                    <div className="grow">
+                      <h3 className="text-lg font-semibold text-[#EBE6E8]">
+                        A Team You Can Trust
+                      </h3>
+                      <p className="mt-1 text-gray-200">
+                        Our commitment to quality and innovation ensures that
+                        your experience with us is built on trust, from the
+                        first ride to the last.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div className="border-b-4 border-[#bfbab5] w-36 mx-auto mt-10"></div>
               </div>
             </div>
           </div>
@@ -274,8 +169,8 @@ export default function AboutUs() {
         </section>
 
         <section id="The Team">
-          <div className="bg-[#97765a] py-16 px-4 sm:px-6 lg:px-8 mx-auto">
-            <div className="bg-[#b38f70] p-10 rounded-xl shadow-2xl">
+          <div className="bg-[#333544] py-16 px-4 sm:px-6 lg:px-8 mx-auto">
+            <div className="bg-[#424455] p-10 rounded-xl shadow-2xl">
               <div className="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
                 <h2 className="text-2xl font-bold md:text-4xl md:leading-tight text-white">
                   We&apos;re proud to call Arizona our home, where innovation

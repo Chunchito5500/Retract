@@ -1,0 +1,30 @@
+/* hover.module.css */
+.hoverUnderlineAnimation {
+  display: inline-block;
+  position: relative;
+}
+
+.hoverUnderlineAnimation::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  transition: transform 0.25s ease-out;
+}
+
+.hoverUnderlineAnimation:hover::after {
+  transform: scaleX(1);
+}
+
+/* Center-origin version */
+.center {
+  transform-origin: bottom center;
+}
+
+.center:hover::after {
+  transform-origin: bottom center;
+}

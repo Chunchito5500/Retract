@@ -71,7 +71,7 @@ const MobileNav = ({ open, onClose }) => {
           <h2 className="text-xl font-semibold">Retractability</h2>
           <button
             type="button"
-            className="text-gray-700 rounded focus:outline-none"
+            className="text-white rounded focus:outline-none"
             onClick={handleClose}
           >
             <FiX size={24} />
@@ -100,7 +100,7 @@ const MobileNav = ({ open, onClose }) => {
       >
         {/* Header section with close button */}
         <header className="p-4 flex justify-between items-center">
-          <h2 className="text-xl font-semibold">Retractability</h2>
+          <h2 className="text-xl text-white font-semibold">Retractability</h2>
           <button
             type="button"
             className="text-gray-100 rounded focus:outline-none"
@@ -150,7 +150,7 @@ const MobileNav = ({ open, onClose }) => {
             {usersOpen && (
               <div className="mt-1 ml-6">
                 <Link
-                  href="/quark"
+                  href="/pioneer"
                   className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
                   onClick={onClose}
                 >
@@ -251,29 +251,21 @@ const MobileNav = ({ open, onClose }) => {
                 >
                   About
                 </Link>
-                {/*
-                  <Link
-                    href="/contact"
-                    className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
-                    onClick={onClose}
-                  >
-                    Contact
-                  </Link>
-                  <Link
-                    href="/blog"
-                    className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
-                    onClick={onClose}
-                  >
-                    Blog
-                  </Link>
-                  <Link
-                    href="/newsletter"
-                    className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
-                    onClick={onClose}
-                  >
-                    Newsletter
-                  </Link>
-                */}
+
+                <Link
+                  href="/green"
+                  className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
+                  onClick={onClose}
+                >
+                  Green Initiative
+                </Link>
+                <Link
+                  href="/blog"
+                  className="block py-1 px-2 text-sm text-gray-100 rounded hover:bg-[#29344f]"
+                  onClick={onClose}
+                >
+                  Blog
+                </Link>
               </div>
             )}
           </div>

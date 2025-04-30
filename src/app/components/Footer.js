@@ -3,6 +3,14 @@
 import React from "react";
 import Image from "next/image";
 import { FaInstagram, FaYoutube } from "react-icons/fa";
+import localFont from "next/font/local";
+
+const BebasNeue = localFont({
+  src: "../fonts/BebasNeue-Regular.ttf",
+});
+const Roboto = localFont({
+  src: "../fonts/Roboto-Regular.ttf",
+});
 
 const Footer = () => {
   return (
@@ -11,28 +19,37 @@ const Footer = () => {
       <div className="mx-auto max-w-screen-xl">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-            <a href="/" className="flex items-center">
+            <a href="/" className="flex items-center ">
               <Image
-                src="/retractenhanced.svg"
+                src="/white_retractenhanced.svg"
                 alt="Retract"
                 width={80}
                 height={80}
                 className="mr-2 h-18"
               />
-              <span className="self-center text-2xl font-raleway font-medium whitespace-nowrap text-[#AAAAAA]">
+              <span
+                className={`self-center text-5xl font-raleway font-medium whitespace-nowrap text-white ${BebasNeue.className}`}
+              >
                 Retractability Bicycles
               </span>
             </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <h2 className="mb-6 text-sm font-raleway font-medium text-gray-300 uppercase dark:text-white">
+              <h2
+                className={`mb-4 text-2xl font-raleway font-medium text-white uppercase  ${BebasNeue.className}`}
+              >
                 About
               </h2>
-              <ul className="text-gray-400 dark:text-gray-400">
-                <li className="mb-4 font-raleway">
+              <ul className="text-gray-400 ">
+                <li className={`mb-4 ${Roboto.className}`}>
                   <a href="/aboutus" className="hover:underline">
                     About Us
+                  </a>
+                </li>
+                <li className={`mb-4 ${Roboto.className}`}>
+                  <a href="/green" className="hover:underline">
+                    Green Initiative
                   </a>
                 </li>
                 <li className="font-raleway">
@@ -44,22 +61,30 @@ const Footer = () => {
               </ul>
             </div>
             {/* <div>
-              <h2 className="mb-6 text-sm font-raleway text-gray-300 uppercase dark:text-white">Projects</h2>
+              <h2 className="mb-6 text-sm font-raleway text-gray-300 uppercase dark:text-white">
+                Projects
+              </h2>
               <ul className="text-gray-400 dark:text-gray-400">
                 <li className="mb-4 font-raleway">
-                  <a href="/timeline" className="hover:underline">Timeline</a>
+                  <a href="/timeline" className="hover:underline">
+                    Timeline
+                  </a>
                 </li>
                 <li className="font-raleway">
-                  <a href="/green" className="hover:underline">Green Initiative</a>
+                  <a href="/green" className="hover:underline">
+                    Green Initiative
+                  </a>
                 </li>
               </ul>
             </div> */}
             <div>
-              <h2 className="mb-6 text-sm font-raleway text-gray-300 uppercase dark:text-white">
+              <h2
+                className={`mb-4 text-2xl font-raleway font-medium text-white uppercase ${BebasNeue.className}`}
+              >
                 Legal
               </h2>
               <ul className="text-gray-400 dark:text-gray-400">
-                <li className="mb-4 font-raleway">
+                <li className={`mb-4 ${Roboto.className}`}>
                   <a href="/privacypolicy" className="hover:underline">
                     Privacy Policy
                   </a>

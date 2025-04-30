@@ -15,6 +15,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./styles.css";
 import "./MagicButton.css"; // Ensure this CSS file is properly imported
+import Carousel from "@/app/components/carousel";
+import PioneerTWO from "@/app/landingcomponents/PioneerTWO";
+import Video from "@/app/landingcomponents/video";
+import News from "@/app/landingcomponents/news";
 
 export default function ExplorePage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -39,123 +43,71 @@ export default function ExplorePage() {
   };
 
   return (
-    <div>
-      <Head>
-        <title>Explore</title>
-        <meta name="Retractability Bicycles" content="Foldable Bikes" />
-      </Head>
-      <Navbar />
-      {/* Carousel for Background */}
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={0}
-        slidesPerView={1}
-        loop={true}
-        autoplay={{ delay: 10000 }}
-        navigation
-        pagination={{ clickable: true }}
-        className="h-[45rem]"
-      >
-        <SwiperSlide>
+    <div className="bg-[#262838]">
+      {/* Required Meta Tags Always Come First */}
+      <meta charSet="utf-8" />
+      <meta
+        name="robots"
+        content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+      />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+      <meta
+        name="description"
+        content="Retractability Bicycles. The future of biking."
+      />
+      <meta
+        property="og:title"
+        content="The Future of Biking | Explore Retractability Bicycles"
+      />
+      <meta
+        property="og:description"
+        content="Retractability Bicycles. The future of biking."
+      />
+      <meta property="og:image" content="/RbikeU.jpeg" />
+      {/* Title */}
+      <title>The Future of Biking | Explore Retractability Bicycles</title>
+      {/* Favicon */}
+      <link rel="shortcut icon" href="../../favicon.ico" />
+
+      <header className="flex flex-wrap lg:justify-start lg:flex-nowrap z-50 w-full py-7">
+        <div style={{ height: "50px" }}></div>
+        <Navbar />
+      </header>
+
+      <main id="content">
+        {/* Slider */}
+        <div className="px-4 sm:px-6 lg:px-8 ">
+          <Carousel />
+        </div>
+        <div style={{ height: "50px" }}></div>
+        {/* End Slider */}
+
+        {/* Clients */}
+        <div className="px-4 sm:px-6 lg:px-8">
           <div
-            className="relative bg-cover bg-center h-full"
             style={{
-              backgroundImage: "url('/RetractGrayBike.png')",
+              background:
+                "linear-gradient(to right, #464e55, #00072d, #001c55, #0a2472, #a6e1fa)",
+              backgroundSize: "300% 300%",
+              animation: "pulsate 5s infinite alternate",
             }}
-          >
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-            <div className="relative flex items-center justify-center h-full">
-              <div className="text-center">
-                <h1 className="text-3xl lg:text-4xl font-raleway font-medium text-white">
-                  The future of <span className="text-blue-400">Biking</span>
-                </h1>
-                <button
-                  className="font-raleway glow-button mt-4 lg:w-auto"
-                  onClick={() =>
-                    document
-                      .getElementById("middle")
-                      .scrollIntoView({ behavior: "smooth" })
-                  }
-                >
-                  Explore Models
-                </button>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
+            className="relative py-[.5px] overflow-hidden"
+          ></div>
+        </div>
+        <section className="w-full py-12 lg:py-24">
+          <PioneerTWO />
+        </section>
 
-        <SwiperSlide>
-          <div
-            className="relative bg-cover bg-center h-full"
-            style={{
-              backgroundImage: "url('/bikerenders/CityFeel.png')",
-            }}
-          >
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-            <div className="relative flex items-center justify-center h-full">
-              <div className="text-center">
-                <h1 className="text-3xl lg:text-4xl font-raleway font-medium text-white">
-                  Experience Innovation
-                </h1>
-                <button
-                  className="font-raleway glow-button mt-4 lg:w-auto"
-                  onClick={() =>
-                    document
-                      .getElementById("middle")
-                      .scrollIntoView({ behavior: "smooth" })
-                  }
-                >
-                  Explore Models
-                </button>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
+        <Video />
+        <News />
+      </main>
 
-        <SwiperSlide>
-          <div
-            className="relative bg-cover bg-center h-full"
-            style={{
-              backgroundImage: "url('/bikerenders/OrangeReal.png')",
-            }}
-          >
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-            <div className="relative flex items-center justify-center h-full">
-              <div className="text-center">
-                <h1 className="text-3xl lg:text-4xl font-raleway font-medium text-white">
-                  Discover the Future
-                </h1>
-                <button
-                  className="font-raleway glow-button mt-4 lg:w-auto"
-                  onClick={() =>
-                    document
-                      .getElementById("middle")
-                      .scrollIntoView({ behavior: "smooth" })
-                  }
-                >
-                  Explore Models
-                </button>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-      </Swiper>
-
-      <div className="separator-line"></div>
-      <div
-        style={{
-          background:
-            "linear-gradient(to bottom, #0a1e2c, #0f2430, #333138, #1A191E, #000103)",
-        }}
-      >
-        {isMobile ? <ExploreMobile /> : <Explore />}
-        <Footer />
-      </div>
-
-      {/* Signup card that appears every time the page loads */}
+      <Footer />
       <Signup isVisible={modalVisible} onClose={handleCloseModal} />
 
-      {/* Small button to reopen the signup card after closing */}
       {showButton && (
         <button
           onClick={handleOpenModal}
