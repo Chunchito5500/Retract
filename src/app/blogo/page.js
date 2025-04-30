@@ -20,6 +20,8 @@ export default function Home() {
                   className="size-12 rounded-full"
                   src="/team/zeph.jpg"
                   alt="Avatar"
+                  width={48}
+                  height={48}
                 />
               </div>
 
@@ -72,6 +74,8 @@ export default function Home() {
                 className="w-full object-cover rounded-xl"
                 src="/skate.JPEG"
                 alt="Blog Image"
+                width={800}
+                height={400}
               />
               <figcaption className="mt-3 text-sm text-center text-gray-500 dark:text-neutral-500">
                 An everyday problem for students at ASU.

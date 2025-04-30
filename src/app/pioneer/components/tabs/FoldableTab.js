@@ -23,6 +23,8 @@ const FoldableTab = () => {
                 className="w-full object-cover rounded-xl"
                 src="/RealBikePics/Bworking.jpeg"
                 alt="Blog Image"
+                width={600}
+                height={400}
               />
             </div>
             <div className="my-6">
@@ -48,6 +50,8 @@ const FoldableTab = () => {
                 className="w-full object-cover rounded-xl"
                 src="/RealBikePics/Lworking.jpeg"
                 alt="Blog Image"
+                width={600}
+                height={400}
               />
             </div>
             <div className="my-6">
@@ -74,6 +78,8 @@ const FoldableTab = () => {
                 className="w-full object-cover rounded-xl"
                 src="/RbikeU.jpeg"
                 alt="Blog Image"
+                width={600}
+                height={400}
               />
             </div>
             <div className="my-6">

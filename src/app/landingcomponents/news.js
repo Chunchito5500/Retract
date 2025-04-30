@@ -2,7 +2,6 @@ import React from "react";
 import localFont from "next/font/local";
 import Image from "next/image";
 
-
 const BebasNeue = localFont({
   src: "../fonts/BebasNeue-Regular.ttf",
 });
@@ -31,6 +30,8 @@ const News = () => {
                 className="absolute top-0 left-0 object-cover w-full h-full opacity-30"
                 src="/ctw.jpg"
                 alt="Change the World"
+                width={800}
+                height={400}
               />
             </div>
             <div className="absolute top-0 inset-x-0 z-10">
@@ -65,6 +66,8 @@ const News = () => {
                 className="absolute top-0 left-0 object-cover w-full h-full opacity-30"
                 src="/RetractOrange.png"
                 alt="Blog Image"
+                width={800}
+                height={400}
               />
             </div>
             <div className="absolute top-0 inset-x-0 z-10">

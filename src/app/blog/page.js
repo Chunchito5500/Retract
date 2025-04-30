@@ -20,6 +20,8 @@ export default function Home() {
                   className="size-12 rounded-full"
                   src="/Baselp.jpg"
                   alt="Avatar"
+                  width={48}
+                  height={48}
                 />
               </div>
 
@@ -104,6 +106,8 @@ export default function Home() {
                 className="w-full object-cover rounded-xl"
                 src="/team.JPG"
                 alt="Blog Image"
+                width={800}
+                height={400}
               />
               <figcaption className="mt-3 text-sm text-center text-gray-500 dark:text-neutral-500">
                 The Retractability team at Change the World
@@ -151,6 +155,8 @@ export default function Home() {
                 className="w-full object-cover rounded-xl"
                 src="/pitch.JPG"
                 alt="Blog Image"
+                width={800}
+                height={400}
               />
               <figcaption className="mt-3 text-sm text-center text-gray-500 dark:text-neutral-500">
                 The Retractability Pitch

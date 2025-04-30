@@ -98,6 +98,8 @@ const TheTire = () => {
               className="absolute top-0 left-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
               src="/tireclose.png"
               alt="Left Tire Image"
+              width={600}
+              height={600}
             />
             <div className="relative z-10 p-4 md:p-6 flex-auto">
               <h3
@@ -177,6 +179,8 @@ const TheTire = () => {
               className="absolute top-0 left-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
               src="/hub.png"
               alt="Right Tire Image"
+              width={600}
+              height={600}
             />
             <div className="relative z-10 p-4 md:p-6 flex-auto">
               <h3
