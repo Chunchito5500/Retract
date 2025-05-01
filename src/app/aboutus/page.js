@@ -73,7 +73,7 @@ export default function AboutUs() {
             <div className="aspect-w-16 aspect-h-7">
               <Image
                 className="w-full h-full object-cover rounded-xl"
-                src="/tableteam.JPG"
+                src="/RealBikePics/tableteam.JPG"
                 alt="What we do image"
                 width={800}
                 height={400}
