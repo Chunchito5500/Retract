@@ -40,7 +40,7 @@ export default function AboutUs() {
           <div
             className="py-16 md:py-32 bg-gray-900 bg-center bg-cover bg-fixed opacity-85 flex items-center justify-center text-center"
             style={{
-              backgroundImage: "url('/printpics/otra.jpg')",
+              backgroundImage: "url('/bikerenders/Rooftop.png')",
             }}
           >
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-wide uppercase">

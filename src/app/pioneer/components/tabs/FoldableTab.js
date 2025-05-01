@@ -48,7 +48,7 @@ const FoldableTab = () => {
             <div className="aspect-w-16 aspect-h-11">
               <Image
                 className="w-full object-cover rounded-xl"
-                src="/RealBikePics/Lworking.jpeg"
+                src="/RealBikePics/Lworking2.jpeg"
                 alt="Blog Image"
                 width={600}
                 height={400}

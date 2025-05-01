@@ -64,7 +64,7 @@ const FAQ = () => {
         />
         <FAQItem
           title="How small does it get?"
-          content="With current prototypes, the Pioneer can fold down to a size of approximately 26 by 20 by 14 inches. This makes it easy to transport and store without taking up too much space."
+          content="With current prototypes, the Pioneer can fold down to a size of approximately 26 inches by 20 inches by 14 inches. This makes it easy to transport and store without taking up too much space."
         />
         <FAQItem
           title="How is it sustainable?"
@@ -72,7 +72,7 @@ const FAQ = () => {
         />
         <FAQItem
           title="Is it durable?"
-          content="The Pioneer is as durable as a regular bike and then some."
+          content="The Pioneer is as durable as a regular bike, along with the added benefit of an airless tire. We are using high-quality materials and rigorous testing to ensure that the Pioneer can withstand daily use and the elements."
         />
       </div>
       <div style={{ height: "100px" }}></div>
