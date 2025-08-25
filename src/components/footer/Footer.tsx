@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import { FaReddit } from "react-icons/fa";
 import localFont from "next/font/local";
 
 const BebasNeue = localFont({
@@ -34,7 +35,6 @@ const Footer = () => {
                 Retractability Bicycles
               </span>
             </Link>
-            
           </div>
 
           {/* Navigation Links */}
@@ -82,7 +82,6 @@ const Footer = () => {
                     Gallery
                   </Link>
                 </li>
-                
               </ul>
             </div>
 
@@ -102,7 +101,6 @@ const Footer = () => {
                     Privacy Policy
                   </Link>
                 </li>
-                
               </ul>
             </div>
           </div>
@@ -144,7 +142,14 @@ const Footer = () => {
                 className="text-gray-400 hover:text-white transition-colors duration-200"
                 aria-label="YouTube"
               >
-                <FaLinkedin  className="w-6 h-6" />
+                <FaLinkedin className="w-6 h-6" />
+              </a>
+              <a
+                href="https://www.reddit.com/r/retractability/"
+                className="text-gray-400 hover:text-white transition-colors duration-200"
+                aria-label="YouTube"
+              >
+                <FaReddit className="w-6 h-6" />
               </a>
             </div>
           </div>

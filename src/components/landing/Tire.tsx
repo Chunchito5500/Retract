@@ -21,7 +21,7 @@ interface ModelViewerAnimation {
 
 const BebasNeue = localFont({
   src: "../../fonts/BebasNeue-Regular.ttf",
-  display: 'swap',
+  display: "swap",
 });
 
 function Tire() {
@@ -68,54 +68,59 @@ function Tire() {
     <div className="w-screen min-h-screen relative -mx-4 sm:-mx-6 lg:-mx-8">
       {/* Wave Background - covers entire viewport width */}
       <div className="absolute bg-white inset-0 w-full h-full">
-  <div className="min-h-screen w-full bg-[#f8fafc] relative">
-    {/* Top Fade Grid Background */}
-    <div
-      className="absolute inset-0 z-0"
-      style={{
-        backgroundImage: `
+        <div className="min-h-screen w-full bg-[#f8fafc] relative">
+          {/* Top Fade Grid Background */}
+          <div
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: `
           linear-gradient(to right, #e2e8f0 1px, transparent 1px),
           linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)
         `,
-        backgroundSize: "20px 30px",
-        WebkitMaskImage:
-          "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
-        maskImage:
-          "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
-      }}
-    />
-    
-    {/* Cool Blue Glow Left */}
-    <div
-      className="absolute inset-0 z-0"
-      style={{
-        backgroundImage: `
+              backgroundSize: "20px 30px",
+              WebkitMaskImage:
+                "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+              maskImage:
+                "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+            }}
+          />
+
+          {/* Cool Blue Glow Left */}
+          <div
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: `
           radial-gradient(
             circle at top left,
             rgba(70, 130, 180, 0.5),
             transparent 70%
           )
         `,
-        filter: "blur(80px)",
-        backgroundRepeat: "no-repeat",
-      }}
-    />
-    
-    {/* Your Content/Components */}
-  </div>
-</div>
+              filter: "blur(80px)",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+
+          {/* Your Content/Components */}
+        </div>
+      </div>
 
       {/* Content - positioned over the background */}
       <div className="relative z-10 w-full">
         {/* Header Section */}
         <div className="pt-12 pb-8 text-center px-4">
-          <p className={`text-xl sm:text-2xl text-gray-600 uppercase tracking-wider mb-2 ${BebasNeue.className}`}>
+          <p
+            className={`text-xl sm:text-2xl text-gray-600 uppercase tracking-wider mb-2 ${BebasNeue.className}`}
+          >
             A closer look
           </p>
           <h1
             className={`block text-6xl font-bold text-black mb-4 ${BebasNeue.className}`}
           >
-            At our <span className="bg-gradient-to-r from-[#f18311] to-[#ffb627] bg-clip-text text-transparent">Tire</span>
+            At our{" "}
+            <span className="bg-gradient-to-r from-[#f18311] to-[#ffb627] bg-clip-text text-transparent">
+              Tire
+            </span>
           </h1>
         </div>
 
@@ -126,7 +131,13 @@ function Tire() {
               {/* Model Viewer Side - Left */}
               <div className="order-2 md:order-1">
                 <div className="w-full max-w-md mx-auto bg-slate-700/30 backdrop-blur-md border border-slate-600/30 rounded-xl overflow-hidden">
-                  <figure style={{ margin: 0, position: "relative", backgroundColor: 'rgba(58, 74, 92, 0.8)' }}>
+                  <figure
+                    style={{
+                      margin: 0,
+                      position: "relative",
+                      backgroundColor: "rgba(58, 74, 92, 0.8)",
+                    }}
+                  >
                     {/* @ts-expect-error model-viewer is a custom element */}
                     <model-viewer
                       ref={modelViewerRef}
@@ -148,8 +159,8 @@ function Tire() {
                       <div className="progress-bar hide" slot="progress-bar">
                         <div className="update-bar" />
                       </div>
-                      <button 
-                        slot="ar-button" 
+                      <button
+                        slot="ar-button"
                         id="ar-button"
                         className="bg-slate-600/50 backdrop-blur-sm border border-slate-500/30 rounded-lg px-6 py-3 text-white font-semibold text-sm hover:bg-slate-600/70 transition-all"
                       >
@@ -162,8 +173,8 @@ function Tire() {
 
                   {/* Animation slider section */}
                   <div className="px-4 py-4 bg-slate-800/30 backdrop-blur-sm border-t border-slate-600/30">
-                    <label 
-                      htmlFor="animation-slider" 
+                    <label
+                      htmlFor="animation-slider"
                       className="block text-sm font-semibold mb-2 text-slate-200"
                     >
                       Slide to animate model!
@@ -178,7 +189,11 @@ function Tire() {
                       onChange={updateAnimationTime}
                       className="w-full h-2 bg-slate-600/50 rounded-lg appearance-none cursor-pointer slider"
                       style={{
-                        background: `linear-gradient(to right, #ea7a17 0%, #ea7a17 ${(sliderValue / totalAnimationDuration) * 100}%, rgba(100, 116, 139, 0.5) ${(sliderValue / totalAnimationDuration) * 100}%, rgba(100, 116, 139, 0.5) 100%)`
+                        background: `linear-gradient(to right, #ea7a17 0%, #ea7a17 ${
+                          (sliderValue / totalAnimationDuration) * 100
+                        }%, rgba(100, 116, 139, 0.5) ${
+                          (sliderValue / totalAnimationDuration) * 100
+                        }%, rgba(100, 116, 139, 0.5) 100%)`,
                       }}
                     />
                     <p className="text-sm text-slate-400 py-1">
@@ -195,83 +210,83 @@ function Tire() {
                   title="Airless Tires"
                   description="A bike built with airless tires in mind, so you can ride with all the benefits of airless tires, no punctures, no flats, and no risk of harming your bike rims."
                 />
-                
+
                 <FeatureCard
                   icon={<IoBuildOutline className="h-6 w-6 text-white" />}
                   title="Reinvented Wheel"
                   description="We rebuilt the wheel, quite literally. So you know our parts work in order to get you from point A to B."
                 />
-                
+
                 <FeatureCard
                   icon={<LuCircleCheckBig className="h-6 w-6 text-white" />}
                   title="Full-Sized Tire"
-                  description="The first wheel that doesn't cut down on size for foldability. It's the full 26inch diameter tire."
+                  description="The first wheel that doesn't cut down on size for foldability. It's the full 26 inch diameter tire."
                 />
               </div>
             </div>
 
             {/* Three Button Section */}
             {/* Three Button Section */}
-<div className="mt-20 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
-  {/* The Pioneer (blue/cyan) */}
-  <Link href="/pioneer" passHref>
-    <button
-      className="relative group px-8 py-4 rounded-2xl bg-slate-600/40 border border-white/20 text-white font-semibold
+            <div className="mt-20 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+              {/* The Pioneer (blue/cyan) */}
+              <Link href="/pioneer" passHref>
+                <button
+                  className="relative group px-8 py-4 rounded-2xl bg-slate-600/40 border border-white/20 text-white font-semibold
                  backdrop-blur-md transition-all duration-300 w-full sm:w-auto hover:scale-105 overflow-hidden
                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-    >
-      <span className="relative z-10">The Pioneer</span>
+                >
+                  <span className="relative z-10">The Pioneer</span>
 
-      {/* hover glow bg */}
-      <span
-        aria-hidden
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                  {/* hover glow bg */}
+                  <span
+                    aria-hidden
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300
                    bg-gradient-to-r from-blue-500/60 to-cyan-400/60"
-      />
-      {/* soft outer bloom */}
-      <span
-        aria-hidden
-        className="absolute -inset-8 opacity-0 group-hover:opacity-60 transition-opacity duration-300
+                  />
+                  {/* soft outer bloom */}
+                  <span
+                    aria-hidden
+                    className="absolute -inset-8 opacity-0 group-hover:opacity-60 transition-opacity duration-300
                    bg-gradient-to-r from-blue-500/40 to-cyan-400/40 blur-2xl"
-      />
-      {/* ring fades on hover */}
-      <span
-        aria-hidden
-        className="absolute inset-0 rounded-2xl ring-1 ring-white/30 transition duration-300
+                  />
+                  {/* ring fades on hover */}
+                  <span
+                    aria-hidden
+                    className="absolute inset-0 rounded-2xl ring-1 ring-white/30 transition duration-300
                    group-hover:ring-transparent"
-      />
-    </button>
-  </Link>
+                  />
+                </button>
+              </Link>
 
-  {/* View our gallery (purple) */}
-  <Link href="/gallery" passHref>
-    <button
-      className="relative group px-8 py-4 rounded-2xl bg-slate-600/40 border border-white/20 text-white font-semibold
+              {/* View our gallery (purple) */}
+              <Link href="/gallery" passHref>
+                <button
+                  className="relative group px-8 py-4 rounded-2xl bg-slate-600/40 border border-white/20 text-white font-semibold
                  backdrop-blur-md transition-all duration-300 w-full sm:w-auto hover:scale-105 overflow-hidden
                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-    >
-      <span className="relative z-10">View our gallery</span>
+                >
+                  <span className="relative z-10">View our gallery</span>
 
-      <span
-        aria-hidden
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                  <span
+                    aria-hidden
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300
                    bg-gradient-to-r from-violet-500/60 to-fuchsia-400/60"
-      />
-      <span
-        aria-hidden
-        className="absolute -inset-8 opacity-0 group-hover:opacity-60 transition-opacity duration-300
+                  />
+                  <span
+                    aria-hidden
+                    className="absolute -inset-8 opacity-0 group-hover:opacity-60 transition-opacity duration-300
                    bg-gradient-to-r from-violet-500/40 to-fuchsia-400/40 blur-2xl"
-      />
-      <span
-        aria-hidden
-        className="absolute inset-0 rounded-2xl ring-1 ring-white/30 transition duration-300
+                  />
+                  <span
+                    aria-hidden
+                    className="absolute inset-0 rounded-2xl ring-1 ring-white/30 transition duration-300
                    group-hover:ring-transparent"
-      />
-    </button>
-  </Link>
+                  />
+                </button>
+              </Link>
 
-  {/* Licensing Questions? (professional: clean white reveal) */}
-  {/* <Link href="/contact" passHref>
+              {/* Licensing Questions? (professional: clean white reveal) */}
+              {/* <Link href="/contact" passHref>
     <button
       className="relative group px-8 py-4 rounded-2xl bg-slate-600/40 border border-white/20 text-white font-semibold
                  backdrop-blur-md transition-all duration-300 w-full sm:w-auto hover:scale-105 overflow-hidden
@@ -298,8 +313,7 @@ function Tire() {
       />
     </button>
   </Link> */}
-</div>
-
+            </div>
           </div>
         </div>
       </div>
@@ -320,14 +334,10 @@ const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
         <div className="flex-shrink-0 p-2.5 bg-slate-500/20 rounded-lg">
           {icon}
         </div>
-        <h3 className="text-2xl font-semibold text-white">
-          {title}
-        </h3>
+        <h3 className="text-2xl font-semibold text-white">{title}</h3>
       </div>
-      
-      <div className="p-4 text-white">
-        {description}
-      </div>
+
+      <div className="p-4 text-white">{description}</div>
     </div>
   );
 };
