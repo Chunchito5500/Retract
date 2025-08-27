@@ -26,16 +26,42 @@ export default function ContactPage() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value, type, checked } = e.target as HTMLInputElement;
-    setForm((prev) => ({ ...prev, [name]: type === "checkbox" ? checked : value }));
+    setForm((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
 
-  const setInquiry = (inquiry: Inquiry) =>
-    setForm((p) => ({ ...p, inquiry }));
+  const setInquiry = (inquiry: Inquiry) => setForm((p) => ({ ...p, inquiry }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // send to backend here
-    setSubmitted(true);
+
+    try {
+      const response = await fetch(
+        "https://ux30qhrcf5.execute-api.us-east-1.amazonaws.com/Initial",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        console.error("Error:", result);
+        // You might want to show an error message to the user
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      alert("Network error. Please check your connection and try again.");
+    }
   };
 
   return (
@@ -71,7 +97,8 @@ export default function ContactPage() {
                 </h1>
 
                 <p className="mt-5 max-w-2xl text-sm md:text-base text-white/80">
-                  Ask us any questions, share your thoughts, or just say hello! We&apos;re here to help you with anything you need.
+                  Ask us any questions, share your thoughts, or just say hello!
+                  We&apos;re here to help you with anything you need.
                 </p>
               </div>
 
@@ -122,14 +149,18 @@ export default function ContactPage() {
             {/* RIGHT: contact form card */}
             <div className="p-6 sm:p-8 lg:p-10">
               <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-7 md:p-8 text-gray-800">
-                <h2 className="text-lg font-semibold mb-1">Tell Us What You Need</h2>
+                <h2 className="text-lg font-semibold mb-1">
+                  Tell Us What You Need
+                </h2>
                 <p className="text-sm text-gray-500 mb-6">
-                  Our team is ready to assist you with every detail, big or small.
+                  Our team is ready to assist you with every detail, big or
+                  small.
                 </p>
 
                 {submitted ? (
                   <div className="rounded-xl bg-green-50 text-green-800 p-4 text-sm">
-                    Thank you for contacting us! We&apos;ll get back to you soon.
+                    Thank you for contacting us! We&apos;ll get back to you
+                    soon.
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
@@ -166,7 +197,7 @@ export default function ContactPage() {
                         </label>
                         <input
                           type="text"
-                          name="country"
+                          name="industry"
                           value={form.industry}
                           onChange={handleChange}
                           className="w-full rounded-xl border border-gray-200 px-3 py-3 outline-none focus:ring-2 focus:ring-gray-300"
@@ -205,22 +236,27 @@ export default function ContactPage() {
                         Type of Inquiry
                       </span>
                       <div className="flex flex-wrap gap-2">
-                        {(["General", "Licensing", "Investment", "Other"] as Inquiry[]).map(
-                          (t) => (
-                            <button
-                              type="button"
-                              key={t}
-                              onClick={() => setInquiry(t)}
-                              className={`rounded-full border px-3 py-1.5 text-sm transition ${
-                                form.inquiry === t
-                                  ? "bg-gray-900 text-white border-gray-900"
-                                  : "bg-white text-gray-700 border-gray-200 hover:border-gray-300"
-                              }`}
-                            >
-                              {t}
-                            </button>
-                          )
-                        )}
+                        {(
+                          [
+                            "General",
+                            "Licensing",
+                            "Investment",
+                            "Other",
+                          ] as Inquiry[]
+                        ).map((t) => (
+                          <button
+                            type="button"
+                            key={t}
+                            onClick={() => setInquiry(t)}
+                            className={`rounded-full border px-3 py-1.5 text-sm transition ${
+                              form.inquiry === t
+                                ? "bg-gray-900 text-white border-gray-900"
+                                : "bg-white text-gray-700 border-gray-200 hover:border-gray-300"
+                            }`}
+                          >
+                            {t}
+                          </button>
+                        ))}
                       </div>
                     </div>
 
