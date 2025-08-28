@@ -417,7 +417,7 @@ export default function ContactPage() {
                         htmlFor="marketingOptIn"
                         className="text-xs text-gray-600"
                       >
-                        I'd like to receive updates about Retractability
+                        I&apos;d like to receive updates about Retractability
                         products and services
                       </label>
                     </div>
