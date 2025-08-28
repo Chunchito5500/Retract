@@ -43,7 +43,7 @@ export default function ContactPage() {
       console.log("Submitting form data:", form);
 
       const response = await fetch(
-        "https://ux30qhrcf5.execute-api.us-east-1.amazonaws.com/rendition",
+        "https://ux30qhrcf5.execute-api.us-east-1.amazonaws.com/Initial",
         {
           method: "POST",
           headers: {
