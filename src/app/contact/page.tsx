@@ -21,6 +21,7 @@ export default function ContactPage() {
     marketingOptIn: false,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -36,10 +37,13 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitting(true);
 
     try {
+      console.log("Submitting form data:", form);
+
       const response = await fetch(
-        "https://ux30qhrcf5.execute-api.us-east-1.amazonaws.com/Initial",
+        "https://ux30qhrcf5.execute-api.us-east-1.amazonaws.com/rendition",
         {
           method: "POST",
           headers: {
@@ -49,18 +53,23 @@ export default function ContactPage() {
         }
       );
 
-      const result = await response.json();
+      console.log("Response status:", response.status);
 
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        console.error("Error:", result);
-        // You might want to show an error message to the user
-        alert("Failed to send message. Please try again.");
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Error response:", errorText);
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
+
+      const result = await response.json();
+      console.log("Success response:", result);
+
+      setSubmitted(true);
     } catch (error) {
       console.error("Network error:", error);
-      alert("Network error. Please check your connection and try again.");
+      alert("Failed to send message. Please try again later.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -175,7 +184,8 @@ export default function ContactPage() {
                           value={form.firstName}
                           onChange={handleChange}
                           required
-                          className="w-full rounded-xl border border-gray-200 px-3 py-3 outline-none focus:ring-2 focus:ring-gray-300"
+                          disabled={submitting}
+                          className="w-full rounded-xl border border-gray-200 px-3 py-3 outline-none focus:ring-2 focus:ring-gray-300 disabled:opacity-50"
                         />
                       </div>
                       <div>
@@ -188,7 +198,8 @@ export default function ContactPage() {
                           value={form.lastName}
                           onChange={handleChange}
                           required
-                          className="w-full rounded-xl border border-gray-200 px-3 py-3 outline-none focus:ring-2 focus:ring-gray-300"
+                          disabled={submitting}
+                          className="w-full rounded-xl border border-gray-200 px-3 py-3 outline-none focus:ring-2 focus:ring-gray-300 disabled:opacity-50"
                         />
                       </div>
                       <div>
@@ -200,7 +211,8 @@ export default function ContactPage() {
                           name="industry"
                           value={form.industry}
                           onChange={handleChange}
-                          className="w-full rounded-xl border border-gray-200 px-3 py-3 outline-none focus:ring-2 focus:ring-gray-300"
+                          disabled={submitting}
+                          className="w-full rounded-xl border border-gray-200 px-3 py-3 outline-none focus:ring-2 focus:ring-gray-300 disabled:opacity-50"
                         />
                       </div>
                       <div>
@@ -212,7 +224,8 @@ export default function ContactPage() {
                           name="phone"
                           value={form.phone}
                           onChange={handleChange}
-                          className="w-full rounded-xl border border-gray-200 px-3 py-3 outline-none focus:ring-2 focus:ring-gray-300"
+                          disabled={submitting}
+                          className="w-full rounded-xl border border-gray-200 px-3 py-3 outline-none focus:ring-2 focus:ring-gray-300 disabled:opacity-50"
                         />
                       </div>
                       <div className="md:col-span-2">
@@ -225,7 +238,8 @@ export default function ContactPage() {
                           value={form.email}
                           onChange={handleChange}
                           required
-                          className="w-full rounded-xl border border-gray-200 px-3 py-3 outline-none focus:ring-2 focus:ring-gray-300"
+                          disabled={submitting}
+                          className="w-full rounded-xl border border-gray-200 px-3 py-3 outline-none focus:ring-2 focus:ring-gray-300 disabled:opacity-50"
                         />
                       </div>
                     </div>
@@ -248,7 +262,8 @@ export default function ContactPage() {
                             type="button"
                             key={t}
                             onClick={() => setInquiry(t)}
-                            className={`rounded-full border px-3 py-1.5 text-sm transition ${
+                            disabled={submitting}
+                            className={`rounded-full border px-3 py-1.5 text-sm transition disabled:opacity-50 ${
                               form.inquiry === t
                                 ? "bg-gray-900 text-white border-gray-900"
                                 : "bg-white text-gray-700 border-gray-200 hover:border-gray-300"
@@ -270,15 +285,17 @@ export default function ContactPage() {
                         value={form.message}
                         onChange={handleChange}
                         required
-                        className="w-full rounded-xl border border-gray-200 px-3 py-3 outline-none focus:ring-2 focus:ring-gray-300"
+                        disabled={submitting}
+                        className="w-full rounded-xl border border-gray-200 px-3 py-3 outline-none focus:ring-2 focus:ring-gray-300 disabled:opacity-50"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full rounded-xl bg-[#1e2230] text-white py-3.5 font-medium hover:bg-[#252a3d] transition"
+                      disabled={submitting}
+                      className="w-full rounded-xl bg-[#1e2230] text-white py-3.5 font-medium hover:bg-[#252a3d] transition disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Submit
+                      {submitting ? "Sending..." : "Submit"}
                     </button>
                   </form>
                 )}
