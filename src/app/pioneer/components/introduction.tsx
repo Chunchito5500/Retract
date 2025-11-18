@@ -58,7 +58,11 @@ const Introduction = () => {
           <div className="mt-8 flex justify-center">
             <button
               className={styles.btn}
-              onClick={() => document.getElementById("VersatileTab")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document
+                  .getElementById("VersatileTab")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               Learn More
             </button>
