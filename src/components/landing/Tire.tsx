@@ -1,323 +1,195 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import NextImage from "next/image";
 import Link from "next/link";
-import { IoBuildOutline } from "react-icons/io5";
-import { GiCartwheel } from "react-icons/gi";
-import { LuCircleCheckBig } from "react-icons/lu";
 import localFont from "next/font/local";
-
-// Type for model-viewer element - use intersection type
-type ModelViewerElement = HTMLElement & {
-  currentTime: number;
-};
-
-// Type for animation with custom properties
-interface ModelViewerAnimation {
-  effect?: {
-    getTiming: () => { duration: number };
-  };
-}
+import React, { useEffect, useMemo, useState } from "react";
+import { GiCartwheel } from "react-icons/gi";
+import { IoBuildOutline } from "react-icons/io5";
+import { LuCircleCheckBig } from "react-icons/lu";
 
 const BebasNeue = localFont({
   src: "../../fonts/BebasNeue-Regular.ttf",
   display: "swap",
 });
+const Roboto = localFont({
+  src: "../../fonts/Roboto-Regular.ttf",
+  display: "swap",
+});
+
+const FRAME_COUNT = 121;
+
+const getFrameSrc = (index: number) =>
+  `/frames/frame_${index.toString().padStart(4, "0")}.png`;
 
 function Tire() {
-  const modelViewerRef = useRef<ModelViewerElement>(null);
-  const [totalAnimationDuration, setTotalAnimationDuration] = useState(3.999);
-  const [sliderValue, setSliderValue] = useState(0);
+  const [frameIndex, setFrameIndex] = useState(1);
 
-  // lazy-load the model-viewer polyfill
+  // Preload nearby frames so the scrub feels fluid.
   useEffect(() => {
-    if (typeof window !== "undefined" && !customElements.get("model-viewer")) {
-      import("@google/model-viewer");
-    }
-  }, []);
+    const neighbors = [
+      frameIndex - 2,
+      frameIndex - 1,
+      frameIndex + 1,
+      frameIndex + 2,
+    ].filter((i) => i >= 1 && i <= FRAME_COUNT);
+    neighbors.forEach((i) => {
+      const img = new window.Image();
+      img.src = getFrameSrc(i);
+    });
+  }, [frameIndex]);
 
-  // pause on load & read its duration
-  useEffect(() => {
-    const mv = modelViewerRef.current;
-    if (!mv) return;
-
-    const onLoad = () => {
-      mv.setAttribute("animation-play", "paused");
-      const animations = mv.getAnimations();
-      const anim = animations?.[0] as ModelViewerAnimation;
-      if (anim?.effect) {
-        setTotalAnimationDuration(anim.effect.getTiming().duration);
-      }
-    };
-
-    mv.addEventListener("load", onLoad);
-    return () => mv.removeEventListener("load", onLoad);
-  }, []);
-
-  // slider handler
-  const updateAnimationTime = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const mv = modelViewerRef.current;
-    if (!mv) return;
-
-    const t = parseFloat(e.target.value);
-    setSliderValue(t);
-    mv.currentTime = t;
-  };
-
+  const frameSrc = useMemo(() => getFrameSrc(frameIndex), [frameIndex]);
   return (
-    <div className="w-screen min-h-screen relative -mx-4 sm:-mx-6 lg:-mx-8">
-      {/* Wave Background - covers entire viewport width */}
-      <div className="absolute bg-white inset-0 w-full h-full">
-        <div className="min-h-screen w-full bg-[#f8fafc] relative">
-          {/* Top Fade Grid Background */}
-          <div
-            className="absolute inset-0 z-0"
-            style={{
-              backgroundImage: `
-          linear-gradient(to right, #e2e8f0 1px, transparent 1px),
-          linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)
-        `,
-              backgroundSize: "20px 30px",
-              WebkitMaskImage:
-                "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
-              maskImage:
-                "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
-            }}
-          />
-
-          {/* Cool Blue Glow Left */}
-          <div
-            className="absolute inset-0 z-0"
-            style={{
-              backgroundImage: `
-          radial-gradient(
-            circle at top left,
-            rgba(70, 130, 180, 0.5),
-            transparent 70%
-          )
-        `,
-              filter: "blur(80px)",
-              backgroundRepeat: "no-repeat",
-            }}
-          />
-
-          {/* Your Content/Components */}
-        </div>
+    <section className="relative w-full overflow-hidden">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#2f2f34] via-[#3a3a40] to-[#232427]" />
+        <div className="absolute -left-24 -top-24 h-64 w-64 rounded-full bg-[#f5c84b]/20 blur-[120px]" />
+        <div className="absolute right-10 -bottom-24 h-72 w-72 rounded-full bg-[#f4f1e8]/20 blur-[140px]" />
+        <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_20%_20%,rgba(250,248,244,0.12),transparent_40%)]" />
       </div>
 
-      {/* Content - positioned over the background */}
-      <div className="relative z-10 w-full">
-        {/* Header Section */}
-        <div className="pt-12 pb-8 text-center px-4">
-          <p
-            className={`text-xl sm:text-2xl text-gray-600 uppercase tracking-wider mb-2 ${BebasNeue.className}`}
-          >
-            A closer look
-          </p>
-          <h1
-            className={`block text-6xl font-bold text-black mb-4 ${BebasNeue.className}`}
-          >
-            At our{" "}
-            <span className="bg-gradient-to-r from-[#f18311] to-[#ffb627] bg-clip-text text-transparent">
-              Tire
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div className="py-10 md:py-12 space-y-12 text-[#faf8f4]">
+          <header className="space-y-4 text-center lg:text-left">
+            <span
+              className={`inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.25em] text-[#f4f1e8] ${BebasNeue.className}`}
+            >
+              A closer look
             </span>
-          </h1>
-        </div>
+            <div className="space-y-3">
+              <h1
+                className={`text-center text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05] text-[#faf8f4] ${BebasNeue.className}`}
+              >
+                The Bike Wheel <br></br> Reinvented
+              </h1>
+            </div>
+          </header>
 
-        {/* Main Content Section */}
-        <div className="px-4 sm:px-6 lg:px-8 py-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8 xl:gap-20 items-center">
-              {/* Model Viewer Side - Left */}
-              <div className="order-2 md:order-1">
-                <div className="w-full max-w-md mx-auto bg-slate-700/30 backdrop-blur-md border border-slate-600/30 rounded-xl overflow-hidden">
-                  <figure
-                    style={{
-                      margin: 0,
-                      position: "relative",
-                      backgroundColor: "rgba(58, 74, 92, 0.8)",
-                    }}
+          <div className="grid gap-10 lg:grid-cols-2 items-start lg:items-stretch">
+            {/* Frame scrubber + hero */}
+            <div className="relative group flex h-full flex-col rounded-3xl border border-white/15 bg-[#2f2f34]/60 backdrop-blur-xl overflow-hidden shadow-[0_25px_60px_-35px_rgba(8,9,20,0.65)]">
+              <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-black/40 pointer-events-none" />
+              <div
+                className={`flex items-center justify-between px-6 pt-6 pb-2 text-xs uppercase tracking-[0.2em] text-[#faf8f4]/60 ${BebasNeue.className}`}
+              />
+
+              <div className="relative w-full flex-1 min-h-[220px] sm:min-h-[260px]">
+                <div className="absolute inset-4 rounded-3xl bg-gradient-to-br from-[#f5c84b]/25 via-[#2f2f34]/40 to-[#f4f1e8]/20 blur-3xl" />
+                <div className="absolute inset-0 m-4 rounded-2xl border border-white/10 bg-[#faf8f4]/10 overflow-hidden">
+                  <NextImage
+                    src={frameSrc}
+                    alt={`Tire frame ${frameIndex}`}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="object-contain"
+                  />
+                  <div
+                    className={`absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[0.65rem] uppercase tracking-[0.35em] text-[#faf8f4]/80 ${BebasNeue.className}`}
                   >
-                    {/* @ts-expect-error model-viewer is a custom element */}
-                    <model-viewer
-                      ref={modelViewerRef}
-                      src="/Models/fulltire.glb"
-                      ar
-                      ar-modes="webxr scene-viewer quick-look"
-                      camera-controls
-                      tone-mapping="commerce"
-                      poster="/poster.webp"
-                      shadow-intensity={1}
-                      camera-orbit="-20deg 110deg"
-                      animation-name="Dance"
-                      style={{
-                        width: "100%",
-                        height: 400,
-                        backgroundColor: "transparent",
-                      }}
-                    >
-                      <div className="progress-bar hide" slot="progress-bar">
-                        <div className="update-bar" />
-                      </div>
-                      <button
-                        slot="ar-button"
-                        id="ar-button"
-                        className="bg-slate-600/50 backdrop-blur-sm border border-slate-500/30 rounded-lg px-6 py-3 text-white font-semibold text-sm hover:bg-slate-600/70 transition-all"
-                      >
-                        View in your space
-                      </button>
-                      <div id="ar-prompt" />
-                      {/* @ts-expect-error model-viewer is a custom element */}
-                    </model-viewer>
-                  </figure>
-
-                  {/* Animation slider section */}
-                  <div className="px-4 py-4 bg-slate-800/30 backdrop-blur-sm border-t border-slate-600/30">
-                    <label
-                      htmlFor="animation-slider"
-                      className="block text-sm font-semibold mb-2 text-slate-200"
-                    >
-                      Slide to animate model!
-                    </label>
-                    <input
-                      id="animation-slider"
-                      type="range"
-                      min={0}
-                      max={totalAnimationDuration}
-                      step={0.01}
-                      value={sliderValue}
-                      onChange={updateAnimationTime}
-                      className="w-full h-2 bg-slate-600/50 rounded-lg appearance-none cursor-pointer slider"
-                      style={{
-                        background: `linear-gradient(to right, #ea7a17 0%, #ea7a17 ${
-                          (sliderValue / totalAnimationDuration) * 100
-                        }%, rgba(100, 116, 139, 0.5) ${
-                          (sliderValue / totalAnimationDuration) * 100
-                        }%, rgba(100, 116, 139, 0.5) 100%)`,
-                      }}
-                    />
-                    <p className="text-sm text-slate-400 py-1">
-                      <b>Pat. Pend.</b>
-                    </p>
+                    Slide to Fold
                   </div>
                 </div>
               </div>
 
-              {/* Features Side - Right */}
-              <div className="order-1 md:order-2 space-y-4">
-                <FeatureCard
-                  icon={<GiCartwheel className="h-6 w-6 text-white" />}
-                  title="Airless Tires"
-                  description="A bike built with airless tires in mind, so you can ride with all the benefits of airless tires, no punctures, no flats, and no risk of harming your bike rims."
+              <div className="px-6 pb-6 pt-2 space-y-3">
+                <input
+                  id="frame-slider"
+                  type="range"
+                  min={1}
+                  max={FRAME_COUNT}
+                  value={frameIndex}
+                  onChange={(e) => setFrameIndex(parseInt(e.target.value, 10))}
+                  className="w-full accent-[#f5c84b]"
+                  style={{
+                    background: `linear-gradient(to right, #f5c84b ${
+                      (frameIndex / FRAME_COUNT) * 100
+                    }%, rgba(250,248,244,0.25) ${
+                      (frameIndex / FRAME_COUNT) * 100
+                    }%)`,
+                  }}
                 />
-
-                <FeatureCard
-                  icon={<IoBuildOutline className="h-6 w-6 text-white" />}
-                  title="Reinvented Wheel"
-                  description="We rebuilt the wheel, quite literally. So you know our parts work in order to get you from point A to B."
-                />
-
-                <FeatureCard
-                  icon={<LuCircleCheckBig className="h-6 w-6 text-white" />}
-                  title="Full-Sized Tire"
-                  description="The first wheel that doesn't cut down on size for foldability. It's the full 26 inch diameter tire."
-                />
+                <div
+                  className={`flex items-center justify-between text-[0.65rem] uppercase tracking-[0.3em] text-[#faf8f4]/50 ${BebasNeue.className}`}
+                >
+                  <span>Unfolded</span>
+                  <span>Folded</span>
+                </div>
               </div>
             </div>
 
-            {/* Three Button Section */}
-            {/* Three Button Section */}
-            <div className="mt-20 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
-              {/* The Pioneer (blue/cyan) */}
-              <Link href="/pioneer" passHref>
-                <button
-                  className="relative group px-8 py-4 rounded-2xl bg-slate-600/40 border border-white/20 text-white font-semibold
-                 backdrop-blur-md transition-all duration-300 w-full sm:w-auto hover:scale-105 overflow-hidden
-                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+            {/* Right rail */}
+            <div className="space-y-7">
+              <div className="rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur-xl">
+                <div className="flex flex-wrap gap-4">
+                  <Badge tone="sand">Pat. Pend.</Badge>
+                  <Badge tone="coral">Airless</Badge>
+                  <Badge tone="coral">26&quot; Diameter</Badge>
+                  <Badge tone="coral">Zero Flats</Badge>
+                </div>
+                <p
+                  className={`mt-5 text-base text-[#faf8f4]/80 leading-relaxed ${Roboto.className}`}
                 >
-                  <span className="relative z-10">The Pioneer</span>
+                  Built for riders who want daily reliability without the hassle
+                  of flats. Our wheel system is engineered to integrate airless
+                  tire segments for a confident road feel, consistent traction,
+                  and simplified maintenance. So that you can commute, travel,
+                  and ride without worrying about punctures.
+                </p>
+              </div>
 
-                  {/* hover glow bg */}
-                  <span
-                    aria-hidden
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300
-                   bg-gradient-to-r from-blue-500/60 to-cyan-400/60"
-                  />
-                  {/* soft outer bloom */}
-                  <span
-                    aria-hidden
-                    className="absolute -inset-8 opacity-0 group-hover:opacity-60 transition-opacity duration-300
-                   bg-gradient-to-r from-blue-500/40 to-cyan-400/40 blur-2xl"
-                  />
-                  {/* ring fades on hover */}
-                  <span
-                    aria-hidden
-                    className="absolute inset-0 rounded-2xl ring-1 ring-white/30 transition duration-300
-                   group-hover:ring-transparent"
-                  />
-                </button>
-              </Link>
+              <div className="grid gap-5">
+                <FeatureCard
+                  icon={<GiCartwheel className="h-6 w-6 text-[#f4f1e8]" />}
+                  title="Airless Tire Integration"
+                  description="A bike built with airless tires in mind, so you can ride with all the benefits of airless tires, no punctures, no flats, and no risk of harming your bike rims."
+                />
+                <FeatureCard
+                  icon={<IoBuildOutline className="h-6 w-6 text-[#f4f1e8]" />}
+                  title="Reinvented Wheel"
+                  description="A wheel system optimized for segmented airless tires, built to maintain alignment, improve load distribution, and keep handling predictable across varied surfaces."
+                />
+                <FeatureCard
+                  icon={<LuCircleCheckBig className="h-6 w-6 text-[#faf8f4]" />}
+                  title='True 26" stance'
+                  description="Full-size comfort with a familiar ride feel. Built around a standard 26” stance for confident handling—without compromising portability goals."
+                />
+              </div>
 
-              {/* View our gallery (purple) */}
-              <Link href="/gallery" passHref>
-                <button
-                  className="relative group px-8 py-4 rounded-2xl bg-slate-600/40 border border-white/20 text-white font-semibold
-                 backdrop-blur-md transition-all duration-300 w-full sm:w-auto hover:scale-105 overflow-hidden
-                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-                >
-                  <span className="relative z-10">View our gallery</span>
-
-                  <span
-                    aria-hidden
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300
-                   bg-gradient-to-r from-violet-500/60 to-fuchsia-400/60"
-                  />
-                  <span
-                    aria-hidden
-                    className="absolute -inset-8 opacity-0 group-hover:opacity-60 transition-opacity duration-300
-                   bg-gradient-to-r from-violet-500/40 to-fuchsia-400/40 blur-2xl"
-                  />
-                  <span
-                    aria-hidden
-                    className="absolute inset-0 rounded-2xl ring-1 ring-white/30 transition duration-300
-                   group-hover:ring-transparent"
-                  />
-                </button>
-              </Link>
-
-              {/* Licensing Questions? (professional: clean white reveal) */}
-              {/* <Link href="/contact" passHref>
-    <button
-      className="relative group px-8 py-4 rounded-2xl bg-slate-600/40 border border-white/20 text-white font-semibold
-                 backdrop-blur-md transition-all duration-300 w-full sm:w-auto hover:scale-105 overflow-hidden
-                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-    >
-      <span className="relative z-10 transition-colors duration-300 group-hover:text-gray-900">
-        Licensing Questions?
-      </span>
-
-      <span
-        aria-hidden
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300
-                   bg-gradient-to-r from-white to-slate-100"
-      />
-      <span
-        aria-hidden
-        className="absolute -inset-8 opacity-0 group-hover:opacity-70 transition-opacity duration-300
-                   bg-gradient-to-r from-white to-slate-200 blur-2xl"
-      />
-      <span
-        aria-hidden
-        className="absolute inset-0 rounded-2xl ring-1 ring-white/30 transition duration-300
-                   group-hover:ring-transparent"
-      />
-    </button>
-  </Link> */}
+              <div className="rounded-3xl border border-white/15 bg-gradient-to-r from-[#f5c84b]/20 via-white/5 to-[#f4f1e8]/20 p-6 backdrop-blur-xl">
+                <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p
+                      className={`text-xs uppercase tracking-[0.25em] text-[#faf8f4]/60 ${BebasNeue.className}`}
+                    >
+                      Want to see more?
+                    </p>
+                    <h3
+                      className={`text-2xl sm:text-3xl font-semibold text-[#faf8f4] ${BebasNeue.className}`}
+                    >
+                      Explore the build + gallery
+                    </h3>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    <CTAButton
+                      href="/pioneer"
+                      label="The Pioneer"
+                      tone="sand"
+                    />
+                    <CTAButton
+                      href="/gallery"
+                      label="View Gallery"
+                      tone="coral"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -329,16 +201,73 @@ interface FeatureCardProps {
 
 const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
   return (
-    <div className="bg-slate-600/90 backdrop-blur-sm border border-slate-500/30 rounded-xl overflow-hidden">
-      <div className="flex items-center gap-3 p-4 border-b border-slate-500/20">
-        <div className="flex-shrink-0 p-2.5 bg-slate-500/20 rounded-lg">
-          {icon}
-        </div>
-        <h3 className="text-2xl font-semibold text-white">{title}</h3>
+    <div className="flex items-start gap-5 rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/30">
+      <div className="mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-white/10">
+        {icon}
       </div>
-
-      <div className="p-4 text-white">{description}</div>
+      <div className="space-y-2">
+        <h3
+          className={`text-lg font-semibold leading-snug text-[#faf8f4] ${BebasNeue.className}`}
+        >
+          {title}
+        </h3>
+        <p
+          className={`text-[#faf8f4]/70 text-sm leading-relaxed ${Roboto.className}`}
+        >
+          {description}
+        </p>
+      </div>
     </div>
+  );
+};
+
+interface BadgeProps {
+  children: React.ReactNode;
+  tone?: "coral" | "sand";
+}
+
+const Badge = ({ children, tone }: BadgeProps) => {
+  const gradients: Record<NonNullable<BadgeProps["tone"]>, string> = {
+    coral:
+      "from-[#f5c84b]/35 to-[#f9e3a8]/10 text-[#fff9e8] border-[#f5c84b]/40",
+    sand: "from-[#f4f1e8]/35 to-[#f8f5ef]/10 text-[#faf8f4] border-[#f4f1e8]/40",
+  };
+
+  return (
+    <span
+      className={`inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1 text-[0.65rem] uppercase tracking-[0.3em] ${
+        BebasNeue.className
+      } ${
+        tone
+          ? `bg-gradient-to-r ${gradients[tone]}`
+          : "bg-white/10 text-[#faf8f4]/80"
+      }`}
+    >
+      {children}
+    </span>
+  );
+};
+
+interface CTAButtonProps {
+  href: string;
+  label: string;
+  tone: "coral" | "sand";
+}
+
+const CTAButton = ({ href, label, tone }: CTAButtonProps) => {
+  const toneMap: Record<CTAButtonProps["tone"], string> = {
+    coral:
+      "from-[#f5c84b] via-[#f7d772] to-[#f5c84b] text-[#2b2b2b] shadow-[0_15px_45px_-30px_rgba(245,200,75,0.7)]",
+    sand: "from-[#f4f1e8] via-[#f8f5ef] to-[#f4f1e8] text-[#2b2b2b] shadow-[0_15px_45px_-30px_rgba(244,241,232,0.6)]",
+  };
+
+  return (
+    <Link
+      href={href}
+      className={`inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-gradient-to-r px-5 py-2 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${toneMap[tone]}`}
+    >
+      {label}
+    </Link>
   );
 };
 

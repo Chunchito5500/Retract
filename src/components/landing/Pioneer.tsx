@@ -13,11 +13,11 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const BebasNeue = localFont({
   src: "../../fonts/BebasNeue-Regular.ttf",
-  display: 'swap',
+  display: "swap",
 });
 const Roboto = localFont({
   src: "../../fonts/Roboto-Regular.ttf",
-  display: 'swap',
+  display: "swap",
 });
 
 export default function Pioneer() {
@@ -51,14 +51,16 @@ export default function Pioneer() {
             inactiveZone={0.01}
             borderWidth={3}
           />
-          
+
           <div className="relative overflow-hidden rounded-xl backdrop-blur-[20px] backdrop-saturate-[60%] bg-[rgba(51,53,68,0.5)] border border-white/[0.125] shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
             {/* Default Mode */}
             {!isExpanded && (
               <div className="p-6 md:p-10">
                 {/* Header */}
                 <div className="text-center mb-8">
-                  <p className={`text-xl sm:text-2xl text-white/70 uppercase tracking-wider mb-2 ${BebasNeue.className}`}>
+                  <p
+                    className={`text-xl sm:text-2xl text-white/70 uppercase tracking-wider mb-2 ${BebasNeue.className}`}
+                  >
                     Introducing
                   </p>
                   <h1
@@ -78,21 +80,25 @@ export default function Pioneer() {
                   <div className="space-y-4">
                     {/* Feature Cards */}
                     <FeatureCard
-                      icon={<FaSuitcaseRolling className="h-5 w-5 text-[#333544]" />}
+                      icon={
+                        <FaSuitcaseRolling className="h-5 w-5 text-[#333544]" />
+                      }
                       title="Unparalleled Portability"
                       description="The Pioneer's innovative folding design makes it incredibly portable. Engineered to fold quickly and effortlessly, offering a level of mobility that other foldable bikes simply can't match."
                       isOpen={openCardIndex === 0}
                       onClick={() => handleCardClick(0)}
                     />
-                    
+
                     <FeatureCard
-                      icon={<MdOutlineWorkspacePremium className="h-5 w-5 text-[#333544]" />}
+                      icon={
+                        <MdOutlineWorkspacePremium className="h-5 w-5 text-[#333544]" />
+                      }
                       title="Premium Ride Quality"
                       description="Enjoy the comfort and stability of a traditional sized bike without compromise. Our design ensures that ride quality, stability, and overall performance remain top-notch, while including a foldable form."
                       isOpen={openCardIndex === 1}
                       onClick={() => handleCardClick(1)}
                     />
-                    
+
                     <FeatureCard
                       icon={<HiLightBulb className="h-5 w-5 text-[#333544]" />}
                       title="Industry-Leading Innovation"
@@ -104,11 +110,12 @@ export default function Pioneer() {
                     {/* Release Info */}
                     <div className="mt-6 space-y-2">
                       <div className="flex items-center gap-2 text-lg font-semibold text-blue-400">
-                        <span>Release Date: September 2025</span>
+                        <span>Release Date: June 2026</span>
                         <div className="relative group">
                           <IoAlertCircleOutline className="text-red-400 h-6 w-6 cursor-help" />
                           <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-popover text-popover-foreground text-sm rounded-md border shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
-                            These are concept images representing future bike models.
+                            These are concept images representing future bike
+                            models.
                           </div>
                         </div>
                       </div>
@@ -122,7 +129,11 @@ export default function Pioneer() {
                   <div className="relative">
                     <div className="relative rounded-lg overflow-hidden border-2 border-border">
                       <Image
-                        src={isFolded ? "/pioneer/fold3.png" : "/pioneer/Unfold2.png"}
+                        src={
+                          isFolded
+                            ? "/pioneer/fold3.png"
+                            : "/pioneer/Unfold2.png"
+                        }
                         alt="Retractability Bike"
                         width={700}
                         height={700}
@@ -143,9 +154,13 @@ export default function Pioneer() {
                         className="absolute top-4 left-4 p-4 bg-background/90 hover:bg-background border border-border rounded-lg backdrop-blur-sm transition-all shadow-md group"
                       >
                         <div className="relative w-8 h-8 flex items-center justify-center">
-                          <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${
-                            isFolded ? 'opacity-100 rotate-0' : 'opacity-0 rotate-180'
-                          }`}>
+                          <div
+                            className={`absolute inset-0 transition-all duration-500 ease-in-out ${
+                              isFolded
+                                ? "opacity-100 rotate-0"
+                                : "opacity-0 rotate-180"
+                            }`}
+                          >
                             <Image
                               src="/pioneer/foldedbike.svg"
                               alt="Folded Bike"
@@ -154,9 +169,13 @@ export default function Pioneer() {
                               className="w-full h-full"
                             />
                           </div>
-                          <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${
-                            !isFolded ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-180'
-                          }`}>
+                          <div
+                            className={`absolute inset-0 transition-all duration-500 ease-in-out ${
+                              !isFolded
+                                ? "opacity-100 rotate-0"
+                                : "opacity-0 -rotate-180"
+                            }`}
+                          >
                             <Image
                               src="/pioneer/unfoldedbike.svg"
                               alt="Unfolded Bike"
@@ -189,7 +208,9 @@ export default function Pioneer() {
               <div className="p-4">
                 <div className="relative rounded-lg overflow-hidden border-2 border-border">
                   <Image
-                    src={isFolded ? "/pioneer/fold3.png" : "/pioneer/Unfold2.png"}
+                    src={
+                      isFolded ? "/pioneer/fold3.png" : "/pioneer/Unfold2.png"
+                    }
                     alt="Retractability Bike"
                     width={1300}
                     height={500}
@@ -210,9 +231,13 @@ export default function Pioneer() {
                     className="absolute top-4 left-4 p-4 bg-background/90 hover:bg-background border border-border rounded-lg backdrop-blur-sm transition-all shadow-md group"
                   >
                     <div className="relative w-8 h-8 flex items-center justify-center">
-                      <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${
-                        isFolded ? 'opacity-100 rotate-0' : 'opacity-0 rotate-180'
-                      }`}>
+                      <div
+                        className={`absolute inset-0 transition-all duration-500 ease-in-out ${
+                          isFolded
+                            ? "opacity-100 rotate-0"
+                            : "opacity-0 rotate-180"
+                        }`}
+                      >
                         <Image
                           src="/pioneer/foldedbike.svg"
                           alt="Folded Bike"
@@ -221,9 +246,13 @@ export default function Pioneer() {
                           className="w-full h-full"
                         />
                       </div>
-                      <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${
-                        !isFolded ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-180'
-                      }`}>
+                      <div
+                        className={`absolute inset-0 transition-all duration-500 ease-in-out ${
+                          !isFolded
+                            ? "opacity-100 rotate-0"
+                            : "opacity-0 -rotate-180"
+                        }`}
+                      >
                         <Image
                           src="/pioneer/unfoldedbike.svg"
                           alt="Unfolded Bike"
@@ -253,32 +282,48 @@ interface FeatureCardProps {
   onClick: () => void;
 }
 
-const FeatureCard = ({ icon, title, description, isOpen, onClick }: FeatureCardProps) => {
+const FeatureCard = ({
+  icon,
+  title,
+  description,
+  isOpen,
+  onClick,
+}: FeatureCardProps) => {
   return (
     <div className="border border-border rounded-lg overflow-hidden">
       <button
         onClick={onClick}
         className={`w-full flex items-center gap-3 p-4 bg-[#ccc5b9] hover:bg-[#ccc5b9]/80 transition-colors text-left ${
-          isOpen ? 'cursor-default' : 'cursor-pointer'
+          isOpen ? "cursor-default" : "cursor-pointer"
         }`}
       >
         <div className="flex-shrink-0 p-2 bg-transparent rounded-lg">
           {icon}
         </div>
-        <span className={`text-2xl font-semibold text-[#333544] ${BebasNeue.className}`}>
+        <span
+          className={`text-2xl font-semibold text-[#333544] ${BebasNeue.className}`}
+        >
           {title}
         </span>
         <div className="ml-auto">
-          <div className={`transform transition-transform text-[#333544] ${isOpen ? 'rotate-180' : ''}`}>
+          <div
+            className={`transform transition-transform text-[#333544] ${
+              isOpen ? "rotate-180" : ""
+            }`}
+          >
             ▼
           </div>
         </div>
       </button>
-      
-      <div className={`overflow-hidden transition-all duration-300 ${
-        isOpen ? 'max-h-48' : 'max-h-0'
-      }`}>
-        <div className={`p-4 bg-[#ded9d0] border-t border-border text-xl text-[#333544] ${Roboto.className}`}>
+
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          isOpen ? "max-h-48" : "max-h-0"
+        }`}
+      >
+        <div
+          className={`p-4 bg-[#ded9d0] border-t border-border text-xl text-[#333544] ${Roboto.className}`}
+        >
           {description}
         </div>
       </div>

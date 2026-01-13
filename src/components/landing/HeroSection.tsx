@@ -5,9 +5,9 @@ import Link from "next/link";
 export function HeroSection() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center">
-      <h1 className="text-5xl font-bold">Welcome to Retract Demo</h1>
+      <h1 className="text-5xl font-bold">Retractability Bicycles</h1>
       <p className="mt-4 text-lg">
-        This is a simple landing page for your application.
+        The Future of Biking
       </p>
       <Link
         href="#"
