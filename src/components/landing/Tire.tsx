@@ -153,7 +153,7 @@ function Tire() {
                 <FeatureCard
                   icon={<LuCircleCheckBig className="h-6 w-6 text-[#faf8f4]" />}
                   title='True 26" stance'
-                  description="Full-size comfort with a familiar ride feel. Built around a standard 26” stance for confident handling—without compromising portability goals."
+                  description="Full-size comfort with a familiar ride feel. Built around a standard 26” stance for confident handling, without compromising portability goals."
                 />
               </div>
 
