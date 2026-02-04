@@ -82,18 +82,23 @@ export default function Popup({ isOpen, onDismiss, onSubmitted }: PopupProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8">
-      <div className="absolute inset-0 bg-[#0b1024]/70 backdrop-blur-sm" />
+      <button
+        type="button"
+        aria-label="Close signup popup"
+        onClick={onDismiss}
+        className="absolute inset-0 bg-[#0b1024]/70 backdrop-blur-sm"
+      />
 
-      <div className="relative z-10 w-full max-w-5xl overflow-hidden rounded-[32px] bg-[#b4b2af] shadow-[0_30px_80px_rgba(5,10,30,0.45)] ring-1 ring-white/40 animate-in fade-in zoom-in-95 duration-300">
+      <div className="relative z-10 w-full max-w-[94vw] overflow-hidden rounded-[28px] bg-[#b4b2af] shadow-[0_30px_80px_rgba(5,10,30,0.45)] ring-1 ring-white/40 animate-in fade-in zoom-in-95 duration-300 sm:max-w-2xl md:max-w-5xl">
         <button
           type="button"
           onClick={onDismiss}
-          className="absolute right-5 top-5 z-20 rounded-full bg-[#1b223d]/90 p-2 text-white/80 shadow-md transition hover:text-white"
+          className="absolute right-4 top-4 z-20 rounded-full bg-[#1b223d]/90 p-3 text-white/90 shadow-lg transition hover:text-white sm:right-5 sm:top-5 sm:p-2"
           aria-label="Dismiss signup popup"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
+            className="h-5 w-5 sm:h-4 sm:w-4"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -107,7 +112,7 @@ export default function Popup({ isOpen, onDismiss, onSubmitted }: PopupProps) {
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-[1.05fr_1fr]">
-          <div className="relative min-h-[320px] md:min-h-[540px]">
+          <div className="relative min-h-[220px] sm:min-h-[280px] md:min-h-[540px]">
             <div className="absolute inset-0 bg-[linear-gradient(135deg,#0f172a,#1b264f_45%,#536186_90%)]" />
             <div className="absolute inset-0 bg-[url('/images/popup.JPEG')] bg-cover bg-center opacity-85" />
             <div className="absolute inset-0 bg-gradient-to-tr from-[#0a1022]/70 via-transparent to-transparent" />
@@ -115,15 +120,15 @@ export default function Popup({ isOpen, onDismiss, onSubmitted }: PopupProps) {
           </div>
 
           <div
-            className={`flex h-full flex-col px-8 py-10 text-center sm:px-12 ${BebasNeue.className}`}
+            className={`flex h-full flex-col px-6 py-8 text-center sm:px-10 sm:py-10 md:px-12 ${BebasNeue.className}`}
           >
-            <p className="text-md uppercase tracking-[0.1em] text-slate-200">
+            <p className="text-sm uppercase tracking-[0.1em] text-slate-200 sm:text-md">
               Retractability Bicycles
             </p>
-            <h3 className="mt-3 text-6xl font-semibold text-slate-900">
+            <h3 className="mt-3 text-4xl font-semibold text-slate-900 sm:text-5xl md:text-6xl">
               Join our Interest List!
             </h3>
-            <p className="mt-4 text-2xl text-slate-200">
+            <p className="mt-3 text-lg text-slate-200 sm:mt-4 sm:text-xl md:text-2xl">
               Get early access, progress updates, and launch perks.
             </p>
 
