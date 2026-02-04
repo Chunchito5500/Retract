@@ -9,20 +9,68 @@ import News from "./news";
 import Video from "./video";
 import Footer from "../footer/Footer";
 import Signup from "../signup/signup";
+import Popup from "../popup/popup";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const POPUP_STORAGE_KEY = "retract_interest_popup_v1";
+const POPUP_FALLBACK_DELAY_MS = 15000;
 
 export default function LandingLayout() {
   const pathname = usePathname();
   const [key, setKey] = useState(0);
+  const tireSectionRef = useRef<HTMLElement | null>(null);
 
   // controls
   const [showSignup, setShowSignup] = useState(true);
   const [isMinimized, setIsMinimized] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isPopupDisabled, setIsPopupDisabled] = useState(false);
 
   useEffect(() => {
     if (pathname === "/") setKey((prev) => prev + 1);
   }, [pathname]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const stored = window.sessionStorage.getItem(POPUP_STORAGE_KEY);
+    if (stored) {
+      setIsPopupDisabled(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || isPopupDisabled) return;
+
+    let hasOpened = false;
+
+    const openPopup = () => {
+      if (hasOpened || isPopupDisabled) return;
+      hasOpened = true;
+      setIsPopupOpen(true);
+    };
+
+    const timer = window.setTimeout(openPopup, POPUP_FALLBACK_DELAY_MS);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          openPopup();
+        }
+      },
+      { threshold: 0.4 },
+    );
+
+    if (tireSectionRef.current) {
+      observer.observe(tireSectionRef.current);
+    }
+
+    return () => {
+      window.clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [isPopupDisabled]);
 
   // Permanently hide for the session (not used by the minus button)
   const handleClose = () => {
@@ -41,6 +89,21 @@ export default function LandingLayout() {
     setShowSignup(true);
   };
 
+  const handlePopupDismiss = () => {
+    if (typeof window !== "undefined") {
+      window.sessionStorage.setItem(POPUP_STORAGE_KEY, "dismissed");
+    }
+    setIsPopupOpen(false);
+    setIsPopupDisabled(true);
+  };
+
+  const handlePopupSubmitted = () => {
+    if (typeof window !== "undefined") {
+      window.sessionStorage.setItem(POPUP_STORAGE_KEY, "submitted");
+    }
+    setIsPopupDisabled(true);
+  };
+
   return (
     <div className="relative">
       <AuroraBackground key={key}>
@@ -57,7 +120,7 @@ export default function LandingLayout() {
         </section>
 
         {/* Tire */}
-        <section className="py-24">
+        <section className="py-24" ref={tireSectionRef}>
           <Tire />
         </section>
 
@@ -74,6 +137,11 @@ export default function LandingLayout() {
         <Footer />
       </AuroraBackground>
 
+      <Popup
+        isOpen={isPopupOpen}
+        onDismiss={handlePopupDismiss}
+        onSubmitted={handlePopupSubmitted}
+      />
       {/* Keep isVisible tied ONLY to overall visibility, not minimized state */}
       <Signup
         isVisible={showSignup}
