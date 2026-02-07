@@ -24,7 +24,7 @@ const articles = [
     slug: "pioneer-design",
     title: "Built by Students, for Students: The Retractability Pioneer",
     excerpt:
-      "The story of how we designed and built the Pioneer in dorms and garages, with every consideration made for fellow students.",
+      "The story of how we designed and built the Pioneer.",
     author: "Lucas Somoshegyi-Szokol",
     date: "August 11, 2025",
     readTime: "8 min read",
@@ -36,7 +36,7 @@ const articles = [
     slug: "problem-to-revolution",
     title: "From a College Problem to a Biking Revolution",
     excerpt:
-      "How the frustration of bike theft at ASU led to reimagining what a folding bike could be.",
+      "How the frustration of theft at ASU led to reimagining what a folding bike could be.",
     author: "Zephan Deepu",
     date: "April 28, 2025",
     readTime: "5 min read",
@@ -85,7 +85,7 @@ export default function NewsPage() {
           <p
             className={`text-lg text-white/60 max-w-2xl mx-auto ${Roboto.className}`}
           >
-            Follow our journey as we build the future of urban mobility.
+            Follow our journey as we build the future of mobility.
           </p>
         </div>
       </section>
