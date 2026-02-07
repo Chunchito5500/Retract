@@ -1,46 +1,50 @@
 /* -------------------------------------------------------------------------- */
 /*  CarouselCard.tsx – responsive image carousel with glass‑morphic nav        */
 /* -------------------------------------------------------------------------- */
-'use client';
+"use client";
 
-import React, { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import { Transition } from '@headlessui/react';
-import { GlowingEffect } from '@/components/ui/glowing-effect';
+import React, { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { Transition } from "@headlessui/react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import GlassMorphDot from "./glassmorphdot";
-import CarouselButton from './CarouselButton';
-import localFont from 'next/font/local';
-import { cn } from '@/lib/utils';
+import CarouselButton from "./CarouselButton";
+import localFont from "next/font/local";
+import { cn } from "@/lib/utils";
 
 /* ------------------------------ fonts ------------------------------------ */
 const BebasNeue = localFont({
-  src: '../../fonts/BebasNeue-Regular.ttf',
-  display: 'swap',
+  src: "../../fonts/BebasNeue-Regular.ttf",
+  display: "swap",
 });
 
 /* ------------------------------ data  ------------------------------------ */
 const slides = [
   {
-    img: '/carousel/RetractGrayBike.png',
-    subheading: 'Retractability Pioneer',
-    heading: 'The Future of Biking',
-    buttonText: 'Learn More',
-    route: '/pioneer', // Route for slide 1
+    img: "/new/azcenter3.JPEG",
+    subheading: "Retractability Pioneer",
+    heading: "The Future of Biking",
+    buttonText: "Learn More",
+    route: "/pioneer",
+    objectPosition: "50% 50%",
+    overlayOpacity: 0.05,
   },
   {
-    img: '/carousel/ctw.jpg',
-    subheading: 'Latest News',
-    heading: 'Retractability at Change the World',
-    buttonText: 'Learn More',
-    route: '/news/change-the-world', // Route for slide 2
+    img: "/carousel/ctw.jpg",
+    subheading: "Latest News",
+    heading: "Retractability at Change the World",
+    buttonText: "Learn More",
+    route: "/news/change-the-world",
+    overlayOpacity: 0.35,
   },
   {
-    img: '/carousel/OrangeReal.png',
-    subheading: 'Our Vision',
-    heading: 'The Future of Biking',
-    buttonText: 'Learn More',
-    route: '/pioneer', // Route for slide 3
+    img: "/carousel/OrangeReal.png",
+    subheading: "Our Vision",
+    heading: "The Future of Biking",
+    buttonText: "Learn More",
+    route: "/pioneer",
+    overlayOpacity: 0.1,
   },
 ];
 
@@ -87,12 +91,7 @@ export default function CarouselCard({
 
   /* render --------------------------------------------------------------- */
   return (
-    <div
-      className={cn(
-        'relative z-10 w-full px-0 py-0',
-        className
-      )}
-    >
+    <div className={cn("relative z-10 w-full px-0 py-0", className)}>
       {/* outer frame with glow - mobile almost edge to edge */}
       <div className="relative w-full mx-auto max-w-[98vw] sm:max-w-[99.2vw] md:max-w-[98.8vw] lg:max-w-[98.2vw] xl:max-w-[97.8vw] rounded-3xl border border-white/20 p-0.5 backdrop-blur-md">
         <GlowingEffect
@@ -122,31 +121,33 @@ export default function CarouselCard({
             >
               <Image
                 src={s.img}
-                alt={s.subheading ?? 'slide'}
+                alt={s.subheading ?? "slide"}
                 fill
                 sizes="(max-width:640px) 100vw, (max-width:1024px) 90vw, 80vw"
-                /* 👇 lets clicks go through to nav & arrows */
                 className="object-cover select-none pointer-events-none"
+                style={{ objectPosition: s.objectPosition ?? "50% 50%" }}
                 priority={idx === 0}
               />
 
               {/* Dark overlay for better text readability */}
-              <div className="absolute inset-0 bg-black/40 pointer-events-none" />
-
+              <div
+                className="absolute inset-0 bg-black pointer-events-none"
+                style={{ opacity: s.overlayOpacity ?? 0.2 }}
+              />
               {/* overlay text - mobile centered and positioned in middle */}
               <div className="absolute bottom-1/3 sm:bottom-0 left-0 sm:left-0 z-10 flex flex-col items-center sm:items-start justify-center sm:justify-end gap-3 sm:gap-4 md:gap-5 lg:gap-6 p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 text-white pointer-events-none w-full sm:w-auto">
                 <p
                   className={cn(
-                    'text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl opacity-90 font-medium text-center sm:text-left',
-                    BebasNeue.className
+                    "text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl opacity-90 font-medium text-center sm:text-left",
+                    BebasNeue.className,
                   )}
                 >
                   {s.subheading}
                 </p>
                 <h2
                   className={cn(
-                    'text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight text-center sm:text-left',
-                    BebasNeue.className
+                    "text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight text-center sm:text-left",
+                    BebasNeue.className,
                   )}
                 >
                   {s.heading}

@@ -1,5 +1,3 @@
-// src/components/ui/aurora-background.tsx
-
 "use client";
 
 import { cn } from "@/lib/utils";
@@ -15,10 +13,10 @@ export const AuroraBackground = ({
   ...props
 }: AuroraBackgroundProps) => {
   return (
-    <main className="min-h-screen w-full overflow-hidden bg-[#16214bf7] text-slate-100 transition-bg dark:bg-[#16214bf7]">
+    <main className="min-h-screen w-full bg-[#16214bf7] text-slate-100 transition-bg dark:bg-[#16214bf7]">
       <div
         className={cn(
-          "relative z-10 flex min-h-screen w-full flex-col items-center justify-start",
+          "relative z-10 flex min-h-screen w-full flex-col items-stretch justify-start",
           className,
         )}
         {...props}

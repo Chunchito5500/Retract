@@ -124,15 +124,14 @@
   }
 }
 
+/* Scrollbar hide utility */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
-body::before {
-  content: '';
-  display: block;
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: var(--test-blue);
-  opacity: 0.2;
-  pointer-events: none;
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
-

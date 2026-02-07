@@ -4,6 +4,10 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Navbar } from "../navbar/Navbar";
 import CarouselCard from "./Carousel";
 import Pioneer from "./Pioneer";
+import Lifestyle from "./lifestyle";
+import Bento from "./Bento";
+import Disclaimer from "./Disclaimer";
+import Hero from "./hero";
 import Tire from "./Tire";
 import News from "./news";
 import Video from "./video";
@@ -108,32 +112,38 @@ export default function LandingLayout() {
     <div className="relative">
       <AuroraBackground key={key}>
         <Navbar />
-
         {/* Carousel section */}
         <section className="pt-3 sm:pt-4 md:pt-5">
           <CarouselCard />
         </section>
 
         {/* Pioneer */}
-        <section className="py-24">
+        {/* <section className="py-24">
           <Pioneer />
         </section>
 
+        <section className="py-24">
+          <Hero />
+        </section> */}
+
+        <Bento />
+        <Disclaimer />
+
+        <section className="py-24">
+          <Lifestyle />
+        </section>
         {/* Tire */}
         <section className="py-24" ref={tireSectionRef}>
           <Tire />
         </section>
-
         {/* News */}
         <section className="py-24">
           <News />
         </section>
-
         {/* Video */}
         <section className="py-24">
           <Video />
         </section>
-
         <Footer />
       </AuroraBackground>
 
