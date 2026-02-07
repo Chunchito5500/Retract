@@ -63,7 +63,7 @@ const tabContent: TabContent = {
       info: "Compact form",
     },
     {
-      src: "/pioneer/RbikeF.jpeg",
+      src: "/pioneer/RBikeF.jpeg",
       alt: "Pioneer folded view 3",
       info: "Frame close-up",
     },
