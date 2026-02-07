@@ -14,24 +14,27 @@ const News = () => {
     {
       id: 1,
       title: "How we designed the Pioneer",
-      description: "Read about the design process of our first bike, the Pioneer.",
-      category: "PRODUCT",
-      date: "July 2025",
+      description:
+        "Read about the design process of our first bike, the Pioneer.",
+      category: "Design & Engineering",
+      date: "August 2025",
       slug: "pioneer-design",
     },
     {
       id: 2,
       title: "Retractability Bicycles at Change the World!",
-      description: "Read about our experiences at the Change the World event at ASU.",
-      category: "EVENTS",
+      description:
+        "Read about our experiences at the Change the World event at ASU.",
+      category: "Events",
       date: "April 2025",
       slug: "change-the-world",
     },
     {
       id: 3,
       title: "From a College Problem to a Biking Revolution",
-      description: "The story behind Retractability and how we're changing urban mobility.",
-      category: "COMPANY",
+      description:
+        "The story behind Retractability and how we're changing urban mobility.",
+      category: "Founder Story",
       date: "April 2025",
       slug: "problem-to-revolution",
     },
@@ -58,7 +61,8 @@ const News = () => {
               <p
                 className={`text-white/80 text-base leading-relaxed mb-6 ${Roboto.className}`}
               >
-                Stay updated with our latest developments, events, and insights from the Retractability team as we revolutionize biking.
+                Stay updated with our latest developments, events, and insights
+                from the Retractability team as we revolutionize biking.
               </p>
               <Link
                 href="/news"
@@ -96,7 +100,7 @@ const News = () => {
                     <div className="relative z-10">
                       {/* Category and Date */}
                       <div className="flex items-center justify-between mb-3">
-                        <span className="inline-block px-3 py-1 bg-[#ea6051]/80 backdrop-blur-sm text-white text-xs font-medium rounded-full uppercase tracking-wide border border-[#ea6051]/30">
+                        <span className="inline-block px-3 py-1 bg-blue-500/80 backdrop-blur-sm text-blue-300 border-blue-500/20 text-xs font-medium rounded-full uppercase tracking-wide border ">
                           {article.category}
                         </span>
                         <span className="text-white/60 text-xs font-medium uppercase tracking-wide">
@@ -108,12 +112,10 @@ const News = () => {
                       <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#333544]/90 transition-colors duration-300 line-clamp-2">
                         {article.title}
                       </h3>
-
                       {/* Description */}
                       <p className="text-white/70 leading-relaxed mb-3 text-sm line-clamp-2">
                         {article.description}
                       </p>
-
                       {/* Arrow icon */}
                       <div className="flex justify-end">
                         <div className="w-7 h-7 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-[#003356]/20 transition-colors duration-300 border border-white/20">

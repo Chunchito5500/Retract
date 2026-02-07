@@ -1,206 +1,255 @@
 "use client";
-import React from 'react';
-import Image from 'next/image';
-import { ArrowRight, Clock } from 'lucide-react';
+
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { IoTimeOutline, IoArrowForward } from "react-icons/io5";
 import { Navbar } from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import localFont from "next/font/local";
 
-const BebasNeue = localFont({ src: "../../fonts/BebasNeue-Regular.ttf" });
-const Roboto = localFont({ src: "../../fonts/Roboto-Regular.ttf" });
+const BebasNeue = localFont({
+  src: "../../fonts/BebasNeue-Regular.ttf",
+  display: "swap",
+});
+
+const Roboto = localFont({
+  src: "../../fonts/Roboto-Regular.ttf",
+  display: "swap",
+});
+
+const articles = [
+  {
+    id: 1,
+    slug: "pioneer-design",
+    title: "Built by Students, for Students: The Retractability Pioneer",
+    excerpt:
+      "The story of how we designed and built the Pioneer in dorms and garages, with every consideration made for fellow students.",
+    author: "Lucas Somoshegyi-Szokol",
+    date: "August 11, 2025",
+    readTime: "8 min read",
+    category: "Design & Engineering",
+    image: "/news/origin/bikechain.JPEG",
+  },
+  {
+    id: 2,
+    slug: "problem-to-revolution",
+    title: "From a College Problem to a Biking Revolution",
+    excerpt:
+      "How the frustration of bike theft at ASU led to reimagining what a folding bike could be.",
+    author: "Zephan Deepu",
+    date: "April 28, 2025",
+    readTime: "5 min read",
+    category: "Founder Story",
+    image: "/news/skate.JPEG",
+  },
+  {
+    id: 3,
+    slug: "change-the-world",
+    title: "Retractability at Change the World: Our Mission, Our Momentum",
+    excerpt:
+      "A look back at our experience showcasing the Pioneer at ASU's Change the World event.",
+    author: "Basel Kurian",
+    date: "April 14, 2025",
+    readTime: "8 min read",
+    category: "Events",
+    image: "/news/fullteam.JPG",
+  },
+];
 
 export default function NewsPage() {
-  const articles = [
-    {
-      id: 1,
-      slug: "pioneer-design",
-      title: "How we designed the Pioneer",
-      excerpt: "Read about the design process of our first bike, the Pioneer.",
-      author: "Lucas Somoshegyi-Szokol",
-      date: "July 28, 2025",
-      readTime: "6 min read",
-      category: "Product",
-      image: "/bikeBONE.png"
-    },
-    {
-      id: 2,
-      slug: "problem-to-revolution",
-      title: "From a College Problem to a Biking Revolution",
-      excerpt: "The story behind Retractability and how we&apos;re changing mobility.",
-      author: "Zephan Deepu",
-      date: "April 28, 2025",
-      readTime: "4 min read",
-      category: "Company",
-      image: "/news/skate.JPEG"
-    },
-    {
-      id: 3,
-      slug: "change-the-world",
-      title: "Retractability Bicycles at Change the World!",
-      excerpt: "Read about our experiences at the Change the World event at ASU.",
-      author: "Basel Kurian",
-      date: "April 14, 2025",
-      readTime: "5 min read",
-      category: "Events",
-      image: "/carousel/ctw.jpg",
-      featured: true
-    }
-  ];
-
   const featuredArticle = articles[0];
-  const regularArticles = articles.slice(1);
-
-  const scrollToArticles = () => {
-    const element = document.getElementById('articles');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const otherArticles = articles.slice(1);
 
   return (
-    <div className="min-h-screen bg-[#162521]">
-      <div className="relative">
-        <Navbar />
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
-          <div className="text-center space-y-8">
-            <div className="max-w-4xl mx-auto">
-              <h1 className={`text-6xl sm:text-6xl md:text-6xl lg:text-8xl font-bold text-white leading-tight ${BebasNeue.className}`}>
-                Our Latest News
-                <span className="block text-[#ea6051]">
-                  & Updates
-                </span>
-              </h1>
-            </div>
-            
-            <div className="max-w-2xl mx-auto">
-              <p className={`text-xl text-white/90 leading-relaxed ${Roboto.className}`}>
-                Follow Retractability Bicycle&apos;s journey as we revolutionize urban mobility with innovative, retractable bicycle technology.
-              </p>
-            </div>
-            
-            <div className="pt-4">
-              <button 
-                onClick={scrollToArticles}
-                className="group inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/20 text-white font-medium px-8 py-4 rounded-full transition-all duration-300"
-              >
-                Start Reading
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
-          </div>
+    <div className="min-h-screen bg-[#0c0e12]">
+      <Navbar />
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-16 sm:pt-40 sm:pb-20">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <p
+            className={`text-sm tracking-[0.3em] text-white/40 uppercase mb-6 ${Roboto.className}`}
+          >
+            News & Updates
+          </p>
+          <h1
+            className={`text-5xl sm:text-6xl lg:text-7xl text-white leading-[0.95] mb-6 ${BebasNeue.className}`}
+          >
+            Stories from
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+              Retractability
+            </span>
+          </h1>
+          <p
+            className={`text-lg text-white/60 max-w-2xl mx-auto ${Roboto.className}`}
+          >
+            Follow our journey as we build the future of urban mobility.
+          </p>
         </div>
+      </section>
 
-        <main id="articles" className="relative -mt-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-[#161721] rounded-3xl shadow-2xl overflow-hidden">
-              <div className="p-8 lg:p-12">
-                <div className="mb-20">
-                  <div className="flex items-center gap-2 mb-8">
-                    <div className="h-1 w-12 bg-[#ea6051] rounded"></div>
-                    <span className={`text-sm font-semibold text-gray-400 uppercase tracking-wider ${Roboto.className}`}>Featured Story</span>
-                  </div>
-          
-                  <a href={`/news/${featuredArticle.slug}`} className="group block">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                      <div className="relative h-80 lg:h-96 overflow-hidden rounded-2xl bg-gray-800 shadow-2xl">
-                        <Image 
-                          src={featuredArticle.image} 
-                          alt={featuredArticle.title}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
-                        <div className="absolute top-6 left-6">
-                          <span className="bg-[#ea6051] text-black px-4 py-2 rounded-full text-sm font-medium shadow-lg">
-                            {featuredArticle.category}
-                          </span>
-                        </div>
-                      </div>
-                      
-                      <div className="space-y-6">
-                        <h2 className={`text-3xl lg:text-4xl font-bold text-white leading-tight group-hover:text-[#ea6051] transition-colors duration-300 ${BebasNeue.className}`}>
-                          {featuredArticle.title}
-                        </h2>
-                        <p className={`text-gray-300 text-lg leading-relaxed ${Roboto.className}`}>
-                          {featuredArticle.excerpt}
-                        </p>
-                        <div className={`flex items-center gap-6 text-sm text-gray-400 ${Roboto.className}`}>
-                          <span className="font-medium">{featuredArticle.author}</span>
-                          <span>•</span>
-                          <span>{featuredArticle.date}</span>
-                          <span>•</span>
-                          <div className="flex items-center gap-1">
-                            <Clock className="w-4 h-4" />
-                            <span>{featuredArticle.readTime}</span>
-                          </div>
-                        </div>
-                        <div className="pt-2">
-                          <span className={`inline-flex items-center gap-2 text-[#ea6051] font-medium group-hover:gap-3 transition-all ${Roboto.className}`}>
-                            Read Full Story
-                            <ArrowRight className="w-4 h-4" />
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
+      {/* Featured Article */}
+      <section className="pb-16">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="h-px flex-1 bg-white/10" />
+            <span
+              className={`text-xs tracking-[0.2em] text-white/30 uppercase ${Roboto.className}`}
+            >
+              Featured
+            </span>
+            <div className="h-px flex-1 bg-white/10" />
+          </div>
+
+          <Link href={`/news/${featuredArticle.slug}`} className="group block">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Image */}
+              <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-[#1a1d24]">
+                <Image
+                  src={featuredArticle.image}
+                  alt={featuredArticle.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute top-4 left-4">
+                  <span
+                    className={`
+                      inline-block px-3 py-1 rounded-full text-xs font-medium border
+                      bg-blue-500/80 text-blue-300 border-blue-500/30
+                      ${Roboto.className}
+                    `}
+                  >
+                    {featuredArticle.category}
+                  </span>
                 </div>
+              </div>
 
-                <div className="flex items-center gap-4 mb-16">
-                  <div className="flex-1 h-px bg-gray-600"></div>
-                  <span className={`text-sm font-semibold text-gray-400 uppercase tracking-wider ${Roboto.className}`}>More Stories</span>
-                  <div className="flex-1 h-px bg-gray-600"></div>
+              {/* Content */}
+              <div className="space-y-5">
+                <h2
+                  className={`text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] group-hover:text-blue-400 transition-colors duration-300 ${BebasNeue.className}`}
+                >
+                  {featuredArticle.title}
+                </h2>
+                <p
+                  className={`text-white/60 text-lg leading-relaxed ${Roboto.className}`}
+                >
+                  {featuredArticle.excerpt}
+                </p>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-2">
+                  <span
+                    className={`text-white/70 text-sm font-medium ${Roboto.className}`}
+                  >
+                    {featuredArticle.author}
+                  </span>
+                  <span className="w-1 h-1 rounded-full bg-white/30" />
+                  <span className={`text-white/40 text-sm ${Roboto.className}`}>
+                    {featuredArticle.date}
+                  </span>
+                  <span className="w-1 h-1 rounded-full bg-white/30" />
+                  <span
+                    className={`text-white/40 text-sm flex items-center gap-1.5 ${Roboto.className}`}
+                  >
+                    <IoTimeOutline className="w-4 h-4" />
+                    {featuredArticle.readTime}
+                  </span>
                 </div>
-
-                <div className="grid md:grid-cols-2 gap-8 mb-20">
-                  {regularArticles.map((article) => (
-                    <a
-                      key={article.id}
-                      href={`/news/${article.slug}`}
-                      className="group block"
-                    >
-                      <div className="bg-gray-800 rounded-2xl hover:bg-gray-700 transition-all duration-300 overflow-hidden border border-gray-700 hover:border-gray-600 group-hover:-translate-y-2">
-                        <div className="relative h-64 overflow-hidden bg-gray-900">
-                          <Image 
-                            src={article.image} 
-                            alt={article.title}
-                            fill
-                            className="object-cover group-hover:scale-110 transition-transform duration-700"
-                          />
-                          <div className="absolute top-4 left-4">
-                            <span className="bg-[#ea6051] text-black px-3 py-1 rounded-full text-xs font-medium shadow-md">
-                              {article.category}
-                            </span>
-                          </div>
-                        </div>
-                        
-                        <div className="p-6 space-y-4">
-                          <h3 className={`text-xl font-bold text-white leading-tight group-hover:text-[#ea6051] transition-colors duration-300 ${Roboto.className}`}>
-                            {article.title}
-                          </h3>
-                          <p className={`text-gray-300 leading-relaxed ${Roboto.className}`}>
-                            {article.excerpt}
-                          </p>
-                          <div className={`flex items-center gap-4 text-sm text-gray-400 pt-2 ${Roboto.className}`}>
-                            <span className="font-medium">{article.author}</span>
-                            <span>•</span>
-                            <span>{article.date}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  ))}
+                <div className="pt-2">
+                  <span
+                    className={`inline-flex items-center gap-2 text-blue-400 text-sm font-medium group-hover:gap-3 transition-all ${Roboto.className}`}
+                  >
+                    Read Article
+                    <IoArrowForward className="w-4 h-4" />
+                  </span>
                 </div>
-
-                
-
-                
               </div>
             </div>
-          </div>
-        </main>
+          </Link>
+        </div>
+      </section>
 
-        <Footer />
-      </div>
+      {/* Other Articles */}
+      <section className="pb-24">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="h-px flex-1 bg-white/10" />
+            <span
+              className={`text-xs tracking-[0.2em] text-white/30 uppercase ${Roboto.className}`}
+            >
+              More Stories
+            </span>
+            <div className="h-px flex-1 bg-white/10" />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            {otherArticles.map((article) => (
+              <Link
+                key={article.id}
+                href={`/news/${article.slug}`}
+                className="group block"
+              >
+                <article className="bg-[#12151a] rounded-2xl overflow-hidden border border-white/5 hover:border-white/10 transition-all duration-300 group-hover:-translate-y-1">
+                  {/* Image */}
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <Image
+                      src={article.image}
+                      alt={article.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#12151a] via-transparent to-transparent" />
+                    <div className="absolute top-4 left-4">
+                      <span
+                        className={`
+                          inline-block px-3 py-1 rounded-full text-xs font-medium border
+                      bg-blue-500/80 text-blue-300 border-blue-500/30
+                          ${Roboto.className}
+                        `}
+                      >
+                        {article.category}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 space-y-4">
+                    <h3
+                      className={`text-xl sm:text-2xl text-white leading-tight group-hover:text-blue-400 transition-colors duration-300 ${BebasNeue.className}`}
+                    >
+                      {article.title}
+                    </h3>
+                    <p
+                      className={`text-white/50 text-sm leading-relaxed line-clamp-2 ${Roboto.className}`}
+                    >
+                      {article.excerpt}
+                    </p>
+                    <div
+                      className={`flex flex-wrap items-center gap-x-3 gap-y-1 pt-2 text-white/40 text-sm ${Roboto.className}`}
+                    >
+                      <span className="font-medium text-white/60">
+                        {article.author}
+                      </span>
+                      <span className="w-1 h-1 rounded-full bg-white/30" />
+                      <span>{article.date}</span>
+                      <span className="w-1 h-1 rounded-full bg-white/30" />
+                      <span className="flex items-center gap-1">
+                        <IoTimeOutline className="w-3.5 h-3.5" />
+                        {article.readTime}
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }

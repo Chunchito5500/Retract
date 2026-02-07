@@ -17,6 +17,8 @@ const Roboto = localFont({
 export default function Disclaimer() {
   return (
     <section className="w-full py-6 sm:py-10">
+      <div style={{ height: 10 }} />
+
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Banner */}
         <div className="bg-[#fe9800d2] rounded-xl px-6 py-5 sm:px-8 sm:py-6">

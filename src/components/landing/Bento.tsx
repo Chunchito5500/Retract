@@ -116,91 +116,94 @@ export default function Bento() {
   const currentImages = tabContent[activeTab];
 
   return (
-    <section className="w-full">
-      <div style={{ height: 110 }} />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <p
-            className={`text-sm tracking-[0.3em] text-white/60 uppercase mb-4 ${Roboto.className}`}
-          >
-            The Pioneer Collection
-          </p>
-          <div className="w-12 h-px bg-gray-300 mx-auto mb-6" />
-          <h2
-            className={`text-4xl sm:text-5xl lg:text-6xl text-white/90 ${BebasNeue.className}`}
-          >
-            See it from every angle.
-          </h2>
-        </div>
+    <div>
+      <section className="w-full">
+        <div style={{ height: 110 }} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <p
+              className={`text-sm tracking-[0.3em] text-white/60 uppercase mb-4 ${Roboto.className}`}
+            >
+              The Pioneer Collection
+            </p>
+            <div className="w-12 h-px bg-gray-300 mx-auto mb-6" />
+            <h2
+              className={`text-4xl sm:text-5xl lg:text-6xl text-white/90 ${BebasNeue.className}`}
+            >
+              See it from every angle
+            </h2>
+          </div>
 
-        {/* Tabs */}
-        <div className="flex justify-center mb-10">
-          <div className="flex gap-8 border-b border-gray-200">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`
+          {/* Tabs */}
+          <div className="flex justify-center mb-10">
+            <div className="flex gap-8 border-b border-gray-200">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`
                   relative pb-4 text-base font-medium transition-colors duration-300
                   ${activeTab === tab.id ? "text-gray-300" : "text-gray-500 hover:text-gray-400"}
                   ${Roboto.className}
                 `}
-              >
-                {tab.label}
-                {/* Active indicator */}
-                <span
-                  className={`
+                >
+                  {tab.label}
+                  {/* Active indicator */}
+                  <span
+                    className={`
                     absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900
                     transition-transform duration-300 origin-left
                     ${activeTab === tab.id ? "scale-x-100" : "scale-x-0"}
                   `}
-                />
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Bento Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
+            {/* Top Left - Large */}
+            <div className="lg:col-span-2">
+              <ImageCard
+                image={currentImages[0]}
+                className="aspect-[16/10] lg:aspect-[16/9]"
+                priority
+              />
+            </div>
+
+            {/* Top Right - Tall (spans 2 rows) */}
+            <div className="lg:row-span-2">
+              <ImageCard
+                image={currentImages[1]}
+                className="aspect-[4/3] lg:aspect-auto lg:h-full"
+                priority
+              />
+            </div>
+
+            {/* Bottom Left - Small */}
+            <div>
+              <ImageCard image={currentImages[2]} className="aspect-[4/3]" />
+            </div>
+
+            {/* Bottom Middle - Small */}
+            <div>
+              <ImageCard image={currentImages[3]} className="aspect-[4/3]" />
+            </div>
+          </div>
+
+          {/* Learn More Button */}
+          <div className="flex justify-center mt-10">
+            <Link href="/pioneer">
+              <button className="cursor-pointer px-7 py-4 rounded-[2em] border-[3px] border-[#414141] font-bold text-base text-white bg-[#222222] transition-all duration-300 hover:scale-[1.15] hover:border-none hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-300 active:scale-95">
+                Learn More
               </button>
-            ))}
+            </Link>
           </div>
         </div>
-
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
-          {/* Top Left - Large */}
-          <div className="lg:col-span-2">
-            <ImageCard
-              image={currentImages[0]}
-              className="aspect-[16/10] lg:aspect-[16/9]"
-              priority
-            />
-          </div>
-
-          {/* Top Right - Tall (spans 2 rows) */}
-          <div className="lg:row-span-2">
-            <ImageCard
-              image={currentImages[1]}
-              className="aspect-[4/3] lg:aspect-auto lg:h-full"
-              priority
-            />
-          </div>
-
-          {/* Bottom Left - Small */}
-          <div>
-            <ImageCard image={currentImages[2]} className="aspect-[4/3]" />
-          </div>
-
-          {/* Bottom Middle - Small */}
-          <div>
-            <ImageCard image={currentImages[3]} className="aspect-[4/3]" />
-          </div>
-        </div>
-
-        {/* Learn More Button */}
-        <div className="flex justify-center mt-10">
-          <Link href="/pioneer">
-            <button className="cursor-pointer px-7 py-4 rounded-[2em] border-[3px] border-[#414141] font-bold text-base text-white bg-[#222222] transition-all duration-300 hover:scale-[1.15] hover:border-none hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-300 active:scale-95">
-              Learn More
-            </button>
-          </Link>
-        </div>
-      </div>
-    </section>
+        <div style={{ height: 10 }} />
+      </section>
+    </div>
   );
 }

@@ -7,6 +7,7 @@ import Pioneer from "./Pioneer";
 import Lifestyle from "./lifestyle";
 import Bento from "./Bento";
 import Disclaimer from "./Disclaimer";
+import Intro from "./intro";
 import Hero from "./hero";
 import Tire from "./Tire";
 import News from "./news";
@@ -125,8 +126,11 @@ export default function LandingLayout() {
         <section className="py-24">
           <Hero />
         </section> */}
+        <Intro />
+        <section className="py-4">
+          <Bento />
+        </section>
 
-        <Bento />
         <Disclaimer />
 
         <section className="py-24">
